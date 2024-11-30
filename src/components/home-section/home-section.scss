@@ -1,0 +1,136 @@
+.binary-code {
+  font-family: "Roboto Mono";
+  font-weight: bold;
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  white-space: pre-wrap;
+  opacity: 40%;
+  float: left;
+}
+.rain-animation {
+  animation: rain 4s infinite linear;
+}
+.rain-animation-middle {
+  animation: rain-middle 4s infinite linear;
+}
+.rain-animation-upper-middle {
+  animation: rain-upper-middle 4s infinite linear;
+}
+.binary-code::before {
+  animation: code 1.5s infinite;
+  transition: content 1s ease-in-out;
+  content: "1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1 \A 0";
+}
+.section-bg {
+  background-image: linear-gradient(
+    rgba(29, 173, 118, 0.7),
+    rgba(29, 173, 118, 0.5)
+  );
+  z-index: 1;
+  height: 100%;
+  grid-row: 1;
+  grid-column: 1;
+  //   position: absolute;
+}
+.home-section {
+  //   display: flex;
+  z-index: 2;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template-rows: 100%;
+  grid-template-columns: 100%;
+  height: 100vh;
+}
+.page-title {
+  z-index: 2;
+  justify-self: center;
+  align-self: center;
+  grid-row: 1;
+  grid-column: 1;
+  font-family: "Roboto mono";
+  font-weight: bold;
+  color: white;
+  font-size: 74px;
+  height: fit-content;
+}
+@keyframes code {
+  10% {
+    content: "1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1 \A 1";
+  }
+  20% {
+    content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 0";
+  }
+  30% {
+    content: "1 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 1";
+  }
+  40% {
+    content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 1 \A 0";
+  }
+  50% {
+    content: "1 \A 1 \A 0 \A 1 \A 0 \A 0 \A 0 \A 0";
+  }
+  60% {
+    content: "1 \A 1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1";
+  }
+  70% {
+    content: "1 \A 0 \A 0 \A 1 \A 0 \A 1 \A 0 \A 0";
+  }
+  80% {
+    content: "1 \A 0 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0";
+  }
+  90% {
+    content: "0 \A 1 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0";
+  }
+  100% {
+    content: "1 \A  \A 0 \A 1 \A 0 \A 1 \A 1 \A 0";
+  }
+}
+@keyframes rain-upper-middle {
+  0% {
+    top: 25%;
+  }
+
+  75% {
+    top: 100%;
+    visibility: hidden;
+  }
+  76% {
+    top: 0%;
+  }
+  77% {
+    visibility: visible;
+  }
+  100% {
+    top: 25%;
+  }
+}
+@keyframes rain-middle {
+  0% {
+    top: 50%;
+  }
+
+  50% {
+    top: 100%;
+    visibility: hidden;
+  }
+  51% {
+    top: 0%;
+  }
+  53% {
+    visibility: visible;
+  }
+  100% {
+    top: 50%;
+  }
+}
+@keyframes rain {
+  0% {
+    top: 0%;
+  }
+  100% {
+    // content: "10101010";
+    top: 100%;
+  }
+}
