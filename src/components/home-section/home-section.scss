@@ -1,40 +1,45 @@
+@import "src/global-styles/variables.scss";
+
+$bcode-height: 225px;
 .binary-code {
-  font-family: "Roboto Mono";
+  font-family: "Roboto Mono", monospace;
   font-weight: bold;
   color: white;
-  font-size: 24px;
-  position: absolute;
+  font-size: 28px;
+  position: relative;
   white-space: pre-wrap;
   opacity: 40%;
   float: left;
+  top: -30vh;
+  overflow-y: visible;
 }
 .rain-animation {
-  animation: rain 4s infinite linear;
-}
-.rain-animation-middle {
-  animation: rain-middle 4s infinite linear;
+  animation: rain 8s infinite linear;
 }
 .rain-animation-upper-middle {
-  animation: rain-upper-middle 4s infinite linear;
+  animation: rain 8s infinite linear 2s;
 }
+.rain-animation-middle {
+  animation: rain 8s infinite linear 4s;
+}
+.rain-animation-lower-middle {
+  animation: rain 8s infinite linear 6s;
+}
+
 .binary-code::before {
   animation: code 1.5s infinite;
   transition: content 1s ease-in-out;
   content: "1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1 \A 0";
 }
 .section-bg {
-  background-image: linear-gradient(
-    rgba(29, 173, 118, 0.7),
-    rgba(29, 173, 118, 0.5)
-  );
+  background-color: #5bb592;
   z-index: 1;
   height: 100%;
   grid-row: 1;
   grid-column: 1;
-  //   position: absolute;
+  overflow: hidden;
 }
 .home-section {
-  //   display: flex;
   z-index: 2;
   display: grid;
   align-content: center;
@@ -42,6 +47,7 @@
   grid-template-rows: 100%;
   grid-template-columns: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 .page-title {
   z-index: 2;
@@ -49,11 +55,32 @@
   align-self: center;
   grid-row: 1;
   grid-column: 1;
-  font-family: "Roboto mono";
-  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
   color: white;
   font-size: 74px;
   height: fit-content;
+  display: grid;
+  grid-template-columns: 250px 200px 250px;
+  grid-template-rows: 100px 100px 150px;
+  img {
+    width: 200px;
+    grid-row: 1 / 3;
+    grid-column: 2 / 2;
+  }
+  .fname {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: end;
+    position: relative;
+    left: 30px;
+  }
+
+  .lname {
+    grid-row: 3;
+    grid-column: 2 / 4;
+    justify-self: start;
+  }
 }
 @keyframes code {
   10% {
@@ -87,50 +114,37 @@
     content: "1 \A  \A 0 \A 1 \A 0 \A 1 \A 1 \A 0";
   }
 }
-@keyframes rain-upper-middle {
-  0% {
-    top: 25%;
-  }
-
-  75% {
-    top: 100%;
-    visibility: hidden;
-  }
-  76% {
-    top: 0%;
-  }
-  77% {
-    visibility: visible;
-  }
-  100% {
-    top: 25%;
-  }
-}
-@keyframes rain-middle {
-  0% {
-    top: 50%;
-  }
-
-  50% {
-    top: 100%;
-    visibility: hidden;
-  }
-  51% {
-    top: 0%;
-  }
-  53% {
-    visibility: visible;
-  }
-  100% {
-    top: 50%;
-  }
-}
 @keyframes rain {
   0% {
-    top: 0%;
+    top: -15%;
   }
   100% {
-    // content: "10101010";
     top: 100%;
+  }
+}
+@media screen and (max-width: $laptop-screen-width) {
+  .fname {
+    left: 15px;
+    top: 15px;
+  }
+  .page-title {
+    grid-template-columns: 150px 150px 170px;
+    grid-template-rows: 70px 90px 70px;
+    font-size: 60px;
+    img {
+      width: 150px;
+    }
+  }
+  .binary-code {
+    font-size: 24px;
+    top: -50vh;
+  }
+  @keyframes rain {
+    0% {
+      top: -35vh;
+    }
+    100% {
+      top: 100%;
+    }
   }
 }
