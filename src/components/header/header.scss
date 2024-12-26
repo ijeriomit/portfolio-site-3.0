@@ -1,35 +1,8 @@
 @import "src/global-styles/variables.scss";
+@import "src/global-styles/index.scss";
 
-$icon-width: 30px;
-.menu {
-  background-color: $quaternary-color-transparent;
-  flex-flow: column nowrap;
-  position: absolute;
-  height: fit-content;
-  width: 250px;
-  right: 0px;
-  top: 25px;
-  padding: 5% 2.5%;
-  margin-right: 2.5vw;
-  justify-content: start;
-  display: flex;
-  cursor: pointer;
-  box-shadow: 5px 10px 10px grey;
-}
-.menu-link {
-  display: block;
-  margin: 15px 0;
-  color: $secondary-color;
-  font-family: $vs-code-font;
-  font-size: $sub-text-size;
-  font-weight: bold;
-  text-decoration: none;
-}
-.menu-link:hover {
-  color: $highlight-color;
-}
-
-header {
+$icon-width: 40px;
+#HEADER {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -38,139 +11,133 @@ header {
   position: fixed;
   z-index: 1000;
   width: 100vw;
-}
-.logo {
-  order: 1;
-  align-self: center;
-  cursor: pointer;
-  margin-left: 5vw;
-  display: flex;
-  align-items: center;
-  .logo-icon {
-    margin: -15px;
-    width: 90px;
+  .menu {
+    background-color: $quaternary-color-transparent;
+    flex-flow: column nowrap;
+    position: absolute;
+    height: fit-content;
+    width: 250px;
+    right: 0px;
+    top: 25px;
+    padding: 5% 2.5%;
+    margin-right: 2.5vw;
+    justify-content: start;
+    display: flex;
+    cursor: pointer;
   }
-  .logo-text {
-    width: 90px;
-    top: 5px;
-    position: relative;
+  .menu-link {
+    display: block;
+    margin: 15px 0;
+    color: $secondary-color;
+    font-family: $subtitle-font;
+    font-size: $text-size;
+    font-weight: bold;
+    text-decoration: none;
   }
-  .logo-icon-dark {
-    margin: -2px;
-    width: 62.5px;
+  .menu-link:hover {
+    color: $highlight-color;
   }
-}
 
-.hamburger-menu {
-  order: 2;
-  transform: scaleX(-1);
-  background-color: transparent;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-  z-index: 2000;
-  position: relative;
-  right: 2.5vw;
-}
-.hamburger-menu > svg {
-  width: 75px;
-  height: 75px;
-}
-.close-menu {
-  width: 40px;
-  padding: 10px 15px;
-  top: 20px;
-  position: relative;
-}
-.logo-spin {
-  animation-name: spin;
-  animation-duration: 750ms;
-  animation-iteration-count: 1;
-  animation-timing-function: cubic-bezier(0.1, 0.3, 0.8, 1);
-  animation-timing-function: linear;
-}
-.logo-text-appear {
-  animation-name: appear;
-  animation-duration: 1.75s;
-  animation-fill-mode: both;
-}
-.logo-text-disappear {
-  animation-name: disappear;
-  animation-duration: 1.75s;
-  animation-fill-mode: both;
-}
-.socials {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-self: center;
-  height: fit-content;
-  width: fit-content;
-  gap: 40px;
-  align-self: center;
-  top: 40px;
-  position: relative;
-}
-.footer-nav {
-  padding-top: 20%;
-  align-self: center;
-}
-.social-link {
-  cursor: pointer;
-  max-width: fit-content;
-}
-.social-link img {
-  width: $icon-width;
-  filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(77deg) brightness(109%)
-    contrast(101%);
-}
-.social-link > img:hover {
-  filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
-    brightness(86%) contrast(92%);
-}
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
-}
-@keyframes appear {
-  0% {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes disappear {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-75px);
-    display: none;
-  }
-}
-
-@media screen and (max-width: $laptop-screen-width) {
   .logo {
+    order: 1;
+    align-self: center;
+    cursor: pointer;
+    margin-left: 2.5vw;
+    display: flex;
+    align-items: center;
     .logo-icon {
-      width: 70px;
+      width: 65px;
+    }
+    .green {
+      filter: invert(81%) sepia(9%) saturate(2656%) hue-rotate(100deg)
+        brightness(70%) contrast(102%);
     }
     .logo-text {
-      width: 70px;
+      width: 90px;
+      top: 5px;
+      position: relative;
+    }
+    .logo-icon-dark {
+      margin: -2px;
+      width: 62.5px;
     }
   }
-  .hamburger-menu svg {
-    width: 60px;
-    height: 60px;
+
+  .hamburger-menu {
+    order: 2;
+    transform: scaleX(-1);
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 2000;
+    position: relative;
+    right: 2.5vw;
+  }
+  .hamburger-menu > svg {
+    width: 75px;
+    height: 75px;
+  }
+  .close-menu {
+    width: 40px;
+    padding: 10px 15px;
+    top: 20px;
+    position: relative;
+  }
+  .logo-spin {
+    animation-name: spin;
+    animation-duration: 750ms;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.1, 0.3, 0.8, 1);
+    animation-timing-function: linear;
+  }
+  .logo-text-appear {
+    animation-name: appear;
+    animation-duration: 1.75s;
+    animation-fill-mode: both;
+  }
+  .logo-text-disappear {
+    animation-name: disappear;
+    animation-duration: 1.75s;
+    animation-fill-mode: both;
+  }
+  .socials {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-self: center;
+    height: fit-content;
+    width: fit-content;
+    gap: 40px;
+    align-self: center;
+    top: 40px;
+    position: relative;
+  }
+  .social-link {
+    cursor: pointer;
+    max-width: fit-content;
+  }
+  .social-link img {
+    width: $icon-width;
+    filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(77deg)
+      brightness(109%) contrast(101%);
+  }
+  .social-link > img:hover {
+    filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
+      brightness(86%) contrast(92%);
+  }
+
+  @media screen and (max-width: $laptop-screen-width) {
+    .logo {
+      .logo-icon {
+        width: 70px;
+      }
+      .logo-text {
+        width: 70px;
+      }
+    }
+    .hamburger-menu svg {
+      width: 60px;
+      height: 60px;
+    }
   }
 }

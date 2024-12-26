@@ -11,3 +11,146 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes disappear {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-75px);
+    display: none;
+  }
+}
+@keyframes expandTextReverse {
+  0% {
+    clip-path: inset(0 0 0 100%); /* Start fully hidden on the right */
+  }
+  100% {
+    clip-path: inset(0 0 0 0); /* Fully revealed from the right */
+  }
+}
+
+@keyframes fadeOpacityReverse {
+  0% {
+    -webkit-mask-image: linear-gradient(
+      to left,
+      transparent,
+      transparent 50%,
+      black 50%
+    );
+    mask-image: linear-gradient(
+      to left,
+      transparent,
+      transparent 50%,
+      black 50%
+    );
+  }
+  100% {
+    -webkit-mask-image: linear-gradient(to left, black, black);
+    mask-image: linear-gradient(to left, black, black);
+  }
+}
+@keyframes expandText {
+  0% {
+    clip-path: inset(0 100% 0 0); /* Start fully hidden */
+  }
+  100% {
+    clip-path: inset(0 0 0 0); /* Fully revealed */
+  }
+}
+
+@keyframes fadeOpacity {
+  0% {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      transparent 50%,
+      black 50%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      transparent 50%,
+      black 50%
+    );
+  }
+  100% {
+    -webkit-mask-image: linear-gradient(to right, black, black);
+    mask-image: linear-gradient(to right, black, black);
+  }
+}
+@keyframes code {
+  10% {
+    content: "1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1 \A 1";
+  }
+  20% {
+    content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 0";
+  }
+  30% {
+    content: "1 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 1";
+  }
+  40% {
+    content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 1 \A 0";
+  }
+  50% {
+    content: "1 \A 1 \A 0 \A 1 \A 0 \A 0 \A 0 \A 0";
+  }
+  60% {
+    content: "1 \A 1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1";
+  }
+  70% {
+    content: "1 \A 0 \A 0 \A 1 \A 0 \A 1 \A 0 \A 0";
+  }
+  80% {
+    content: "1 \A 0 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0";
+  }
+  90% {
+    content: "0 \A 1 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0";
+  }
+  100% {
+    content: "1 \A  \A 0 \A 1 \A 0 \A 1 \A 1 \A 0";
+  }
+}
+@keyframes rain {
+  0% {
+    top: -15%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    // opacity: 1;
+    transform: translateY(0);
+  }
+}

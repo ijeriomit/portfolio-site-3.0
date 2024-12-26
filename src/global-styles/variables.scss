@@ -1,13 +1,16 @@
-$primary-color: #008753;
+$primary-color: #2daf7d;
 $secondary-color: #ffffff;
-$secondary-color-transparent: rgba($secondary-color, 0.85);
-$tertiary-color: #8f9391;
+$highlight-color: #14d086;
 $quaternary-color: #000000;
 $quaternary-color-transparent: rgba($quaternary-color, 0.85);
 
-$vs-code-font: Menlo, Consolas, monaco, monospace;
-$sub-text-size: 1.1rem;
-$highlight-color: #14d086;
+$title-font: "Roboto", sans-serif;
+$subtitle-font: "Roboto Mono", monospace;
+$text-font: "KoHo", serif;
+
+$title-size: 5rem;
+$subtitle-size: 3rem;
+$text-size: 1.6rem;
 $header-height: 13vh;
 
 $phone-screen-width: 415px;

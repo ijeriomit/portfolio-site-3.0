@@ -11,14 +11,15 @@ const HomeSection = forwardRef((props, ref) => {
 });
 function PageTitle() {
   return (
-    <div className="page-title">
+    <h1 className="page-title">
       <span className="fname">IJERI</span>
       <img
         src="/assets/clip-art-images/memoji-laptop.svg"
         alt="memoji laptop"
       ></img>
-      <span className="lname">OMITOGUN</span>
-    </div>
+      <span className="lname ">OMITOGUN</span>
+      <p className="sub-title"> Software Engineering Extraordinaire!</p>
+    </h1>
   );
 }
 function MatrixBackground() {

@@ -14,13 +14,13 @@ function App() {
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 1,
+      threshold: [0.1, 0.9],
     };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (
           entry.target.id === aboutRef.current.id &&
-          entry.intersectionRatio === 1
+          entry.intersectionRatio > 0.9
         ) {
           setLogoColor("#2DAF7D");
           setLogoCollapsed(true);

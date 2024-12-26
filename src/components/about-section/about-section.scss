@@ -1,4 +1,95 @@
-section {
+@import "src/global-styles/variables.scss";
+@import "src/global-styles/index.scss";
+
+#ABOUT {
   height: 100vh;
-  background-color: black;
+  background-color: #0f190e;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  .about-me-content {
+    color: white;
+    width: 35%;
+    height: fit-content;
+    text-align: left;
+    background-color: rgba(#000000, 0.8);
+    padding: 0 5%;
+    z-index: 1;
+    position: relative;
+    right: 15%;
+    display: flex;
+    flex-flow: column nowrap;
+    animation: fade-in-down 2.5s 1 linear;
+    p {
+      font-size: $text-size;
+      font-family: $text-font;
+    }
+  }
+  h2 {
+    font-family: "Roboto" monospace;
+    font-size: 4rem;
+    font-family: $title-font;
+    margin: 3rem 0 2rem 0;
+  }
+  h3 {
+    color: $highlight-color;
+    font-size: 2rem;
+    font-family: $subtitle-font;
+    margin: 0;
+  }
+  .profile-pic {
+    width: 60%;
+    border-radius: 100%;
+    position: relative;
+    left: -5%;
+    z-index: 0;
+  }
+  .socials {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 75px;
+    align-items: center;
+    gap: 30px;
+    justify-content: space-between;
+    .icon-link {
+      border-radius: 50%;
+      width: 45px;
+
+      img {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(152deg)
+          brightness(102%) contrast(103%);
+        width: 100%;
+      }
+    }
+    .icon-link:hover {
+      img {
+        filter: invert(81%) sepia(9%) saturate(2656%) hue-rotate(100deg)
+          brightness(70%) contrast(102%);
+      }
+    }
+
+    .about-button {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: $title-font;
+      font-style: normal;
+      font-weight: bold;
+      font-size: $text-size;
+      text-decoration: none;
+      border: 2px $highlight-color solid;
+      background-color: transparent;
+      color: $highlight-color;
+      border-radius: 30px;
+      height: fit-content;
+      padding: 10px 40px;
+    }
+    .about-button:hover {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
 }

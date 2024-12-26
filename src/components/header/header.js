@@ -8,13 +8,21 @@ export default function Header(props) {
     toggleMenu(!menuOpen);
   }
   return (
-    <header>
+    <header id="HEADER">
       <a href="HOME" className="logo">
-        <img
-          className="logo-icon logo-spin"
-          src="/assets/clip-art-images/ijeri-logo-icon.png"
-          alt="logo"
-        ></img>
+        {props.logoColor === "#000000" ? (
+          <img
+            className="logo-icon logo-spin"
+            src="/assets/clip-art-images/ijeri-logo-icon-black.png"
+            alt="logo"
+          ></img>
+        ) : (
+          <img
+            className="logo-icon logo-spin"
+            src="/assets/clip-art-images/ijeri-logo-icon-green.png"
+            alt="logo"
+          ></img>
+        )}
         <img
           className={
             "logo-text " +
