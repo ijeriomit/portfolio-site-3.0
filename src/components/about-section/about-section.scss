@@ -1,9 +1,9 @@
 @import "src/global-styles/variables.scss";
-@import "src/global-styles/index.scss";
 
 #ABOUT {
   height: 100vh;
-  background-color: #0f190e;
+  width: 100vw;
+  background-color: $quaternary-color;
   display: flex;
   flex-flow: row;
   justify-content: center;
@@ -21,11 +21,17 @@
     right: 15%;
     display: flex;
     flex-flow: column nowrap;
-    animation: fade-in-down 2.5s 1 linear;
+    opacity: 0;
+    transition: opacity ease-in-out 0.5s;
     p {
       font-size: $text-size;
       font-family: $text-font;
     }
+  }
+  .fade-in {
+    opacity: 1;
+    transition: unset;
+    animation: fade-in-down 1.25s 1 linear;
   }
   h2 {
     font-family: "Roboto" monospace;
@@ -34,7 +40,7 @@
     margin: 3rem 0 2rem 0;
   }
   h3 {
-    color: $highlight-color;
+    color: $tertiary-color;
     font-size: 2rem;
     font-family: $subtitle-font;
     margin: 0;
@@ -52,7 +58,8 @@
     height: 75px;
     align-items: center;
     gap: 30px;
-    justify-content: space-between;
+    justify-content: flex-start;
+    margin-bottom: 20px;
     .icon-link {
       border-radius: 50%;
       width: 45px;
@@ -80,9 +87,9 @@
       font-weight: bold;
       font-size: $text-size;
       text-decoration: none;
-      border: 2px $highlight-color solid;
+      border: 2px $tertiary-color solid;
       background-color: transparent;
-      color: $highlight-color;
+      color: $tertiary-color;
       border-radius: 30px;
       height: fit-content;
       padding: 10px 40px;
@@ -90,6 +97,46 @@
     .about-button:hover {
       background-color: $primary-color;
       color: white;
+    }
+  }
+  @media screen and (max-width: $large-screen-width) {
+    .about-me-content {
+      width: 40%;
+      right: 10%;
+      padding: 0 5%;
+      p {
+        font-size: $text-size-large-screen;
+      }
+    }
+    .profile-pic {
+      width: 55%;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+    .socials {
+      gap: 20px;
+      .about-button {
+        font-size: $text-size-large-screen;
+        padding: 10px 20px;
+      }
+      .icon-link {
+        width: 35px;
+      }
+    }
+  }
+  @media screen and (max-width: $small-screen-width) {
+    .about-me-content {
+      flex-shrink: 0;
+    }
+    h2 {
+      font-size: 2.75rem;
+    }
+    h3 {
+      font-size: 1.25rem;
     }
   }
 }

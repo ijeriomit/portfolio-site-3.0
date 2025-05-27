@@ -1,29 +1,34 @@
 @import "src/global-styles/variables.scss";
-@import "src/global-styles/index.scss";
 
 $icon-width: 40px;
+$logo-white: #d6d6d6;
 #HEADER {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  height: $header-height;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: $header-height;
+  grid-template-columns: 15vw 67.5vw 17.5vw;
   position: fixed;
   z-index: 1000;
   width: 100vw;
   .menu {
-    background-color: $quaternary-color-transparent;
+    text-align: center;
+    margin-top: 2.5vh;
+    background-color: #0f190e;
+    // background-color: $quaternary-color-transparent;
     flex-flow: column nowrap;
-    position: absolute;
     height: fit-content;
-    width: 250px;
-    right: 0px;
-    top: 25px;
-    padding: 5% 2.5%;
-    margin-right: 2.5vw;
-    justify-content: start;
+    width: 12.5vw;
+    gap: 15px;
+    padding: 10% 3% 5% 3%;
+    justify-self: center;
     display: flex;
     cursor: pointer;
+    grid-column: 3;
+    animation: expand-down 0.25s linear 1;
+    overflow: hidden;
+    border: $tertiary-color solid 2px;
+  }
+  .menu-open {
+    max-height: 40vh;
   }
   .menu-link {
     display: block;
@@ -35,25 +40,35 @@ $icon-width: 40px;
     text-decoration: none;
   }
   .menu-link:hover {
-    color: $highlight-color;
+    color: $tertiary-color;
   }
-
+  .white {
+    filter: invert(94%) sepia(13%) saturate(36%) hue-rotate(338deg)
+      brightness(93%) contrast(84%);
+  }
+  .whiter {
+    filter: invert(100%) sepia(0%) saturate(7468%) hue-rotate(33deg)
+      brightness(97%) contrast(99%);
+  }
   .logo {
-    order: 1;
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    justify-self: center;
     align-self: center;
     cursor: pointer;
-    margin-left: 2.5vw;
     display: flex;
     align-items: center;
     .logo-icon {
-      width: 65px;
+      width: 75px;
     }
+
     .green {
       filter: invert(81%) sepia(9%) saturate(2656%) hue-rotate(100deg)
         brightness(70%) contrast(102%);
     }
     .logo-text {
-      width: 90px;
+      width: 100px;
       top: 5px;
       position: relative;
     }
@@ -64,25 +79,36 @@ $icon-width: 40px;
   }
 
   .hamburger-menu {
-    order: 2;
-    transform: scaleX(-1);
     background-color: transparent;
-    border: none;
-    padding: 5px;
+    grid-row: 1;
+    grid-column: 3;
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    justify-self: end;
     cursor: pointer;
-    z-index: 2000;
-    position: relative;
-    right: 2.5vw;
+    border: none;
+    margin-right: 2.5vw;
   }
   .hamburger-menu > svg {
-    width: 75px;
-    height: 75px;
+    width: 90px;
+    height: 90px;
+    transform: scaleX(-1);
   }
   .close-menu {
-    width: 40px;
-    padding: 10px 15px;
-    top: 20px;
-    position: relative;
+    background-color: transparent;
+    grid-row: 1;
+    grid-column: 3;
+    width: fit-content;
+    height: fit-content;
+    align-self: end;
+    cursor: pointer;
+    border: none;
+    img {
+      border: none;
+      width: 40px;
+      padding: 10px 15px;
+    }
   }
   .logo-spin {
     animation-name: spin;
@@ -104,13 +130,9 @@ $icon-width: 40px;
   .socials {
     display: flex;
     flex-flow: row nowrap;
-    justify-self: center;
-    height: fit-content;
-    width: fit-content;
     gap: 40px;
     align-self: center;
-    top: 40px;
-    position: relative;
+    margin: 20px 0px;
   }
   .social-link {
     cursor: pointer;
@@ -126,18 +148,27 @@ $icon-width: 40px;
       brightness(86%) contrast(92%);
   }
 
-  @media screen and (max-width: $laptop-screen-width) {
+  @media screen and (max-width: $large-screen-width) {
+    grid-template-columns: 20vw 60vw 20vw;
     .logo {
       .logo-icon {
-        width: 70px;
+        width: 60px;
       }
       .logo-text {
-        width: 70px;
+        width: 75px;
       }
     }
     .hamburger-menu svg {
-      width: 60px;
-      height: 60px;
+      width: 70px;
+    }
+    .menu-link {
+      font-size: $text-size-large-screen;
+    }
+    .social-link img {
+      width: 30px;
+    }
+    .menu {
+      width: 17.5vw;
     }
   }
 }

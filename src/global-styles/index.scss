@@ -1,3 +1,5 @@
+// @import "src/global-styles/variables.scss";
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,6 +7,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+html {
+  // scroll-snap-type: y mandatory;
+  // overflow: hidden;
+  height: fit-content;
+}
+.App {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+section {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  scroll-snap-align: center;
 }
 
 code {
@@ -40,7 +62,6 @@ code {
   100% {
     opacity: 0;
     transform: translateX(-75px);
-    display: none;
   }
 }
 @keyframes expandTextReverse {
@@ -152,5 +173,15 @@ code {
   100% {
     // opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes expand-down {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+  100% {
+    opacity: 1;
+    max-height: 100%;
   }
 }

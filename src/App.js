@@ -1,16 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 
-import "./App.scss";
 import Header from "./components/header/header.js";
 import HomeSection from "./components/home-section/home-section.js";
 import AboutSection from "./components/about-section/about-section.js";
+import ExpSection from "./components/experience-section/experience-section.js";
+import SkillsSection from "./components/skills-section/skills-section.js";
+import Portfolio from "./components/portfolio/portfolio.js";
+import Testimonials from "./components/testimonials/testimonials.js";
 
 function App() {
-  const [logoColor, setLogoColor] = useState("#000000");
-  const [logoCollapsed, setLogoCollapsed] = useState(false);
+  const [flipLogo, setLogo] = useState(false);
+  const [loadAboutContent, setLoadAboutContent] = useState(false);
+  const [inExpSection, setInExpSection] = useState(false);
   const appRef = useRef(null);
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
+  const expRef = useRef(null);
 
   useEffect(() => {
     const observerOptions = {
@@ -22,30 +27,50 @@ function App() {
           entry.target.id === aboutRef.current.id &&
           entry.intersectionRatio > 0.9
         ) {
-          setLogoColor("#2DAF7D");
-          setLogoCollapsed(true);
+          setLogo(true);
+          setLoadAboutContent(true);
+          setInExpSection(false);
         } else if (
           entry.target.id === homeRef.current.id &&
           entry.intersectionRatio > 0
         ) {
-          setLogoColor("#000000");
-          setLogoCollapsed(false);
+          setLogo(false);
+          setLoadAboutContent(false);
+          setInExpSection(false);
+        } else if (
+          entry.target.id === expRef.current.id &&
+          entry.intersectionRatio > 0.1
+        ) {
+          setLogo(true);
+          setInExpSection(true);
         }
       });
     }, observerOptions);
     observer.observe(homeRef.current);
     observer.observe(aboutRef.current);
+    observer.observe(expRef.current);
     return () => observer.disconnect();
-  }, [homeRef, appRef, aboutRef, logoColor, logoCollapsed]);
+  }, [
+    homeRef,
+    appRef,
+    aboutRef,
+    expRef,
+    flipLogo,
+    loadAboutContent,
+    inExpSection,
+  ]);
   return (
     <div className="App" ref={appRef}>
-      <Header
-        id="header"
-        logoColor={logoColor}
-        logoCollapsed={logoCollapsed}
-      ></Header>
+      <Header id="header" flipLogo={flipLogo}></Header>
       <HomeSection ref={homeRef}></HomeSection>
-      <AboutSection ref={aboutRef}></AboutSection>
+      <AboutSection
+        loadContent={loadAboutContent}
+        ref={aboutRef}
+      ></AboutSection>
+      <ExpSection inView={inExpSection} ref={expRef}></ExpSection>
+      <SkillsSection></SkillsSection>
+      <Portfolio></Portfolio>
+      <Testimonials></Testimonials>
     </div>
   );
 }

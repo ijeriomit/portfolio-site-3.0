@@ -1,7 +1,7 @@
 $primary-color: #2daf7d;
 $secondary-color: #ffffff;
-$highlight-color: #14d086;
-$quaternary-color: #000000;
+$tertiary-color: #14d086;
+$quaternary-color: #0f190e;
 $quaternary-color-transparent: rgba($quaternary-color, 0.85);
 
 $title-font: "Roboto", sans-serif;
@@ -11,7 +11,19 @@ $text-font: "KoHo", serif;
 $title-size: 5rem;
 $subtitle-size: 3rem;
 $text-size: 1.6rem;
+
+$title-size-large-screen: 4.5rem;
+$subtitle-size-large-screen: 2.75rem;
+$text-size-large-screen: 1.1rem;
+
 $header-height: 13vh;
 
-$phone-screen-width: 415px;
-$laptop-screen-width: 1200px;
+$phone-screen-width: 600px;
+$small-screen-width: 1250px;
+$large-screen-width: 1600px;
+
+:export {
+  tertiaryColor: $tertiary-color;
+  secondaryColor: $secondary-color;
+  quaternaryColor: $quaternary-color;
+}

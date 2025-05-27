@@ -9,7 +9,9 @@ const AboutSection = forwardRef((props, ref) => {
         src="/assets/about-me-images/headshot.jpg"
         alt="profile picture"
       ></img>
-      <div className="about-me-content">
+      <div
+        className={"about-me-content " + (props.loadContent ? "fade-in" : "")}
+      >
         <h2> HI, I AM IJERI</h2>
         <h3> &lt;FullStack Developer | UX Designer/&gt;</h3>
         <p>
@@ -37,7 +39,7 @@ const AboutSection = forwardRef((props, ref) => {
             target="_blank"
             rel="noreferrer"
           >
-            Resume
+            Email Me
           </a>
           <a
             className="about-button"

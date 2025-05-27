@@ -1,0 +1,161 @@
+@import "src/global-styles/variables.scss";
+
+#PORT {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-image: linear-gradient(
+    rgba(#1e1f1d, 1),
+    rgba(#1e1f1d, 0.9),
+    rgba(#1e1f1d, 0.75)
+  );
+  h2 {
+    color: $tertiary-color;
+    font-size: 4rem;
+    margin-top: 6%;
+    margin-bottom: 0;
+  }
+  h3 {
+    font-size: 2rem;
+    // margin-top: px;
+    color: $secondary-color;
+  }
+  .title {
+    color: $tertiary-color;
+    font-size: 2.5rem;
+    // margin: 0;
+    text-align: center;
+    height: 50px;
+    margin: 10px 0px;
+  }
+  img {
+    // width: 550px;
+    // height: 235px;
+
+    // padding: 10px 0;
+  }
+  .desc {
+    font-size: 1.5rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+    height: 175px;
+    margin: 0 1.5rem 1.2rem;
+  }
+  .view-project {
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    width: 100%;
+    height: 80px;
+    font-size: 1.5rem;
+    background-color: $tertiary-color;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    flex-shrink: 0;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .project-bubble {
+    width: 670px;
+    height: 625px;
+    // border: 5px solid $tertiary-color;
+    border-radius: 70px;
+    color: $secondary-color;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    // padding: 10px;
+    img {
+      height: 230px;
+      width: 100%;
+      position: relative;
+      border-radius: 100px;
+    }
+    background-color: $quaternary-color;
+  }
+  .carousel {
+    margin-top: 5vh;
+    // width: 90%;
+    height: 60vh;
+    align-self: center;
+    width: 95%;
+    // gap: 10%;
+    ul {
+      gap: 1%;
+      // left: 3.5%;
+    }
+  }
+  .dots {
+    width: 100%;
+    height: 20px;
+  }
+  .react-multi-carousel-dot {
+    width: 50px;
+    height: 10px;
+    button {
+      width: 100%;
+      height: 100%;
+      border-radius: 20%;
+    }
+  }
+  .react-multi-carousel-dot--active button {
+    background-color: #14d086;
+  }
+  .carousel-item {
+    width: fit-content !important;
+    padding: 10px;
+  }
+  .left-arrow {
+    position: absolute;
+    left: 0px;
+    height: 75px;
+    background-color: $primary-color;
+    color: black;
+    border-radius: 50%;
+    width: 75px;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+  }
+  .right-arrow {
+    @extend .left-arrow;
+    right: 0;
+    left: unset;
+  }
+  .left-arrow::after {
+    content: "<";
+  }
+  .right-arrow::after {
+    content: ">";
+  }
+
+  .modal {
+    display: flex;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    .prev {
+      background-color: transparent;
+      border-radius: 0;
+      width: 125px;
+      border: none;
+      cursor: pointer;
+      align-self: center;
+    }
+    .next {
+      @extend .prev;
+      transform: rotate(180deg);
+    }
+  }
+}
