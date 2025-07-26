@@ -12,36 +12,7 @@
   text-align: center;
 
   $bcode-height: 225px;
-  .binary-code {
-    font-family: $subtitle-font;
-    font-weight: bold;
-    color: white;
-    font-size: 28px;
-    position: relative;
-    white-space: pre-wrap;
-    opacity: 20%;
-    float: left;
-    top: -30vh;
-    overflow-y: visible;
-  }
-  .rain-animation {
-    animation: rain 8s infinite linear;
-  }
-  .rain-animation-upper-middle {
-    animation: rain 8s infinite linear 2s;
-  }
-  .rain-animation-middle {
-    animation: rain 8s infinite linear 4s;
-  }
-  .rain-animation-lower-middle {
-    animation: rain 8s infinite linear 6s;
-  }
 
-  .binary-code::before {
-    animation: code 1.5s infinite;
-    transition: content 1s ease-in-out;
-    content: "1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1 \A 0";
-  }
   .wrapper {
     // z-index: 1;
     grid-row: 1;
@@ -238,46 +209,6 @@
       mask-image: linear-gradient(to right, black, black);
     }
   }
-  @keyframes code {
-    10% {
-      content: "1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1 \A 1";
-    }
-    20% {
-      content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 0";
-    }
-    30% {
-      content: "1 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 1";
-    }
-    40% {
-      content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 1 \A 0";
-    }
-    50% {
-      content: "1 \A 1 \A 0 \A 1 \A 0 \A 0 \A 0 \A 0";
-    }
-    60% {
-      content: "1 \A 1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1";
-    }
-    70% {
-      content: "1 \A 0 \A 0 \A 1 \A 0 \A 1 \A 0 \A 0";
-    }
-    80% {
-      content: "1 \A 0 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0";
-    }
-    90% {
-      content: "0 \A 1 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0";
-    }
-    100% {
-      content: "1 \A  \A 0 \A 1 \A 0 \A 1 \A 1 \A 0";
-    }
-  }
-  @keyframes rain {
-    0% {
-      top: -15%;
-    }
-    100% {
-      top: 100%;
-    }
-  }
   @media screen and (max-width: $large-screen-width) {
     .page-title {
       grid-template-columns: 150px 150px 170px;
@@ -293,18 +224,6 @@
     }
     .sub-title {
       font-size: 2rem;
-    }
-    .binary-code {
-      font-size: 24px;
-      top: -50vh;
-    }
-    @keyframes rain {
-      0% {
-        top: -35vh;
-      }
-      100% {
-        top: 100%;
-      }
     }
   }
 }

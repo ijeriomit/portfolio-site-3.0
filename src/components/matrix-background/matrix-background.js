@@ -1,6 +1,6 @@
 import "./matrix-background.scss";
 
-function MatrixBackground() {
+export function MatrixBackground() {
   return (
     <div className="wrapper">
       <div className="section-bg-gradient">
