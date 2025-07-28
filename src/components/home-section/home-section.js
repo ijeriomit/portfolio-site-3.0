@@ -1,10 +1,8 @@
 import "./home-section.scss";
 import { forwardRef, useRef } from "react";
-import { MatrixBackground } from "../matrix-background/matrix-background";
 const HomeSection = forwardRef((props, ref) => {
   return (
     <section id="HOME" ref={ref} className="home-section">
-      <MatrixBackground></MatrixBackground>
       <PageTitle></PageTitle>
       <div className="buttons">
         <button className="button"> View Resume</button>

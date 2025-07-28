@@ -9,6 +9,11 @@ $logo-white: #d6d6d6;
   position: fixed;
   z-index: 1000;
   width: 100vw;
+  background-image: linear-gradient(
+    rgba($quaternary-color, 0.6),
+    rgba($quaternary-color, 0)
+  );
+  opacity: 80%;
   .menu {
     text-align: center;
     margin-top: 2.5vh;

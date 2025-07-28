@@ -20,10 +20,10 @@ $green-border: $tertiary-color $border-width solid;
     );
     height: 100vh - $title-height;
     width: 100%;
-    grid-row: 1;
+    grid-row: 3;
     grid-column: 1/3;
     top: $title-height;
-    z-index: 1;
+    z-index: 2;
     position: sticky;
     .left {
       border-right: $green-border;

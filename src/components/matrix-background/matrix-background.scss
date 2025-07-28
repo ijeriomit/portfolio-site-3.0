@@ -1,28 +1,51 @@
 @import "src/global-styles/variables.scss";
 
+.matrix-bg {
+  height: 100%;
+  width: 100%;
+  display: grid;
+}
 .binary-code {
   font-family: $subtitle-font;
   font-weight: bold;
   color: white;
   font-size: 28px;
-  position: relative;
+  position: absolute;
   white-space: pre-wrap;
   opacity: 20%;
   float: left;
   top: -30vh;
   overflow-y: visible;
 }
-.rain-animation {
-  animation: rain 8s infinite linear;
+.rain-animation-1 {
+  animation-name: rain;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
-.rain-animation-upper-middle {
-  animation: rain 8s infinite linear 2s;
+.rain-animation-2 {
+  @extend .rain-animation-1;
+  animation-delay: 1s;
 }
-.rain-animation-middle {
-  animation: rain 8s infinite linear 4s;
+.rain-animation-3 {
+  @extend .rain-animation-1;
+  animation-delay: 2s;
 }
-.rain-animation-lower-middle {
-  animation: rain 8s infinite linear 6s;
+.rain-animation-4 {
+  @extend .rain-animation-1;
+  animation-delay: 3s;
+}
+.rain-animation-5 {
+  @extend .rain-animation-1;
+  animation-delay: 4s;
+}
+.rain-animation-6 {
+  @extend .rain-animation-1;
+  animation-delay: 5s;
+}
+.rain-animation-7 {
+  @extend .rain-animation-1;
+  animation-delay: 6s;
 }
 
 .binary-code::before {
@@ -36,7 +59,7 @@
   height: 100%;
   grid-row: 1;
   grid-column: 1;
-  // position: relative;
+  position: relative;
   overflow: hidden;
 }
 .section-bg-gradient {
@@ -45,12 +68,14 @@
   grid-row: 1;
   grid-column: 1;
   // opacity: 70%;
-  // position: relative;
+  position: relative;
   overflow: hidden;
   background-image: linear-gradient(
-    rgba(#1e1f1d, 1),
-    rgba(#1e1f1d, 0.85),
-    rgba(#1e1f1d, 0.7)
+    rgba(#1e1f1d, 0.9),
+    rgba(#1e1f1d, 0.7),
+    rgba(#1e1f1d, 0.5),
+    rgba(#1e1f1d, 0.7),
+    rgba(#1e1f1d, 0.9)
   );
 }
 @keyframes code {
