@@ -63,8 +63,8 @@ function App() {
   return (
     <div className="App" ref={appRef}>
       <Header id="header" flipLogo={flipLogo}></Header>
-      <HomeSection ref={homeRef}></HomeSection>
       <MatrixBackground className="bg-1"></MatrixBackground>
+      <HomeSection ref={homeRef}></HomeSection>
       <AboutSection
         loadContent={loadAboutContent}
         ref={aboutRef}
