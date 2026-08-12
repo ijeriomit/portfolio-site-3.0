@@ -7,7 +7,6 @@ import ExpSection from "./components/experience-section/experience-section.js";
 import SkillsSection from "./components/skills-section/skills-section.js";
 import Portfolio from "./components/portfolio/portfolio.js";
 import Testimonials from "./components/testimonials/testimonials.js";
-import MatrixBackground from "./components/matrix-background/matrix-background";
 
 function App() {
   const [flipLogo, setLogo] = useState(false);
@@ -63,7 +62,6 @@ function App() {
   return (
     <div className="App" ref={appRef}>
       <Header id="header" flipLogo={flipLogo}></Header>
-      <MatrixBackground className="bg-1"></MatrixBackground>
       <HomeSection ref={homeRef}></HomeSection>
       <AboutSection
         loadContent={loadAboutContent}

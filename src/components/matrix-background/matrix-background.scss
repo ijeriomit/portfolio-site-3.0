@@ -1,15 +1,19 @@
 @import "src/global-styles/variables.scss";
 
 .matrix-bg {
-  height: 100%;
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
   display: grid;
+  z-index: 0;
+  pointer-events: none;
 }
 .binary-code {
   font-family: $subtitle-font;
   font-weight: bold;
-  color: white;
-  font-size: 28px;
+  color: $tertiary-color;
+  font-size: 18px;
   position: absolute;
   white-space: pre-wrap;
   opacity: 20%;
@@ -17,35 +21,53 @@
   top: -30vh;
   overflow-y: visible;
 }
-.rain-animation-1 {
+// Base rain animation shared by all columns
+%rain-base {
   animation-name: rain;
-  animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
+// 14 variants with varied duration AND delay so columns fall out of sync
+.rain-animation {
+  @extend %rain-base;
+  animation-duration: 18s;
+  animation-delay: 0s;
+}
+.rain-animation-1 {
+  @extend %rain-base;
+  animation-duration: 22s;
+  animation-delay: 1.3s;
+}
 .rain-animation-2 {
-  @extend .rain-animation-1;
-  animation-delay: 1s;
+  @extend %rain-base;
+  animation-duration: 16s;
+  animation-delay: 3.7s;
 }
 .rain-animation-3 {
-  @extend .rain-animation-1;
-  animation-delay: 2s;
+  @extend %rain-base;
+  animation-duration: 25s;
+  animation-delay: 0.8s;
 }
 .rain-animation-4 {
-  @extend .rain-animation-1;
-  animation-delay: 3s;
+  @extend %rain-base;
+  animation-duration: 19s;
+  animation-delay: 5.2s;
 }
 .rain-animation-5 {
-  @extend .rain-animation-1;
-  animation-delay: 4s;
+  @extend %rain-base;
+  animation-duration: 21s;
+  animation-delay: 2.1s;
 }
 .rain-animation-6 {
-  @extend .rain-animation-1;
-  animation-delay: 5s;
+  @extend %rain-base;
+  animation-duration: 14s;
+  animation-delay: 7.4s;
 }
 .rain-animation-7 {
-  @extend .rain-animation-1;
-  animation-delay: 6s;
+  @extend %rain-base;
+  animation-duration: 28s;
+  animation-delay: 4s;
 }
 
 .binary-code::before {
@@ -54,7 +76,7 @@
   content: "1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1 \A 0";
 }
 .section-bg {
-  background-color: rgba(#2daf7d, 0.95);
+  background-color: $quaternary-color;
   z-index: 1;
   height: 100%;
   grid-row: 1;
@@ -67,15 +89,15 @@
   height: 100%;
   grid-row: 1;
   grid-column: 1;
-  // opacity: 70%;
   position: relative;
   overflow: hidden;
+  // Dark vignette — lets matrix show through at centre, darkens edges
   background-image: linear-gradient(
-    rgba(#1e1f1d, 0.9),
-    rgba(#1e1f1d, 0.7),
-    rgba(#1e1f1d, 0.5),
-    rgba(#1e1f1d, 0.7),
-    rgba(#1e1f1d, 0.9)
+    rgba($quaternary-color, 0.6),
+    rgba($quaternary-color, 0.3),
+    rgba($quaternary-color, 0.1),
+    rgba($quaternary-color, 0.3),
+    rgba($quaternary-color, 0.6)
   );
 }
 @keyframes code {
@@ -120,7 +142,7 @@
 }
 @media screen and (max-width: $large-screen-width) {
   .binary-code {
-    font-size: 24px;
+    font-size: 16px;
     top: -50vh;
   }
   @keyframes rain {
@@ -130,5 +152,11 @@
     100% {
       top: 100%;
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .binary-code {
+    font-size: 16px;
   }
 }

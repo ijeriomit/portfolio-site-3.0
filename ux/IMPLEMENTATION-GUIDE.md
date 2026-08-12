@@ -1,5 +1,19 @@
 # Implementation Guide
 
+## Existing Repository
+
+This project is an evolution of an existing application.
+
+Reuse existing components whenever appropriate.
+
+Reuse existing styling whenever practical.
+
+Preserve existing project architecture.
+
+Do not introduce new frameworks, libraries, routing systems, state management solutions, or styling approaches unless explicitly requested.
+
+The implementation should integrate naturally into the existing codebase.
+
 ## Rules
 
 The approved mockups are the source of truth.
@@ -48,7 +62,9 @@ TestimonialCard
 
 ## Styling
 
-Prefer Tailwind utility classes.
+Follow the styling approach already established within the repository.
+
+New components should follow the same architectural and styling conventions as the existing codebase.
 
 Extract reusable utility classes only when repetition becomes excessive.
 
@@ -58,8 +74,9 @@ Avoid deeply nested CSS.
 
 ## Animations
 
-Animations should use GSAP.
+Use the animation solution already established within the project.
 
+Only introduce new animation utilities when absolutely necessary.
 Animation principles:
 
 - fade

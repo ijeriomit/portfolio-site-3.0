@@ -25,13 +25,6 @@ html {
   grid-template-rows: 100vh 100vh 100vh 100vh 100vh;
 }
 
-.bg-1 {
-  grid-row: 1/7;
-  grid-column: 1;
-  z-index: 1;
-  position: relative;
-}
-
 section {
   height: 100vh;
   width: 100vw;
@@ -39,6 +32,15 @@ section {
   scroll-snap-align: center;
   grid-column: 1;
   position: relative;
+}
+
+@media screen and (max-width: 600px) {
+  #HOME {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+    scroll-snap-align: start;
+  }
 }
 
 code {

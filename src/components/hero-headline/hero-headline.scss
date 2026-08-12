@@ -1,0 +1,113 @@
+@import "src/global-styles/variables.scss";
+
+.hero-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: unset;
+
+  // ── Intro line ────────────────────────────────────────
+  &__intro {
+    font-family: $subtitle-font;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $tertiary-color;
+    letter-spacing: 0.08em;
+    margin: 0;
+    min-height: 1.4em; // prevent layout shift while typing
+    white-space: nowrap;
+  }
+
+  // ── Typewriter cursor ─────────────────────────────────
+  &__cursor {
+    color: $tertiary-color;
+    font-weight: 300;
+    margin-left: 2px;
+
+    &--blink {
+      animation: cursor-blink 1s step-end infinite;
+    }
+  }
+
+  // ── Main headline ─────────────────────────────────────
+  &__title {
+    font-family: $title-font;
+    font-weight: 900;
+    font-size: 5rem;
+    line-height: 1.05;
+    color: $secondary-color;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__line {
+    display: block;
+
+    &--accent {
+      color: $tertiary-color;
+    }
+  }
+
+  // ── Subtitle ──────────────────────────────────────────
+  &__subtitle {
+    font-family: $title-font;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba($secondary-color, 0.75);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 440px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s;
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // ── Cursor blink keyframe ─────────────────────────────
+  @keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
+  // ── Responsive ────────────────────────────────────────
+  @media screen and (max-width: $large-screen-width) {
+    &__title {
+      font-size: 3.5rem;
+    }
+  }
+
+  @media screen and (max-width: $phone-screen-width) {
+    max-width: 100%;
+    text-align: left;
+    align-items: flex-start;
+
+    &__intro {
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    &__title {
+      font-size: 2.2rem;
+      align-items: flex-start;
+    }
+
+    &__subtitle {
+      max-width: 100%;
+      font-size: 0.9rem;
+    }
+  }
+}

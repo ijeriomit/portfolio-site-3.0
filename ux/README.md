@@ -33,14 +33,7 @@ Implementation should faithfully recreate the approved mockups.
 
 ---
 
-## Technology Stack
-
-- Vue 3
-- TypeScript
-- Tailwind CSS
-- GSAP
-- Vue Router
-- Vite
+## Existing Codebase
 
 ---
 
@@ -78,3 +71,17 @@ Animations should feel intentional rather than flashy.
 Every section should have breathing room.
 
 Consistency is more important than novelty.
+
+This redesign is being implemented inside an existing codebase.
+
+The goal is not to rebuild the application from scratch.
+
+Instead:
+
+- Preserve existing functionality whenever possible.
+- Reuse existing components whenever practical.
+- Refactor rather than rewrite.
+- Maintain compatibility with the existing project structure.
+- Implement the approved UX mockups while minimizing unnecessary architectural changes.
+
+If implementation details conflict with the approved mockups, prioritize matching the approved UX while preserving existing functionality.

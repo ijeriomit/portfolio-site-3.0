@@ -1,0 +1,80 @@
+@import "src/global-styles/variables.scss";
+
+.logo-strip {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+
+  &__label {
+    font-family: $subtitle-font;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba($secondary-color, 0.4);
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  // Each item fades up individually (staggered via inline transition-delay)
+  &__item {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  &--visible &__item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  // Real logo image
+  &__img {
+    height: 28px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.55;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  // Text placeholder (until real logo assets are added)
+  &__placeholder {
+    font-family: $title-font;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgba($secondary-color, 0.45);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: rgba($secondary-color, 0.8);
+    }
+  }
+
+  // ── Responsive ────────────────────────────────────────
+  @media screen and (max-width: $small-screen-width) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+
+    &__list {
+      justify-content: center;
+      gap: 1.5rem;
+    }
+  }
+}

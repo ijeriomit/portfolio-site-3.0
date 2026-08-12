@@ -131,7 +131,12 @@ MatrixBackground
 Every component should:
 
 - be reusable
-- have typed props
+- Each component should expose a clear public interface.
+
+Inputs and outputs should remain predictable and easy to maintain.
+
+Avoid tightly coupling components together.
+
 - avoid duplicated logic
 - support animation
 - support responsive layouts

@@ -1,0 +1,48 @@
+@import "src/global-styles/variables.scss";
+
+.profile-graphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+
+  &__image {
+    width: 420px;
+    height: auto;
+    animation: graphic-float 4s ease-in-out infinite;
+    // hardware accelerate
+    will-change: transform;
+  }
+}
+
+@keyframes graphic-float {
+  0%, 100% { transform: translateY(0);     }
+  50%       { transform: translateY(-16px); }
+}
+
+// ── Responsive ──────────────────────────────────────────
+@media screen and (max-width: $large-screen-width) {
+  .profile-graphic__image {
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: $small-screen-width) {
+.profile-graphic {
+  margin-top: 0;
+}
+.profile-graphic__image {
+  width: 200px;
+}
+}
+
+@media screen and (max-width: $phone-screen-width) {
+  .profile-graphic {
+    flex-shrink: 1;
+  }
+  .profile-graphic__image {
+    width: 160px;
+    max-width: 100%;
+  }
+}
