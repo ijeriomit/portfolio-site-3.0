@@ -9,7 +9,6 @@ const HEADLINE_LINES = [
 ];
 const SUBTITLE = "Full Stack Engineer specializing in scalable web applications, UX design, and AI-powered solutions.";
 
-// Types one full string then calls onDone
 function useTypewriter(text, speed = 45, startDelay = 0) {
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
@@ -47,13 +46,11 @@ export default function HeroHeadline() {
 
   return (
     <div className="hero-headline">
-      {/* Intro line with typewriter cursor */}
       <p className="hero-headline__intro" aria-label={INTRO_TEXT}>
         <span aria-hidden="true">{introDisplayed}</span>
         <span className={"hero-headline__cursor" + (introDone ? " hero-headline__cursor--blink" : "")} aria-hidden="true">|</span>
       </p>
 
-      {/* Main headline — fades in after intro finishes */}
       <h1 className={"hero-headline__title" + (introDone ? " hero-headline__title--visible" : "")} aria-label={HEADLINE_LINES.map(l => l.text).join(" ")}>
         {HEADLINE_LINES.map((line, i) => (
           <span
@@ -65,7 +62,6 @@ export default function HeroHeadline() {
         ))}
       </h1>
 
-      {/* Subtitle — fades in after headline */}
       <p className={"hero-headline__subtitle" + (introDone ? " hero-headline__subtitle--visible" : "")}>
         {SUBTITLE}
       </p>

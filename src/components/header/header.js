@@ -4,11 +4,11 @@ import variables from "../../global-styles/variables.scss";
 import Button from "../shared/button/button.js";
 
 const NAV_LINKS = [
-  { label: "Home",        href: "#HOME"   },
-  { label: "About",       href: "#ABOUT"  },
-  { label: "Experience",  href: "#EXP"    },
-  { label: "Services",    href: "#SERVICES" },
-  { label: "Projects",    href: "#PORT"   },
+  { label: "Home",        href: "#HOME"    },
+  { label: "About",       href: "#ABOUT"   },
+  { label: "Experience",  href: "#EXP"     },
+  { label: "Services",    href: "#SERVICES"},
+  { label: "Projects",    href: "#PORT"    },
   { label: "Contact",     href: "#CONTACT" },
 ];
 
@@ -21,7 +21,6 @@ export default function Header({ flipLogo }) {
 
   return (
     <header id="HEADER">
-      {/* Logo */}
       <a href="#HOME" className="logo" aria-label="Go to home">
         <img
           className={"logo-icon " + (flipLogo ? "logo-spin" : "")}
@@ -29,16 +28,12 @@ export default function Header({ flipLogo }) {
           alt="Ijeri logo icon"
         />
         <img
-          className={
-            "logo-text whiter " +
-            (flipLogo ? "logo-text-disappear" : "logo-text-appear")
-          }
+          className={"logo-text whiter " + (flipLogo ? "logo-text-disappear" : "logo-text-appear")}
           src="/assets/clip-art-images/ijeri-logo-text.png"
           alt="Ijeri logo text"
         />
       </a>
 
-      {/* Desktop nav */}
       <nav className="nav-links" aria-label="Primary navigation">
         {NAV_LINKS.map((link) => (
           <a key={link.href} href={link.href} className="nav-link">
@@ -47,14 +42,12 @@ export default function Header({ flipLogo }) {
         ))}
       </nav>
 
-      {/* Desktop CTA */}
       <div className="nav-cta">
         <Button variant="secondary" href="mailto:ijeri.omitogun@gmail.com">
           Let's Talk
         </Button>
       </div>
 
-      {/* Mobile hamburger */}
       <button
         className="hamburger-menu"
         type="button"
@@ -65,34 +58,19 @@ export default function Header({ flipLogo }) {
         <MenuSvg color={variables.secondaryColor} />
       </button>
 
-      {/* Mobile overlay */}
       {menuOpen && (
         <div className="mobile-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
           <div className="mobile-overlay__header">
             <a href="#HOME" className="logo" onClick={toggleMenu} aria-label="Go to home">
-              <img
-                className="logo-icon"
-                src="/assets/clip-art-images/ijeri-logo-icon-gw.png"
-                alt="Ijeri logo icon"
-              />
+              <img className="logo-icon" src="/assets/clip-art-images/ijeri-logo-icon-gw.png" alt="Ijeri logo icon" />
             </a>
-            <button
-              className="mobile-overlay__close"
-              type="button"
-              aria-label="Close navigation menu"
-              onClick={toggleMenu}
-            >
+            <button className="mobile-overlay__close" type="button" aria-label="Close navigation menu" onClick={toggleMenu}>
               <CloseSvg color={variables.secondaryColor} />
             </button>
           </div>
           <nav className="mobile-overlay__links" aria-label="Mobile navigation">
             {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="mobile-overlay__link"
-                onClick={toggleMenu}
-              >
+              <a key={link.href} href={link.href} className="mobile-overlay__link" onClick={toggleMenu}>
                 {link.label}
               </a>
             ))}

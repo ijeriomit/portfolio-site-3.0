@@ -6,7 +6,6 @@
   gap: 1.5rem;
   max-width: unset;
 
-  // ── Intro line ────────────────────────────────────────
   &__intro {
     font-family: $subtitle-font;
     font-size: 1.1rem;
@@ -14,11 +13,10 @@
     color: $tertiary-color;
     letter-spacing: 0.08em;
     margin: 0;
-    min-height: 1.4em; // prevent layout shift while typing
+    min-height: 1.4em;
     white-space: nowrap;
   }
 
-  // ── Typewriter cursor ─────────────────────────────────
   &__cursor {
     color: $tertiary-color;
     font-weight: 300;
@@ -29,7 +27,6 @@
     }
   }
 
-  // ── Main headline ─────────────────────────────────────
   &__title {
     font-family: $title-font;
     font-weight: 900;
@@ -58,7 +55,6 @@
     }
   }
 
-  // ── Subtitle ──────────────────────────────────────────
   &__subtitle {
     font-family: $title-font;
     font-size: 1rem;
@@ -77,13 +73,11 @@
     }
   }
 
-  // ── Cursor blink keyframe ─────────────────────────────
   @keyframes cursor-blink {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0; }
   }
 
-  // ── Responsive ────────────────────────────────────────
   @media screen and (max-width: $large-screen-width) {
     &__title {
       font-size: 3.5rem;
@@ -92,8 +86,8 @@
 
   @media screen and (max-width: $phone-screen-width) {
     max-width: 100%;
-    text-align: left;
-    align-items: flex-start;
+    text-align: center;
+    align-items: center;
 
     &__intro {
       font-size: 0.85rem;
@@ -102,12 +96,14 @@
 
     &__title {
       font-size: 2.2rem;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
     }
 
     &__subtitle {
       max-width: 100%;
       font-size: 0.9rem;
+      text-align: center;
     }
   }
 }

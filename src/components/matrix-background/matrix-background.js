@@ -1,8 +1,6 @@
 import { useMemo } from "react";
 import "./matrix-background.scss";
 
-// Each entry is [leftPercent, animationVariant].
-// Variants map to rain-animation-{1..7} or rain-animation (no suffix = base).
 const COLUMNS_DESKTOP = [
   [4,  "1"], [8,  "3"], [12, "2"], [16, "6"], [18, "3"],
   [20, ""],  [24, "2"], [28, "7"], [32, "1"], [36, "5"],
@@ -12,7 +10,6 @@ const COLUMNS_DESKTOP = [
   [92, "4"], [96, "3"], [100,"1"],
 ];
 
-// ~half the columns, evenly spread across the viewport
 const COLUMNS_MOBILE = [
   [4,  "1"], [12, "3"], [24, "2"], [36, "6"],
   [48, ""],  [60, "5"], [72, "3"], [84, "7"],
@@ -32,9 +29,7 @@ export default function MatrixBackground({ className }) {
         {columns.map(([left, variant], i) => (
           <span
             key={i}
-            className={
-              "binary-code rain-animation" + (variant ? "-" + variant : "")
-            }
+            className={"binary-code rain-animation" + (variant ? "-" + variant : "")}
             style={{ left: `${left}%` }}
           />
         ))}

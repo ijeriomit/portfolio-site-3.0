@@ -25,7 +25,6 @@
     flex-wrap: wrap;
   }
 
-  // Each item fades up individually (staggered via inline transition-delay)
   &__item {
     opacity: 0;
     transform: translateY(12px);
@@ -37,7 +36,6 @@
     transform: translateY(0);
   }
 
-  // Real logo image
   &__img {
     height: 28px;
     width: auto;
@@ -50,7 +48,6 @@
     }
   }
 
-  // Text placeholder (until real logo assets are added)
   &__placeholder {
     font-family: $title-font;
     font-size: 1.1rem;
@@ -65,8 +62,7 @@
     }
   }
 
-  // ── Responsive ────────────────────────────────────────
-  @media screen and (max-width: $small-screen-width) {
+  @media screen and (max-width: $phone-screen-width) {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;

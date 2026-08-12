@@ -1,144 +1,174 @@
 @import "src/global-styles/variables.scss";
 
-#ABOUT {
-  height: 100vh;
-  width: 100vw;
-  // background-color: $quaternary-color;
+.about-section {
+  background-color: $quaternary-color;
   display: flex;
-  flex-flow: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: center;       // vertically centre the column on desktop
+  gap: 0.75rem;
+  padding: calc($header-height + 2vh) 5vw 4vh;
+  box-sizing: border-box;
+  height: auto !important;
+  min-height: 100vh;
+  overflow: visible !important;
+}
+
+// ── Hero wrapper — matrix bg scoped here ─────────────────
+// overflow: visible so the profile image glow ring is never clipped.
+// The matrix columns are clipped by their own .section-bg div.
+.about-section__hero-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: visible;
+  padding: 2vh 5vw 2vh; // tighter — profile moves up
+  isolation: isolate;
+}
+
+// ── Hero row ─────────────────────────────────────────────
+.about-section__hero {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  overflow: hidden;
-  z-index: 2;
-  grid-row: 2;
-  .about-me-content {
-    color: white;
-    width: 35%;
-    height: fit-content;
-    text-align: left;
-    background-color: rgba(#000000, 0.8);
-    padding: 0 5%;
-    z-index: 1;
-    position: relative;
-    right: 10%;
-    display: flex;
-    flex-flow: column nowrap;
-    opacity: 0;
-    transition: opacity ease-in-out 0.5s;
-    p {
-      font-size: $text-size;
-      font-family: $text-font;
-    }
-  }
-  .fade-in {
+  justify-content: center; // keep everything centred on desktop
+  flex-wrap: wrap;
+  gap: 5vw;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+
+  &--visible {
     opacity: 1;
-    transition: unset;
-    animation: fade-in-down 1.25s 1 linear;
+    transform: translateY(0);
   }
-  h2 {
-    font-family: "Roboto" monospace;
-    font-size: 4rem;
-    font-family: $title-font;
-    margin: 3rem 0 2rem 0;
-  }
-  h3 {
+}
+
+.about-section__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; // tighter — reduces space between all intro children
+  max-width: 560px;
+}
+
+.about-section__eyebrow {
+  font-family: $subtitle-font;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: $tertiary-color;
+  letter-spacing: 0.12em;
+  margin: 0;
+}
+
+.about-section__headline {
+  font-family: $title-font;
+  font-weight: 900;
+  font-size: 2.4rem; // smaller base — was 3rem
+  color: $secondary-color;
+  line-height: 1.1;
+  margin: 0;
+
+  &--accent {
     color: $tertiary-color;
+  }
+}
+
+.about-section__body {
+  font-family: $title-font;
+  font-size: 0.9rem; // slightly smaller
+  color: rgba($secondary-color, 0.75);
+  line-height: 1.5; // tighter line-height — was 1.65
+  margin: 0;
+  max-width: 520px;
+}
+
+.about-section__bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; // was 0.6rem — tighter list
+}
+
+.about-section__bullet {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: $title-font;
+  font-size: 0.85rem; // was 0.95rem
+  color: rgba($secondary-color, 0.85);
+}
+
+.about-section__bullet-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
+    brightness(86%) contrast(92%);
+}
+
+// ── Stats visibility toggle ──────────────────────────────
+.about-section__stats-desktop {
+  display: block;
+}
+
+// ── Responsive ──────────────────────────────────────────
+@media screen and (max-width: $large-screen-width) {
+  .about-section__headline {
     font-size: 2rem;
-    font-family: $subtitle-font;
-    margin: 0;
   }
-  .profile-pic {
-    width: 50%;
-    border-radius: 100%;
-    position: relative;
-    left: 0%;
-    z-index: 0;
-  }
-  .socials {
-    display: flex;
-    flex-flow: row nowrap;
-    height: 75px;
+}
+
+@media screen and (max-width: $small-screen-width) {
+  .about-section__hero {
+    flex-direction: column;
     align-items: center;
-    gap: 30px;
-    justify-content: flex-start;
-    margin-bottom: 20px;
-    .icon-link {
-      border-radius: 50%;
-      width: 45px;
-
-      img {
-        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(152deg)
-          brightness(102%) contrast(103%);
-        width: 100%;
-      }
-    }
-    .icon-link:hover {
-      img {
-        filter: invert(81%) sepia(9%) saturate(2656%) hue-rotate(100deg)
-          brightness(70%) contrast(102%);
-      }
-    }
-
-    .about-button {
-      width: fit-content;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: $title-font;
-      font-style: normal;
-      font-weight: bold;
-      font-size: $text-size;
-      text-decoration: none;
-      border: 2px $tertiary-color solid;
-      background-color: transparent;
-      color: $tertiary-color;
-      border-radius: 30px;
-      height: fit-content;
-      padding: 10px 40px;
-    }
-    .about-button:hover {
-      background-color: $primary-color;
-      color: white;
-    }
+    text-align: center;
+    gap: 3vh;
   }
-  @media screen and (max-width: $large-screen-width) {
-    .about-me-content {
-      width: 40%;
-      right: 10%;
-      padding: 0 5%;
-      p {
-        font-size: $text-size-large-screen;
-      }
-    }
-    .profile-pic {
-      width: 55%;
-    }
-    h2 {
-      font-size: 3rem;
-    }
-    h3 {
-      font-size: 1.25rem;
-    }
-    .socials {
-      gap: 20px;
-      .about-button {
-        font-size: $text-size-large-screen;
-        padding: 10px 20px;
-      }
-      .icon-link {
-        width: 35px;
-      }
-    }
+  .about-section__intro {
+    align-items: center;
+    max-width: 100%;
   }
-  @media screen and (max-width: $small-screen-width) {
-    .about-me-content {
-      flex-shrink: 0;
-    }
-    h2 {
-      font-size: 2.75rem;
-    }
-    h3 {
-      font-size: 1.25rem;
-    }
+  .about-section__bullets {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .about-section__body {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: $phone-screen-width) {
+  .about-section {
+    padding: calc($header-height - 2vh) 6vw 4vh;
+    gap: 0rem; // space between hero, stats, tech stack
+  }
+  .about-section__hero-wrapper {
+    padding: 2vh 4vw 2vh;
+  }
+  .about-section__intro {
+    gap: 1rem; // space between headline, body, bullets
+  }
+  .about-section__headline {
+    font-size: 1.75rem; // bigger
+  }
+  .about-section__body {
+    font-size: 1rem; // bigger
+    line-height: 1.6;
+  }
+  .about-section__bullets {
+    gap: 0.5rem; // breathe between bullet items
+  }
+  .about-section__bullet {
+    font-size: 0.95rem; // bigger
+  }
+
+  // Hide stats on mobile
+  .about-section__stats-desktop {
+    display: none;
   }
 }

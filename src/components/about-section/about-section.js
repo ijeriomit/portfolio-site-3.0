@@ -1,80 +1,62 @@
 import { forwardRef } from "react";
 import "./about-section.scss";
+import ProfileImage from "./profile-image/profile-image.js";
+import StatisticsRow from "./statistics-row/statistics-row.js";
+import TechnologyStack from "./technology-stack/technology-stack.js";
+import MatrixBackground from "../matrix-background/matrix-background.js";
+
+const BULLETS = [
+  "5+ years building production software",
+  "Expert in frontend, backend, and DevOps",
+  "UX focused and user obsessed",
+  "Proven track record in enterprise environments",
+];
 
 const AboutSection = forwardRef((props, ref) => {
   return (
-    <section id="ABOUT" ref={ref}>
-      <img
-        className="profile-pic"
-        src="/assets/about-me-images/headshot.jpg"
-        alt="profile picture"
-      ></img>
-      <div
-        className={"about-me-content " + (props.loadContent ? "fade-in" : "")}
-      >
-        <h2> HI, I AM IJERI</h2>
-        <h3> &lt;FullStack Developer | UX Designer/&gt;</h3>
-        <p>
-          Hello! I am a software engineer with a strong focus on creating
-          user-friendly and visually engaging web applications. My journey
-          started with a love for video games, which led me to discover my
-          passion for web development over the years.
-        </p>
-        <p>
-          I’ve worked on innovative projects at{" "}
-          <strong>NAUTICS ROBOTICS</strong> and <strong>GOOGLE</strong>, honing
-          my skills in designing intuitive UX and ensuring application
-          performance and accessibility.
-        </p>
-        <p>
-          While I specialize in front-end development, I’m always eager to
-          explore new challenges in software engineering. If you’re looking for
-          someone to bring your vision to life, let’s connect and create
-          something extraordinary together!
-        </p>
-        <div className="socials">
-          <a
-            className="about-button"
-            href="https://www.linkedin.com/in/ijeri-omitogun/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Email Me
-          </a>
-          <a
-            className="about-button"
-            href="https://www.linkedin.com/in/ijeri-omitogun/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Hire Me
-          </a>
-          <a
-            className="white-filter icon-link"
-            href="https://www.linkedin.com/in/ijeri-omitogun/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src="/assets/link-images/linkedin.svg" alt="linkedin" />
-          </a>
-          <a
-            className="white-filter icon-link"
-            href="https://github.com/ijeriomit"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src="/assets/link-images/github.svg" alt="github" />
-          </a>
-          <a
-            className="white-filter icon-link"
-            href="https://medium.com/@jeri-omit"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src="/assets/link-images/medium.svg" alt="medium" />
-          </a>
+    <section id="ABOUT" ref={ref} className="about-section">
+
+      {/* ── Hero row (matrix background scoped here) ── */}
+      <div className="about-section__hero-wrapper">
+        <MatrixBackground />
+        <div className={"about-section__hero " + (props.loadContent ? "about-section__hero--visible" : "")}>
+          <ProfileImage />
+          <div className="about-section__intro">
+            <p className="about-section__eyebrow">ABOUT ME</p>
+            <h2 className="about-section__headline">
+              I COMBINE CODE<br />
+              WITH CREATIVITY<br />
+              TO <span className="about-section__headline--accent">DELIVER IMPACT.</span>
+            </h2>
+            <p className="about-section__body">
+              I'm a software engineer with a passion for building intuitive,
+              accessible, and high-performing applications.
+            </p>
+            <ul className="about-section__bullets">
+              {BULLETS.map((b) => (
+                <li key={b} className="about-section__bullet">
+                  <img
+                    src="/assets/clip-art-images/check-mark.svg"
+                    alt=""
+                    aria-hidden="true"
+                    className="about-section__bullet-icon"
+                  />
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
+
+      {/* ── Stats — shown on desktop, hidden on mobile ── */}
+      <div className="about-section__stats-desktop">
+        <StatisticsRow />
+      </div>
+
+      {/* ── Tech stack ──────────────────────────── */}
+      <TechnologyStack />
+
     </section>
   );
 });
