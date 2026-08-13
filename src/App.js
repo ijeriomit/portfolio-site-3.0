@@ -4,7 +4,7 @@ import Header from "./components/header/header.js";
 import HomeSection from "./components/home-section/home-section.js";
 import AboutSection from "./components/about-section/about-section.js";
 import ExpSection from "./components/experience-section/experience-section.js";
-import SkillsSection from "./components/skills-section/skills-section.js";
+import ServicesSection from "./components/services-section/services-section.js";
 import Portfolio from "./components/portfolio/portfolio.js";
 import Testimonials from "./components/testimonials/testimonials.js";
 
@@ -42,7 +42,7 @@ function App() {
       <HomeSection ref={homeRef}></HomeSection>
       <AboutSection loadContent={loadAboutContent} ref={aboutRef}></AboutSection>
       <ExpSection inView={inExpSection} ref={expRef}></ExpSection>
-      <SkillsSection></SkillsSection>
+      <ServicesSection></ServicesSection>
       <Portfolio></Portfolio>
       <Testimonials></Testimonials>
     </div>

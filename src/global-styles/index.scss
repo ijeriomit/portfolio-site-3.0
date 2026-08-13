@@ -20,7 +20,7 @@ html {
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: 100vh auto 100vh 100vh 100vh;
+  grid-template-rows: 100vh auto auto auto 100vh 100vh;
 }
 
 section {
@@ -32,12 +32,39 @@ section {
   position: relative;
 }
 
+#EXP {
+  height: auto !important;
+  min-height: 100vh;
+  overflow: visible !important;
+}
+
+#SERVICES {
+  height: auto !important;
+  min-height: 100vh;
+  overflow: visible !important;
+}
+
 @media screen and (max-width: 600px) {
+  .App {
+    // Disable mandatory snap on mobile — ABOUT is tall; EXP handles its own snap
+    scroll-snap-type: none;
+  }
   #HOME {
     height: auto;
     min-height: 100vh;
     overflow: visible;
-    scroll-snap-align: start;
+  }
+  #ABOUT {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+    scroll-snap-align: none;
+  }
+  // EXP is a fixed 100vh viewport on mobile; cards scroll internally
+  #EXP {
+    height: 100vh !important;
+    overflow: hidden !important;
+    scroll-snap-align: none;
   }
 }
 
