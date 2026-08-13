@@ -26,7 +26,7 @@ const Testimonials = forwardRef((props, ref) => {
   const carousel = useRef(null);
   return (
     <section ref={ref} id="TEST">
-      <h2 className="">[What PEOPLE SAY ABOUT ME]</h2>
+      {/* <h2 className="">[What PEOPLE SAY ABOUT ME]</h2>
       <h3 className="">Testimonials from colleagues</h3>
       <div className="iphone">
         <img
@@ -63,7 +63,7 @@ const Testimonials = forwardRef((props, ref) => {
       </div>
       <a className="footer">
         <p className="contact">Contact Me - &gt; </p>
-      </a>
+      </a> */}
     </section>
   );
 });

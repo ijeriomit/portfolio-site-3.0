@@ -22,12 +22,26 @@ function App() {
     const observerOptions = { threshold: [0.1, 0.9] };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.target.id === aboutRef.current.id && entry.intersectionRatio > 0.9) {
-          setLogo(true); setLoadAboutContent(true); setInExpSection(false);
-        } else if (entry.target.id === homeRef.current.id && entry.intersectionRatio > 0) {
-          setLogo(false); setLoadAboutContent(false); setInExpSection(false);
-        } else if (entry.target.id === expRef.current.id && entry.intersectionRatio > 0.1) {
-          setLogo(true); setInExpSection(true);
+        if (
+          entry.target.id === aboutRef.current.id &&
+          entry.intersectionRatio > 0.9
+        ) {
+          setLogo(true);
+          setLoadAboutContent(true);
+          setInExpSection(false);
+        } else if (
+          entry.target.id === homeRef.current.id &&
+          entry.intersectionRatio > 0
+        ) {
+          setLogo(false);
+          setLoadAboutContent(false);
+          setInExpSection(false);
+        } else if (
+          entry.target.id === expRef.current.id &&
+          entry.intersectionRatio > 0.1
+        ) {
+          setLogo(true);
+          setInExpSection(true);
         }
       });
     }, observerOptions);
@@ -35,13 +49,24 @@ function App() {
     observer.observe(aboutRef.current);
     observer.observe(expRef.current);
     return () => observer.disconnect();
-  }, [homeRef, appRef, aboutRef, expRef, flipLogo, loadAboutContent, inExpSection]);
+  }, [
+    homeRef,
+    appRef,
+    aboutRef,
+    expRef,
+    flipLogo,
+    loadAboutContent,
+    inExpSection,
+  ]);
 
   return (
     <div className="App" ref={appRef}>
       <Header id="header" flipLogo={flipLogo}></Header>
       <HomeSection ref={homeRef}></HomeSection>
-      <AboutSection loadContent={loadAboutContent} ref={aboutRef}></AboutSection>
+      <AboutSection
+        loadContent={loadAboutContent}
+        ref={aboutRef}
+      ></AboutSection>
       <ExpSection inView={inExpSection} ref={expRef}></ExpSection>
       <ServicesSection ref={servicesRef}></ServicesSection>
       <Portfolio></Portfolio>
