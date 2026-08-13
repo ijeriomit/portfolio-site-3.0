@@ -4,12 +4,13 @@ import variables from "../../global-styles/variables.scss";
 import Button from "../shared/button/button.js";
 
 const NAV_LINKS = [
-  { label: "Home",        href: "#HOME"    },
-  { label: "About",       href: "#ABOUT"   },
-  { label: "Experience",  href: "#EXP"     },
-  { label: "Services",    href: "#SERVICES"},
-  { label: "Projects",    href: "#PORT"    },
-  { label: "Contact",     href: "#CONTACT" },
+  { label: "Home",         href: "#HOME"    },
+  { label: "About",        href: "#ABOUT"   },
+  { label: "Experience",   href: "#EXP"     },
+  { label: "Services",     href: "#SERVICES"},
+  { label: "Projects",     href: "#PORT"    },
+  { label: "Testimonials", href: "#TEST"    },
+  { label: "Contact",      href: "#CONTACT" },
 ];
 
 export default function Header({ flipLogo }) {
