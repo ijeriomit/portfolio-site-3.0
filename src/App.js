@@ -7,6 +7,7 @@ import ExpSection from "./components/experience-section/experience-section.js";
 import ServicesSection from "./components/services-section/services-section.js";
 import Portfolio from "./components/portfolio/portfolio.js";
 import Testimonials from "./components/testimonials/testimonials.js";
+import ContactSection from "./components/contact-section/contact-section.js";
 
 function App() {
   const [flipLogo, setLogo] = useState(false);
@@ -71,6 +72,7 @@ function App() {
       <ServicesSection ref={servicesRef}></ServicesSection>
       <Portfolio></Portfolio>
       <Testimonials></Testimonials>
+      <ContactSection></ContactSection>
     </div>
   );
 }
