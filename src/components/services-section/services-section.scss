@@ -1,0 +1,481 @@
+@import "src/global-styles/variables.scss";
+
+// ── Section shell ─────────────────────────────────────────────────────────────
+.services-section {
+  background-color: $quaternary-color;
+  height: auto !important;
+  min-height: 100vh;
+  overflow: visible !important;
+  position: relative;
+}
+
+// ── Content wrapper — sits above MatrixBackground ─────────────────────────────
+.services-section__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: calc($header-height + 1vh) 4vw 2rem;
+  box-sizing: border-box;
+}
+
+// ── Shared eyebrow ────────────────────────────────────────────────────────────
+.services-section__eyebrow {
+  font-family: $subtitle-font;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: $tertiary-color;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.75rem;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// TOP ROW: 2-col — left hero / right client panel
+// ══════════════════════════════════════════════════════════════════════════════
+.services-section__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+// ── Left: What I Do ───────────────────────────────────────────────────────────
+.services-section__hero {
+  background: $quaternary-color;
+  border: 1px solid rgba($tertiary-color, 0.15);
+  border-radius: 14px;
+  padding: 1.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.services-section__headline {
+  font-family: $title-font;
+  font-weight: 900;
+  font-size: 2.2rem;
+  color: $secondary-color;
+  line-height: 1.05;
+  margin: 0;
+
+  &--accent {
+    color: $tertiary-color;
+  }
+}
+
+.services-section__body {
+  font-family: $title-font;
+  font-size: 0.9rem;
+  color: rgba($secondary-color, 0.65);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 420px;
+}
+
+.services-section__hero-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 0.25rem;
+
+  .btn {
+    font-size: 0.78rem;
+    padding: 0.6rem 1.25rem;
+  }
+}
+
+// ── Right: Who I Work With ────────────────────────────────────────────────────
+.services-section__clients-panel {
+  background: $quaternary-color;
+  border: 1px solid rgba($tertiary-color, 0.15);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+// Desktop list — shown on desktop, hidden on mobile
+.services-section__clients-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.services-section__client-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba($secondary-color, 0.06);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.services-section__client-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  color: $tertiary-color;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.services-section__client-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.services-section__client-title {
+  font-family: $title-font;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: $secondary-color;
+  letter-spacing: 0.05em;
+}
+
+.services-section__client-desc {
+  font-family: $title-font;
+  font-size: 0.78rem;
+  color: rgba($secondary-color, 0.55);
+  line-height: 1.4;
+  margin: 0;
+}
+
+// Mobile compact icon row — hidden on desktop
+.services-section__clients-icons {
+  display: none;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// HOW I CAN HELP
+// ══════════════════════════════════════════════════════════════════════════════
+.services-section__services {
+  display: flex;
+  flex-direction: column;
+}
+
+// Desktop 4-col grid
+.services-section__cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+// Mobile accordion — hidden on desktop
+.services-section__accordion {
+  display: none;
+}
+
+// Service card (desktop)
+.services-section__card {
+  background: $quaternary-color;
+  border: 1px solid rgba($tertiary-color, 0.15);
+  border-radius: 14px;
+  padding: 1.1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+  &:hover {
+    border-color: rgba($tertiary-color, 0.45);
+    transform: translateY(-2px);
+  }
+}
+
+.services-section__card-icon {
+  width: 40px;
+  height: 40px;
+  color: $tertiary-color;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.services-section__card-title {
+  font-family: $title-font;
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: $secondary-color;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: 0.02em;
+  flex: 1;
+}
+
+.services-section__card-desc {
+  font-family: $title-font;
+  font-size: 0.8rem;
+  color: rgba($secondary-color, 0.6);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.services-section__learn-more {
+  font-family: $subtitle-font;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: $tertiary-color;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// BOTTOM CTA ROW
+// ══════════════════════════════════════════════════════════════════════════════
+.services-section__cta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.services-section__cta-card {
+  background: $quaternary-color;
+  border: 1px solid rgba($tertiary-color, 0.15);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .btn {
+    font-size: 0.78rem;
+    padding: 0.6rem 1.25rem;
+    align-self: flex-start;
+  }
+
+  // "View My Work" right CTA — button always fills full width
+  &--work .btn {
+    width: 100%;
+    text-align: center;
+    align-self: stretch;
+  }
+}
+
+.services-section__cta-icon {
+  width: 36px;
+  height: 36px;
+  color: $tertiary-color;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.services-section__cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.services-section__cta-headline {
+  font-family: $title-font;
+  font-weight: 700;
+  font-size: 1rem;
+  color: $secondary-color;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.services-section__cta-sub {
+  font-family: $title-font;
+  font-size: 0.82rem;
+  color: rgba($secondary-color, 0.5);
+  margin: 0;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// MOBILE — ≤600px
+// ══════════════════════════════════════════════════════════════════════════════
+@media screen and (max-width: $phone-screen-width) {
+  .services-section__content {
+    padding: 4vh 4vw 2rem;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  // Top row becomes single column, tighter gap
+  .services-section__top {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .services-section__hero {
+    padding: 1rem 1.25rem;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .services-section__eyebrow {
+    text-align: center;
+  }
+
+  .services-section__headline {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+
+  .services-section__body {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .services-section__hero-btns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+
+    .btn {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  // Client panel — hide list, show icon row
+  .services-section__clients-panel {
+    padding: 1rem 1.25rem;
+    align-items: center;
+  }
+
+  .services-section__clients-list {
+    display: none;
+  }
+
+  .services-section__clients-icons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .services-section__client-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+
+    .services-section__client-icon {
+      width: 26px;
+      height: 26px;
+    }
+
+    .services-section__client-title {
+      font-size: 0.6rem;
+      text-align: center;
+    }
+  }
+
+  // Services — hide grid, show accordion
+  .services-section__cards-grid {
+    display: none;
+  }
+
+  .services-section__accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba($tertiary-color, 0.15);
+    border-radius: 14px;
+    overflow: hidden;
+    background: $quaternary-color;
+  }
+
+  .services-section__acc-row {
+    border-bottom: 1px solid rgba($secondary-color, 0.07);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &--open .services-section__acc-header {
+      border-bottom: 1px solid rgba($secondary-color, 0.07);
+    }
+  }
+
+  .services-section__acc-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+
+    .services-section__card-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+  }
+
+  .services-section__acc-title {
+    font-family: $title-font;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: $secondary-color;
+    letter-spacing: 0.02em;
+    flex: 1;
+  }
+
+  .services-section__chevron {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: rgba($secondary-color, 0.4);
+    transition: transform 0.2s ease;
+
+    &--open {
+      transform: rotate(180deg);
+      color: $tertiary-color;
+    }
+  }
+
+  .services-section__acc-body {
+    padding: 0.75rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  // Accordion — center title text
+  .services-section__acc-title {
+    text-align: center;
+  }
+
+  // CTA row — hidden on mobile, hero buttons handle both actions
+  .services-section__cta-row {
+    display: none;
+  }
+}

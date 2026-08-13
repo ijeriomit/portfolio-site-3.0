@@ -46,8 +46,10 @@ section {
 
 @media screen and (max-width: 600px) {
   .App {
-    // Disable mandatory snap on mobile — ABOUT is tall; EXP handles its own snap
+    // Disable mandatory snap on mobile — tall sections scroll naturally
     scroll-snap-type: none;
+    // Reset grid rows: each section sizes to its content on mobile
+    grid-template-rows: auto auto auto auto auto auto;
   }
   #HOME {
     height: auto;
@@ -64,6 +66,13 @@ section {
   #EXP {
     height: 100vh !important;
     overflow: hidden !important;
+    scroll-snap-align: none;
+  }
+  // SERVICES grows to fit its content on mobile — no snap, no min-height forcing
+  #SERVICES {
+    height: auto !important;
+    min-height: unset !important;
+    overflow: visible !important;
     scroll-snap-align: none;
   }
 }

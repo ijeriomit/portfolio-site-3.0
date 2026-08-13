@@ -16,6 +16,7 @@ function App() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const expRef = useRef(null);
+  const servicesRef = useRef(null);
 
   useEffect(() => {
     const observerOptions = { threshold: [0.1, 0.9] };
@@ -42,7 +43,7 @@ function App() {
       <HomeSection ref={homeRef}></HomeSection>
       <AboutSection loadContent={loadAboutContent} ref={aboutRef}></AboutSection>
       <ExpSection inView={inExpSection} ref={expRef}></ExpSection>
-      <ServicesSection></ServicesSection>
+      <ServicesSection ref={servicesRef}></ServicesSection>
       <Portfolio></Portfolio>
       <Testimonials></Testimonials>
     </div>
