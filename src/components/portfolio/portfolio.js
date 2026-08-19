@@ -3,7 +3,8 @@ import "./portfolio.scss";
 import { store } from "../../data.js";
 import MatrixBackground from "../matrix-background/matrix-background.js";
 
-const FILTERS = ["Enterprise", "Cloud Infrastructure", "Robotics", "AI / ML", "Open Source", "Personal"];
+const PROJECT_CATEGORIES = ["Enterprise", "Cloud Infrastructure", "Robotics", "AI / ML", "Open Source", "Personal"];
+const FILTERS = ["All Projects", ...PROJECT_CATEGORIES];
 
 const PROJECT_META = {
   "Buying Hub": { category: "Enterprise", logo: "/assets/experience-images/google-logo.png", badge: null, sortOrder: 1 },
@@ -109,7 +110,9 @@ const Portfolio = forwardRef((props, ref) => {
   function handleFilterClick(filter) {
     setActiveFilter(filter);
     const target = projectRefs.current[filter];
-    const project = projects.find((item) => item.category === filter);
+    const project = filter === "All Projects"
+      ? projects[0]
+      : projects.find((item) => item.category === filter);
     if (project) {
       setSelectedProject(project);
     }
@@ -179,7 +182,7 @@ const Portfolio = forwardRef((props, ref) => {
         </div>
 
         <div className="portfolio-section__rail" ref={railRef}>
-          {FILTERS.map((filter) => {
+          {PROJECT_CATEGORIES.map((filter) => {
             const categoryProjects = projects.filter((project) => project.category === filter);
             if (categoryProjects.length === 0) {
               return null;
@@ -192,6 +195,9 @@ const Portfolio = forwardRef((props, ref) => {
                 onSelect={setSelectedProject}
                 projectRef={index === 0 ? (node) => {
                   projectRefs.current[filter] = node;
+                  if (filter === PROJECT_CATEGORIES[0]) {
+                    projectRefs.current["All Projects"] = node;
+                  }
                 } : undefined}
               />
             ));

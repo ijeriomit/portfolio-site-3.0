@@ -20,7 +20,7 @@ html {
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: 100vh auto auto auto 100vh 100vh;
+  grid-template-rows: 100vh auto auto auto auto auto auto;
 }
 
 section {
@@ -48,8 +48,10 @@ section {
   .App {
     // Disable mandatory snap on mobile — tall sections scroll naturally
     scroll-snap-type: none;
-    // Reset grid rows: each section sizes to its content on mobile
-    grid-template-rows: auto auto auto auto auto auto;
+    // Keep content-sized rows from stretching to the App's viewport height.
+    // This lets tall sections such as Portfolio reserve space for their full content.
+    align-content: start;
+    grid-template-rows: repeat(7, max-content);
   }
   #HOME {
     height: auto;
@@ -65,6 +67,13 @@ section {
   // EXP is a fixed 100vh viewport on mobile; cards scroll internally
   #EXP {
     height: 100vh !important;
+    overflow: hidden !important;
+    scroll-snap-align: none;
+  }
+  // PORT is a fixed mobile viewport; its project rail scrolls internally.
+  #PORT {
+    height: 100vh !important;
+    min-height: 0 !important;
     overflow: hidden !important;
     scroll-snap-align: none;
   }
