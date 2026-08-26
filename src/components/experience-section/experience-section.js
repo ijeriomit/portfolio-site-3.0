@@ -159,7 +159,7 @@ const EXPERIENCES = [
   },
 ];
 
-const ITEM_H = 72; // px — keep in sync with .exp-section__timeline-item height in SCSS
+const ITEM_H = 96; // px — keep in sync with .exp-section__timeline-item height in SCSS
 
 // ── Component ─────────────────────────────────────────────────────────────────
 const ExpSection = forwardRef((props, ref) => {

@@ -8,7 +8,6 @@
 
   &__intro {
     font-family: $subtitle-font;
-    font-size: 1.1rem;
     font-weight: 600;
     color: $tertiary-color;
     letter-spacing: 0.08em;
@@ -30,7 +29,6 @@
   &__title {
     font-family: $title-font;
     font-weight: 900;
-    font-size: 5rem;
     line-height: 1.05;
     color: $secondary-color;
     margin: 0;
@@ -57,7 +55,6 @@
 
   &__subtitle {
     font-family: $title-font;
-    font-size: 1rem;
     font-weight: 400;
     color: rgba($secondary-color, 0.75);
     line-height: 1.6;
@@ -78,31 +75,22 @@
     50%       { opacity: 0; }
   }
 
-  @media screen and (max-width: $large-screen-width) {
-    &__title {
-      font-size: 3.5rem;
-    }
-  }
-
   @media screen and (max-width: $phone-screen-width) {
     max-width: 100%;
     text-align: center;
     align-items: center;
 
     &__intro {
-      font-size: 0.85rem;
       white-space: nowrap;
     }
 
     &__title {
-      font-size: 2.2rem;
       align-items: center;
       text-align: center;
     }
 
     &__subtitle {
       max-width: 100%;
-      font-size: 0.9rem;
       text-align: center;
     }
   }

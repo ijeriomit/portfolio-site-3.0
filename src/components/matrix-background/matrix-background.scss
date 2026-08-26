@@ -17,7 +17,7 @@
   font-size: 18px;
   position: absolute;
   white-space: pre-wrap;
-  opacity: 20%;
+  opacity: 35%;
   float: left;
   top: -30vh;
   overflow-y: visible;
@@ -29,14 +29,46 @@
   animation-timing-function: linear;
 }
 
-.rain-animation   { @extend %rain-base; animation-duration: 18s; animation-delay: 0s;   }
-.rain-animation-1 { @extend %rain-base; animation-duration: 22s; animation-delay: 1.3s; }
-.rain-animation-2 { @extend %rain-base; animation-duration: 16s; animation-delay: 3.7s; }
-.rain-animation-3 { @extend %rain-base; animation-duration: 25s; animation-delay: 0.8s; }
-.rain-animation-4 { @extend %rain-base; animation-duration: 19s; animation-delay: 5.2s; }
-.rain-animation-5 { @extend %rain-base; animation-duration: 21s; animation-delay: 2.1s; }
-.rain-animation-6 { @extend %rain-base; animation-duration: 14s; animation-delay: 7.4s; }
-.rain-animation-7 { @extend %rain-base; animation-duration: 28s; animation-delay: 4.0s; }
+.rain-animation {
+  @extend %rain-base;
+  animation-duration: 18s;
+  animation-delay: 0s;
+}
+.rain-animation-1 {
+  @extend %rain-base;
+  animation-duration: 22s;
+  animation-delay: 1.3s;
+}
+.rain-animation-2 {
+  @extend %rain-base;
+  animation-duration: 16s;
+  animation-delay: 3.7s;
+}
+.rain-animation-3 {
+  @extend %rain-base;
+  animation-duration: 25s;
+  animation-delay: 0.8s;
+}
+.rain-animation-4 {
+  @extend %rain-base;
+  animation-duration: 19s;
+  animation-delay: 5.2s;
+}
+.rain-animation-5 {
+  @extend %rain-base;
+  animation-duration: 21s;
+  animation-delay: 2.1s;
+}
+.rain-animation-6 {
+  @extend %rain-base;
+  animation-duration: 14s;
+  animation-delay: 7.4s;
+}
+.rain-animation-7 {
+  @extend %rain-base;
+  animation-duration: 28s;
+  animation-delay: 4s;
+}
 
 .binary-code::before {
   animation: code 1.5s infinite;
@@ -73,21 +105,45 @@
 }
 
 @keyframes code {
-  10%  { content: "1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1 \A 1"; }
-  20%  { content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 0"; }
-  30%  { content: "1 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 1"; }
-  40%  { content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 1 \A 0"; }
-  50%  { content: "1 \A 1 \A 0 \A 1 \A 0 \A 0 \A 0 \A 0"; }
-  60%  { content: "1 \A 1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1"; }
-  70%  { content: "1 \A 0 \A 0 \A 1 \A 0 \A 1 \A 0 \A 0"; }
-  80%  { content: "1 \A 0 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0"; }
-  90%  { content: "0 \A 1 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0"; }
-  100% { content: "1 \A  \A 0 \A 1 \A 0 \A 1 \A 1 \A 0";  }
+  10% {
+    content: "1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1 \A 1";
+  }
+  20% {
+    content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 0";
+  }
+  30% {
+    content: "1 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 1";
+  }
+  40% {
+    content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 1 \A 0";
+  }
+  50% {
+    content: "1 \A 1 \A 0 \A 1 \A 0 \A 0 \A 0 \A 0";
+  }
+  60% {
+    content: "1 \A 1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1";
+  }
+  70% {
+    content: "1 \A 0 \A 0 \A 1 \A 0 \A 1 \A 0 \A 0";
+  }
+  80% {
+    content: "1 \A 0 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0";
+  }
+  90% {
+    content: "0 \A 1 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0";
+  }
+  100% {
+    content: "1 \A  \A 0 \A 1 \A 0 \A 1 \A 1 \A 0";
+  }
 }
 
 @keyframes rain {
-  0%   { top: -15%; }
-  100% { top: 100%; }
+  0% {
+    top: -15%;
+  }
+  100% {
+    top: 100%;
+  }
 }
 
 @media screen and (max-width: $large-screen-width) {
@@ -96,8 +152,12 @@
     top: -50vh;
   }
   @keyframes rain {
-    0%   { top: -35vh; }
-    100% { top: 100%;  }
+    0% {
+      top: -35vh;
+    }
+    100% {
+      top: 100%;
+    }
   }
 }
 

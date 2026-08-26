@@ -106,7 +106,7 @@ const Testimonials = forwardRef((props, ref) => {
           </div>
 
           <div className="testimonials-section__card" key={selectedTestimonial.id}>
-            <p className="testimonials-section__quote-mark">“</p>
+            <p className="testimonials-section__quote-mark" aria-hidden="true">“</p>
             <p className="testimonials-section__quote">{selectedTestimonial.text}</p>
             <div className="testimonials-section__person">
               <img className="testimonials-section__avatar" src={`/assets/about-me-images/${selectedTestimonial.imageSrc}`} alt={selectedTestimonial.name} />
@@ -132,6 +132,22 @@ const Testimonials = forwardRef((props, ref) => {
               <span className="testimonials-section__avatar-company">{item.company}</span>
             </button>
           ))}
+        </div>
+
+        <div className="testimonials-section__mobile-filter">
+          <label className="testimonials-section__mobile-filter-label" htmlFor="testimonial-category">
+            Testimonial category
+          </label>
+          <select
+            id="testimonial-category"
+            className="testimonials-section__mobile-select"
+            value={activeCategory}
+            onChange={(event) => handleSelectCategory(event.target.value)}
+          >
+            {categories.map((category) => (
+              <option key={category} value={category}>{category}</option>
+            ))}
+          </select>
         </div>
 
         <div className="testimonials-section__cta">

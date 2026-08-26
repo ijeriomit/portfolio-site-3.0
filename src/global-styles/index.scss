@@ -9,6 +9,42 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
 }
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4,
+h5 {
+  font-size: 1.1rem;
+}
+
+p,
+a,
+span,
+li,
+button,
+label,
+input,
+select,
+textarea {
+  font-size: 1.25rem;
+}
+
+h1 span,
+h2 span,
+h3 span {
+  font-size: inherit;
+}
+
 html {
   height: fit-content;
 }
@@ -45,6 +81,41 @@ section {
 }
 
 @media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  h4,
+  h5 {
+    font-size: 0.8rem;
+  }
+
+  p,
+  a,
+  span,
+  li,
+  button,
+  label,
+  input,
+  select,
+  textarea {
+    font-size: 1.1rem;
+  }
+
+  h1 span,
+  h2 span,
+  h3 span {
+    font-size: inherit;
+  }
+
   .App {
     // Disable mandatory snap on mobile — tall sections scroll naturally
     scroll-snap-type: none;

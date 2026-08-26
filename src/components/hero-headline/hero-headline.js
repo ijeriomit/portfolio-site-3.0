@@ -46,10 +46,10 @@ export default function HeroHeadline() {
 
   return (
     <div className="hero-headline">
-      <p className="hero-headline__intro" aria-label={INTRO_TEXT}>
+      <h3 className="hero-headline__intro" aria-label={INTRO_TEXT}>
         <span aria-hidden="true">{introDisplayed}</span>
         <span className={"hero-headline__cursor" + (introDone ? " hero-headline__cursor--blink" : "")} aria-hidden="true">|</span>
-      </p>
+      </h3>
 
       <h1 className={"hero-headline__title" + (introDone ? " hero-headline__title--visible" : "")} aria-label={HEADLINE_LINES.map(l => l.text).join(" ")}>
         {HEADLINE_LINES.map((line, i) => (

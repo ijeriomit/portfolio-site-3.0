@@ -15,18 +15,27 @@ const BULLETS = [
 const AboutSection = forwardRef((props, ref) => {
   return (
     <section id="ABOUT" ref={ref} className="about-section">
-
       {/* ── Hero row (matrix background scoped here) ── */}
       <div className="about-section__hero-wrapper">
         <MatrixBackground />
-        <div className={"about-section__hero " + (props.loadContent ? "about-section__hero--visible" : "")}>
+        <div
+          className={
+            "about-section__hero " +
+            (props.loadContent ? "about-section__hero--visible" : "")
+          }
+        >
           <ProfileImage />
           <div className="about-section__intro">
-            <p className="about-section__eyebrow">ABOUT ME</p>
+            <h3 className="about-section__eyebrow">ABOUT ME</h3>
             <h2 className="about-section__headline">
-              I COMBINE CODE<br />
-              WITH CREATIVITY<br />
-              TO <span className="about-section__headline--accent">DELIVER IMPACT.</span>
+              I COMBINE CODE
+              <br />
+              WITH CREATIVITY
+              <br />
+              TO{" "}
+              <span className="about-section__headline--accent">
+                DELIVER IMPACT.
+              </span>
             </h2>
             <p className="about-section__body">
               I'm a software engineer with a passion for building intuitive,
@@ -56,7 +65,6 @@ const AboutSection = forwardRef((props, ref) => {
 
       {/* ── Tech stack ──────────────────────────── */}
       <TechnologyStack />
-
     </section>
   );
 });

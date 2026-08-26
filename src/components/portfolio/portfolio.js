@@ -178,7 +178,7 @@ const Portfolio = forwardRef((props, ref) => {
               </button>
             ))}
           </div>
-          <div className="portfolio-section__sort">Sort by: <span>Latest</span></div>
+          <p className="portfolio-section__sort">Sort by: <span>Latest</span></p>
         </div>
 
         <div className="portfolio-section__rail" ref={railRef}>

@@ -25,7 +25,6 @@
 
   &__icon {
     font-family: $subtitle-font;
-    font-size: 1rem;
     color: $tertiary-color;
     background-color: rgba($tertiary-color, 0.1);
     border: 1px solid rgba($tertiary-color, 0.3);
@@ -46,7 +45,6 @@
 
   &__value {
     font-family: $title-font;
-    font-size: 1.75rem;
     font-weight: 900;
     color: $secondary-color;
     line-height: 1;
@@ -54,14 +52,12 @@
 
   &__label {
     font-family: $subtitle-font;
-    font-size: 0.75rem;
     color: rgba($secondary-color, 0.5);
     letter-spacing: 0.03em;
   }
 
   @media screen and (max-width: $large-screen-width) {
     padding: 1.25rem 1.5rem;
-    &__value { font-size: 1.4rem; }
   }
 
   @media screen and (max-width: $phone-screen-width) {
@@ -84,12 +80,14 @@
     &__icon {
       width: 26px;
       height: 26px;
-      font-size: 0.65rem;
       border-radius: 6px;
     }
 
-    &__text { gap: 0.05rem; }
-    &__value { font-size: 0.95rem; }
-    &__label { font-size: 0.58rem; letter-spacing: 0; }
+    &__text {
+      gap: 0.05rem;
+    }
+    &__label {
+      letter-spacing: 0;
+    }
   }
 }

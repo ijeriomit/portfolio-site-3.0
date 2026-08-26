@@ -38,7 +38,6 @@
 // Header block
 .exp-section__eyebrow {
   font-family: $subtitle-font;
-  font-size: 0.75rem;
   font-weight: 700;
   color: $tertiary-color;
   letter-spacing: 0.12em;
@@ -48,7 +47,6 @@
 .exp-section__headline {
   font-family: $title-font;
   font-weight: 900;
-  font-size: 2rem;
   color: $secondary-color;
   line-height: 1.1;
   margin: 0 0 0.75rem;
@@ -60,7 +58,6 @@
 
 .exp-section__subhead {
   font-family: $title-font;
-  font-size: 0.85rem;
   color: rgba($secondary-color, 0.6);
   line-height: 1.55;
   margin: 0 0 2rem;
@@ -75,10 +72,11 @@
   min-height: 0;
 }
 
-// Show all items — no clipping, no mask
+// Clip translated items to the timeline pane so they cannot overlap the header.
 .exp-section__timeline-track {
-  height: auto;
-  overflow: visible;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
   position: relative;
   mask-image: none;
   -webkit-mask-image: none;
@@ -103,7 +101,7 @@
 }
 
 .exp-section__timeline-item-wrap {
-  height: 72px; // ITEM_H — keep in sync with JS const
+  height: 96px; // ITEM_H — keep in sync with JS const
   display: flex;
   align-items: center;
 }
@@ -159,14 +157,12 @@
 
 .exp-section__timeline-num {
   font-family: $subtitle-font;
-  font-size: 0.65rem;
   color: rgba($secondary-color, 0.35);
   letter-spacing: 0.05em;
 }
 
 .exp-section__timeline-name {
   font-family: $title-font;
-  font-size: 0.9rem;
   font-weight: 500;
   color: rgba($secondary-color, 0.55);
   transition: color 0.2s ease;
@@ -174,7 +170,6 @@
 
 .exp-section__timeline-dates {
   font-family: $subtitle-font;
-  font-size: 0.68rem;
   color: rgba($secondary-color, 0.3);
 }
 
@@ -202,7 +197,7 @@
 
 // ── CARD ─────────────────────────────────────────────────────────────────────
 .exp-section__card {
-  background: $quaternary-color;
+  background: $card-background-color;
   border: 1px solid rgba($secondary-color, 0.08);
   border-radius: 16px;
   padding: 1rem 1.25rem;
@@ -215,14 +210,13 @@
   max-width: 90%;
 
   &--active {
-    border-color: rgba(0, 0, 0, 1);
+    border-color: $tertiary-color;
   }
 }
 
 // Card header
 .exp-section__card-counter {
   font-family: $subtitle-font;
-  font-size: 0.7rem;
   color: rgba($secondary-color, 0.35);
   letter-spacing: 0.06em;
 }
@@ -237,7 +231,6 @@
 .exp-section__card-company {
   font-family: $title-font;
   font-weight: 900;
-  font-size: 1.5rem; // smaller — was 2rem
   color: $secondary-color;
   margin: 0;
   line-height: 1;
@@ -253,7 +246,6 @@
 
 .exp-section__card-role {
   font-family: $subtitle-font;
-  font-size: 0.9rem;
   color: $tertiary-color;
   margin: 0;
   font-style: italic;
@@ -264,13 +256,11 @@
   gap: 1.5rem;
   flex-wrap: wrap;
   font-family: $subtitle-font;
-  font-size: 0.75rem;
   color: rgba($secondary-color, 0.5);
 }
 
 .exp-section__card-desc {
   font-family: $title-font;
-  font-size: 0.82rem; // smaller — was 0.95rem
   color: rgba($secondary-color, 0.75);
   line-height: 1.5;
   margin: 0;
@@ -279,7 +269,6 @@
 // Sub-section label
 .exp-section__sub-label {
   font-family: $subtitle-font;
-  font-size: 0.72rem;
   font-weight: 700;
   color: $tertiary-color;
   letter-spacing: 0.1em;
@@ -297,7 +286,7 @@
   width: 100px; // fixed small square
   height: 100px;
   flex-shrink: 0;
-  background: rgba($secondary-color, 0.03);
+  background: $card-background-color;
   border: 1px solid rgba($secondary-color, 0.08);
   border-radius: 10px;
   padding: 0.6rem;
@@ -316,15 +305,15 @@
 
 .exp-section__impact-value {
   font-family: $title-font;
-  font-weight: 900;
   font-size: 1.1rem;
+  font-weight: 900;
   color: $secondary-color;
   line-height: 1;
 }
 
 .exp-section__impact-label {
   font-family: $subtitle-font;
-  font-size: 0.68rem;
+  font-size: 1.1rem;
   color: rgba($secondary-color, 0.5);
 }
 
@@ -350,7 +339,6 @@
   align-items: flex-start;
   gap: 0.5rem;
   font-family: $title-font;
-  font-size: 0.85rem;
   color: rgba($secondary-color, 0.75);
   line-height: 1.5;
 }
@@ -372,7 +360,7 @@
 
 .exp-section__tech-pill {
   font-family: $subtitle-font;
-  font-size: 0.72rem;
+  font-size: 1.1rem;
   color: rgba($secondary-color, 0.8);
   background: rgba($secondary-color, 0.06);
   border: 1px solid rgba($secondary-color, 0.12);
@@ -381,12 +369,21 @@
   white-space: nowrap;
 }
 
+@media screen and (max-width: $phone-screen-width) {
+  .exp-section__impact-icon,
+  .exp-section__impact-value,
+  .exp-section__impact-label,
+  .exp-section__tech-pill {
+    font-size: 0.8rem;
+  }
+}
+
 // Featured project
 .exp-section__project-card {
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 1.25rem;
-  background: rgba($secondary-color, 0.03);
+  background: $card-background-color;
   border: 1px solid rgba($secondary-color, 0.08);
   border-radius: 12px;
   overflow: hidden;
@@ -415,7 +412,6 @@
     align-items: center;
     justify-content: center;
     font-family: $subtitle-font;
-    font-size: 0.6rem;
     color: rgba($secondary-color, 0.2);
     letter-spacing: 0.1em;
     border: 1px dashed rgba($secondary-color, 0.1);
@@ -434,14 +430,12 @@
 .exp-section__project-title {
   font-family: $title-font;
   font-weight: 700;
-  font-size: 1rem;
   color: $secondary-color;
   margin: 0;
 }
 
 .exp-section__project-desc {
   font-family: $title-font;
-  font-size: 0.82rem;
   color: rgba($secondary-color, 0.65);
   line-height: 1.5;
   margin: 0;
@@ -460,7 +454,6 @@
     align-items: flex-start;
     gap: 0.4rem;
     font-family: $title-font;
-    font-size: 0.78rem;
     color: rgba($secondary-color, 0.65);
   }
 }
@@ -478,27 +471,24 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.75rem 0.5rem;
-  background: rgba($secondary-color, 0.03);
+  background: $card-background-color;
   border: 1px solid rgba($secondary-color, 0.08);
   border-radius: 10px;
   text-align: center;
 }
 
 .exp-section__cert-icon {
-  font-size: 1.4rem;
   line-height: 1;
 }
 
 .exp-section__cert-name {
   font-family: $subtitle-font;
-  font-size: 0.65rem;
   color: rgba($secondary-color, 0.6);
   line-height: 1.3;
 }
 
 // ── Scoped button override — "View Case Study" should be small ───────────────
 .exp-section__project .btn {
-  font-size: 0.78rem;
   padding: 6px 16px;
   border-radius: 6px;
   align-self: flex-start; // don't stretch full width
@@ -508,9 +498,6 @@
 @media screen and (max-width: $large-screen-width) {
   .exp-section {
     grid-template-columns: 360px 1fr;
-  }
-  .exp-section__card-company {
-    font-size: 1.6rem;
   }
   .exp-section__cert-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -559,12 +546,10 @@
   }
 
   .exp-section__headline {
-    font-size: 2rem;
     line-height: 1.05;
     margin: 0;
   }
   .exp-section__subhead {
-    font-size: 0.9rem;
     line-height: 1.55;
     margin: 0;
     color: rgba($secondary-color, 0.6);
@@ -592,7 +577,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    background: rgba($secondary-color, 0.02);
+    background: $card-background-color;
     border: 1px solid rgba($tertiary-color, 0.2);
     border-radius: 14px;
     padding: 1.1rem 1.2rem;
@@ -615,25 +600,13 @@
     justify-content: flex-end;
   }
   .exp-section__impact-icon {
-    font-size: 1rem;
     margin-bottom: auto;
-  }
-  .exp-section__impact-value {
-    font-size: 0.85rem;
-  }
-  .exp-section__impact-label {
-    font-size: 0.58rem;
-  }
-
-  .exp-section__card-company {
-    font-size: 1.2rem;
   }
   .exp-section__card-logo {
     width: 28px;
     height: 28px;
   }
   .exp-section__card-desc {
-    font-size: 0.8rem;
     line-height: 1.45;
   }
 }

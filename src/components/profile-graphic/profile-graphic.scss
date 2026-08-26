@@ -43,10 +43,9 @@
 @media screen and (max-width: $phone-screen-width) {
   .profile-graphic {
     flex-shrink: 1;
-    margin-top: 1rem; // additional push down on top of the gap in home-section
   }
   .profile-graphic__image {
-    width: 180px; // slightly larger now there's more breathing room
+    width: 160px; // slightly larger now there's more breathing room
     max-width: 100%;
   }
 }

@@ -23,7 +23,6 @@
 // ── Shared eyebrow ────────────────────────────────────────────────────────────
 .services-section__eyebrow {
   font-family: $subtitle-font;
-  font-size: 0.72rem;
   font-weight: 700;
   color: $tertiary-color;
   letter-spacing: 0.12em;
@@ -42,7 +41,7 @@
 
 // ── Left: What I Do ───────────────────────────────────────────────────────────
 .services-section__hero {
-  background: $quaternary-color;
+  background: $card-background-color;
   border: 1px solid rgba($tertiary-color, 0.15);
   border-radius: 14px;
   padding: 1.25rem 2rem;
@@ -54,7 +53,6 @@
 .services-section__headline {
   font-family: $title-font;
   font-weight: 900;
-  font-size: 2.2rem;
   color: $secondary-color;
   line-height: 1.05;
   margin: 0;
@@ -66,7 +64,6 @@
 
 .services-section__body {
   font-family: $title-font;
-  font-size: 0.9rem;
   color: rgba($secondary-color, 0.65);
   line-height: 1.6;
   margin: 0;
@@ -82,14 +79,13 @@
   margin-top: 0.25rem;
 
   .btn {
-    font-size: 0.78rem;
     padding: 0.6rem 1.25rem;
   }
 }
 
 // ── Right: Who I Work With ────────────────────────────────────────────────────
 .services-section__clients-panel {
-  background: $quaternary-color;
+  background: $card-background-color;
   border: 1px solid rgba($tertiary-color, 0.15);
   border-radius: 14px;
   padding: 1.25rem 1.5rem;
@@ -141,14 +137,12 @@
 .services-section__client-title {
   font-family: $title-font;
   font-weight: 700;
-  font-size: 0.82rem;
   color: $secondary-color;
   letter-spacing: 0.05em;
 }
 
 .services-section__client-desc {
   font-family: $title-font;
-  font-size: 0.78rem;
   color: rgba($secondary-color, 0.55);
   line-height: 1.4;
   margin: 0;
@@ -182,7 +176,7 @@
 
 // Service card (desktop)
 .services-section__card {
-  background: $quaternary-color;
+  background: $card-background-color;
   border: 1px solid rgba($tertiary-color, 0.15);
   border-radius: 14px;
   padding: 1.1rem 1rem;
@@ -213,7 +207,6 @@
 .services-section__card-title {
   font-family: $title-font;
   font-weight: 900;
-  font-size: 0.9rem;
   color: $secondary-color;
   line-height: 1.2;
   margin: 0;
@@ -223,7 +216,6 @@
 
 .services-section__card-desc {
   font-family: $title-font;
-  font-size: 0.8rem;
   color: rgba($secondary-color, 0.6);
   line-height: 1.55;
   margin: 0;
@@ -231,7 +223,6 @@
 
 .services-section__learn-more {
   font-family: $subtitle-font;
-  font-size: 0.7rem;
   font-weight: 700;
   color: $tertiary-color;
   letter-spacing: 0.08em;
@@ -255,7 +246,7 @@
 }
 
 .services-section__cta-card {
-  background: $quaternary-color;
+  background: $card-background-color;
   border: 1px solid rgba($tertiary-color, 0.15);
   border-radius: 14px;
   padding: 1.25rem 1.5rem;
@@ -264,7 +255,6 @@
   gap: 0.75rem;
 
   .btn {
-    font-size: 0.78rem;
     padding: 0.6rem 1.25rem;
     align-self: flex-start;
   }
@@ -298,7 +288,6 @@
 .services-section__cta-headline {
   font-family: $title-font;
   font-weight: 700;
-  font-size: 1rem;
   color: $secondary-color;
   margin: 0;
   line-height: 1.3;
@@ -306,7 +295,6 @@
 
 .services-section__cta-sub {
   font-family: $title-font;
-  font-size: 0.82rem;
   color: rgba($secondary-color, 0.5);
   margin: 0;
 }
@@ -338,12 +326,10 @@
   }
 
   .services-section__headline {
-    font-size: 1.7rem;
     text-align: center;
   }
 
-  .services-section__body {
-    font-size: 0.82rem;
+.services-section__body {
     line-height: 1.5;
     text-align: center;
     max-width: 100%;
@@ -389,7 +375,6 @@
     }
 
     .services-section__client-title {
-      font-size: 0.6rem;
       text-align: center;
     }
   }
@@ -406,7 +391,7 @@
     border: 1px solid rgba($tertiary-color, 0.15);
     border-radius: 14px;
     overflow: hidden;
-    background: $quaternary-color;
+    background: $card-background-color;
   }
 
   .services-section__acc-row {
@@ -440,10 +425,9 @@
     }
   }
 
-  .services-section__acc-title {
+.services-section__acc-title {
     font-family: $title-font;
     font-weight: 700;
-    font-size: 0.82rem;
     color: $secondary-color;
     letter-spacing: 0.02em;
     flex: 1;

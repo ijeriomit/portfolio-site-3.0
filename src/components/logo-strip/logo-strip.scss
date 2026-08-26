@@ -8,7 +8,6 @@
 
   &__label {
     font-family: $subtitle-font;
-    font-size: 0.75rem;
     font-weight: 600;
     color: rgba($secondary-color, 0.4);
     letter-spacing: 0.15em;
@@ -50,7 +49,6 @@
 
   &__placeholder {
     font-family: $title-font;
-    font-size: 1.1rem;
     font-weight: 700;
     color: rgba($secondary-color, 0.45);
     letter-spacing: 0.04em;
