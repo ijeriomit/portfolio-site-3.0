@@ -2,8 +2,8 @@ $primary-color: #2daf7d;
 $secondary-color: #ffffff;
 $tertiary-color: #14d086;
 $quaternary-color: #080f07;
-$quaternary-color-transparent: rgba($quaternary-color, 0.85);
-$card-background-color: rgb(24, 28, 21);
+$quaternary-color-transparent: rgba($quaternary-color, 0.7);
+$card-background-color: $quaternary-color-transparent;
 
 $title-font: "Roboto", sans-serif;
 $subtitle-font: "Roboto Mono", monospace;

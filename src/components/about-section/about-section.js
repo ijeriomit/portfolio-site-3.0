@@ -1,15 +1,14 @@
 import { forwardRef } from "react";
 import "./about-section.scss";
 import ProfileImage from "./profile-image/profile-image.js";
-import StatisticsRow from "./statistics-row/statistics-row.js";
 import TechnologyStack from "./technology-stack/technology-stack.js";
 import MatrixBackground from "../matrix-background/matrix-background.js";
 
 const BULLETS = [
-  "5+ years building production software",
-  "Expert in frontend, backend, and DevOps",
-  "UX focused and user obsessed",
-  "Proven track record in enterprise environments",
+  "Frontend architecture and full-stack product development",
+  "Accessible interfaces designed around WCAG standards",
+  "Automated testing and production reliability",
+  "Enterprise SaaS, business platforms, and robotics",
 ];
 
 const AboutSection = forwardRef((props, ref) => {
@@ -38,29 +37,25 @@ const AboutSection = forwardRef((props, ref) => {
               </span>
             </h2>
             <p className="about-section__body">
-              I'm a software engineer with a passion for building intuitive,
-              accessible, and high-performing applications.
+              I'm a full stack software engineer with 7 years of experience
+              building enterprise SaaS, internal business platforms, and
+              robotics software.
             </p>
             <ul className="about-section__bullets">
               {BULLETS.map((b) => (
                 <li key={b} className="about-section__bullet">
-                  <img
-                    src="/assets/clip-art-images/check-mark.svg"
-                    alt=""
+                  <span
                     aria-hidden="true"
                     className="about-section__bullet-icon"
-                  />
+                  >
+                    ✓
+                  </span>
                   {b}
                 </li>
               ))}
             </ul>
           </div>
         </div>
-      </div>
-
-      {/* ── Stats — shown on desktop, hidden on mobile ── */}
-      <div className="about-section__stats-desktop">
-        <StatisticsRow />
       </div>
 
       {/* ── Tech stack ──────────────────────────── */}

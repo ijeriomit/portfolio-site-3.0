@@ -29,6 +29,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   padding: calc($header-height + 2vh) 2.5rem 3vh 3rem;
   box-sizing: border-box;
   overflow: hidden;
@@ -36,6 +37,13 @@
 }
 
 // Header block
+.exp-section__header {
+  padding: 1.25rem;
+  border: 1px solid rgba($secondary-color, 0.08);
+  border-radius: 16px;
+  background: $card-background-color;
+}
+
 .exp-section__eyebrow {
   font-family: $subtitle-font;
   font-weight: 700;
@@ -60,7 +68,7 @@
   font-family: $title-font;
   color: rgba($secondary-color, 0.6);
   line-height: 1.55;
-  margin: 0 0 2rem;
+  margin: 0;
 }
 
 // Timeline nav
@@ -70,23 +78,39 @@
   flex: 1;
   position: relative;
   min-height: 0;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid rgba($secondary-color, 0.08);
+  border-radius: 16px;
+  background: $card-background-color;
 }
 
-// Clip translated items to the timeline pane so they cannot overlap the header.
+// Timeline owns its overflow; entries stay aligned and can scroll independently.
 .exp-section__timeline-track {
   flex: 1;
   min-height: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
   position: relative;
   mask-image: none;
   -webkit-mask-image: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba($tertiary-color, 0.45) transparent;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba($tertiary-color, 0.45);
+  }
 }
 
 .exp-section__timeline-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   // vertical line through all dots
   position: relative;
   &::before {
@@ -101,7 +125,7 @@
 }
 
 .exp-section__timeline-item-wrap {
-  height: 96px; // ITEM_H — keep in sync with JS const
+  min-height: 96px;
   display: flex;
   align-items: center;
 }
@@ -140,7 +164,7 @@
   height: 15px;
   border-radius: 50%;
   border: 2px solid rgba($secondary-color, 0.3);
-  background: $quaternary-color;
+  background: $card-background-color;
   flex-shrink: 0;
   margin-top: 3px;
   transition:

@@ -49,8 +49,12 @@
 .about-section__intro {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; // tighter — reduces space between all intro children
+  gap: 0.5rem;
   max-width: 560px;
+  padding: 1.75rem 2rem;
+  background-color: $card-background-color;
+  border: 1px solid rgba($secondary-color, 0.12);
+  border-radius: 16px;
 }
 
 .about-section__eyebrow {
@@ -99,16 +103,14 @@
 }
 
 .about-section__bullet-icon {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
-  filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
-    brightness(86%) contrast(92%);
-}
-
-// ── Stats visibility toggle ──────────────────────────────
-.about-section__stats-desktop {
-  display: block;
+  color: $tertiary-color;
+  font-family: $title-font;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 // ── Responsive ──────────────────────────────────────────
@@ -122,6 +124,7 @@
   .about-section__intro {
     align-items: center;
     max-width: 100%;
+    box-sizing: border-box;
   }
   .about-section__bullets {
     align-items: flex-start;
@@ -141,16 +144,13 @@
     padding: 2vh 4vw 2vh;
   }
   .about-section__intro {
-    gap: 1rem; // space between headline, body, bullets
+    gap: 1rem;
+    padding: 1.25rem;
   }
   .about-section__body {
     line-height: 1.6;
   }
   .about-section__bullets {
     gap: 0.5rem; // breathe between bullet items
-  }
-  // Hide stats on mobile
-  .about-section__stats-desktop {
-    display: none;
   }
 }

@@ -56,15 +56,24 @@ const ContactSection = forwardRef((props, ref) => {
       <MatrixBackground />
       <div className="contact-section__content">
         <div className="contact-section__intro">
-          <p className="contact-section__eyebrow">GET IN TOUCH</p>
-          <h2 className="contact-section__headline">
-            LET&apos;S WORK
-            <br />
-            <span className="contact-section__headline--accent">TOGETHER</span>
-          </h2>
-          <p className="contact-section__copy">
-            Have a project in mind, a question, or just want to say hi? Feel free to reach out using the form or connect via socials.
-          </p>
+          <div className="contact-section__hero-visual">
+            <p className="contact-section__eyebrow">GET IN TOUCH</p>
+            <img
+              className="contact-section__memoji"
+              src="/assets/clip-art-images/memoji-wave.svg"
+              alt="Ijeri waving"
+            />
+          </div>
+          <div className="contact-section__hero-copy">
+            <h2 className="contact-section__headline">
+              LET&apos;S WORK
+              <br />
+              <span className="contact-section__headline--accent">TOGETHER</span>
+            </h2>
+            <p className="contact-section__copy">
+              Have a project in mind, a question, or just want to say hi? Feel free to reach out using the form or connect via socials.
+            </p>
+          </div>
         </div>
 
         <div className="contact-section__grid">

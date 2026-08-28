@@ -159,8 +159,6 @@ const EXPERIENCES = [
   },
 ];
 
-const ITEM_H = 96; // px — keep in sync with .exp-section__timeline-item height in SCSS
-
 // ── Component ─────────────────────────────────────────────────────────────────
 const ExpSection = forwardRef((props, ref) => {
   const [activeIndex, setActiveIndex] = useState(0);  // desktop timeline
@@ -186,9 +184,6 @@ const ExpSection = forwardRef((props, ref) => {
     pane.addEventListener("scroll", findActive, { passive: true });
     return () => pane.removeEventListener("scroll", findActive);
   }, []);
-
-  // Desktop timeline translateY
-  const timelineOffset = -(activeIndex * ITEM_H) + ITEM_H;
 
   return (
     <section id="EXP" ref={ref} className="exp-section">
@@ -275,7 +270,6 @@ const ExpSection = forwardRef((props, ref) => {
           <div className="exp-section__timeline-track">
             <ul
               className="exp-section__timeline-list"
-              style={{ transform: `translateY(${timelineOffset}px)` }}
             >
               {EXPERIENCES.map((exp, i) => (
                 <li key={exp.companyName} className="exp-section__timeline-item-wrap">

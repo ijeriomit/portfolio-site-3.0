@@ -3,37 +3,50 @@ import "./technology-stack.scss";
 
 const CATEGORIES = [
   "All Technologies",
-  "Languages",
   "Frontend",
   "Backend",
-  "DevOps & Cloud",
-  "Databases",
-  "Design & Tools",
+  "Testing",
+  "Tools",
 ];
 
 const TECHNOLOGIES = [
-  { name: "TypeScript", category: "Languages" },
-  { name: "JavaScript", category: "Languages" },
-  { name: "Python", category: "Languages" },
-  { name: "Ruby", category: "Languages" },
-  { name: "React", category: "Frontend" },
-  { name: "Angular", category: "Frontend" },
-  { name: "Vue.js", category: "Frontend" },
-  { name: "SCSS/CSS", category: "Frontend" },
-  { name: "Node.js", category: "Backend" },
-  { name: "REST APIs", category: "Backend" },
-  { name: "ROS", category: "Backend" },
-  { name: "C#", category: "Backend" },
-  { name: "Docker", category: "DevOps & Cloud" },
-  { name: "Git/CI CD", category: "DevOps & Cloud" },
-  { name: "SQL", category: "Databases" },
-  { name: "NoSQL", category: "Databases" },
-  { name: "Figma", category: "Design & Tools" },
-  { name: "Unity 3D", category: "Design & Tools" },
+  { name: "TypeScript", category: "Frontend", logo: "typescript-logo.svg" },
+  { name: "JavaScript", category: "Frontend", logo: "javascript-logo.svg" },
+  { name: "React", category: "Frontend", logo: "react-logo.svg" },
+  { name: "Angular", category: "Frontend", logo: "angular-logo.svg" },
+  { name: "Ember.js", category: "Frontend", logo: "ember-logo.svg" },
+  { name: "Vue.js", category: "Frontend", logo: "vue-logo.svg" },
+  { name: "SCSS/CSS", category: "Frontend", logo: "scss-logo.svg" },
+  { name: "Python", category: "Backend", logo: "python-logo.svg" },
+  { name: "Rails", category: "Backend", logo: "ruby-logo.svg" },
+  { name: "Node.js", category: "Backend", logo: "nodejs-logo.svg" },
+  { name: "REST APIs", category: "Backend", monogram: "API" },
+  { name: "C#", category: "Backend", logo: "csharp-logo.svg" },
+  { name: "QUnit", category: "Testing", logo: "qunit-logo.svg" },
+  { name: "RSpec", category: "Testing", logo: "rspec-logo.svg" },
+  { name: "Playwright", category: "Testing", logo: "playwright-logo.svg" },
+  { name: "Selenium", category: "Testing", logo: "selenium-logo.svg" },
+  { name: "Mocha/Chai", category: "Testing", logo: "mocha-logo.svg" },
+  { name: "Docker", category: "Tools", logo: "docker-logo.svg" },
+  {
+    name: "Git/GitHub",
+    category: "Tools",
+    logo: "../link-images/github.svg",
+    invertLogo: true,
+  },
+  { name: "Figma", category: "Tools", logo: "figma-logo.svg" },
+  { name: "Unity 3D", category: "Tools", logo: "unity-logo.svg" },
+  { name: "ROS", category: "Tools", logo: "ros-logo.svg" },
+  {
+    name: "AI Agents",
+    category: "Tools",
+    logo: "ai-agents-logo.svg",
+    invertLogo: true,
+  },
 ];
 
 export default function TechnologyStack() {
-  const [activeFilter, setActiveFilter] = useState("Languages");
+  const [activeFilter, setActiveFilter] = useState("All Technologies");
 
   const filtered =
     activeFilter === "All Technologies"
@@ -78,12 +91,25 @@ export default function TechnologyStack() {
         <ul className="technology-stack__grid" role="list">
           {filtered.map((tech) => (
             <li key={tech.name} className="technology-stack__card">
-              <img
-                src="/assets/clip-art-images/check-mark.svg"
-                alt=""
-                aria-hidden="true"
-                className="technology-stack__card-icon"
-              />
+              {tech.logo ? (
+                <img
+                  src={`/assets/clip-art-images/${tech.logo}`}
+                  alt=""
+                  aria-hidden="true"
+                  className={`technology-stack__card-icon technology-stack__card-icon--logo${
+                    tech.invertLogo
+                      ? " technology-stack__card-icon--inverted"
+                      : ""
+                  }`}
+                />
+              ) : (
+                <span
+                  className="technology-stack__card-monogram"
+                  aria-hidden="true"
+                >
+                  {tech.monogram}
+                </span>
+              )}
               <span className="technology-stack__card-name">{tech.name}</span>
             </li>
           ))}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" role="img" aria-labelledby="aiAgentTitle">
+  <title id="aiAgentTitle">AI Agents</title>
+  <g fill="#000">
+    <circle cx="50" cy="8" r="6"/>
+    <rect x="48" y="13" width="4" height="11" rx="2"/>
+    <rect x="12" y="23" width="76" height="55" rx="27"/>
+    <rect x="5" y="39" width="11" height="25" rx="5"/>
+    <rect x="84" y="39" width="11" height="25" rx="5"/>
+    <rect x="26" y="38" width="48" height="25" rx="10" fill="#fff"/>
+    <circle cx="39" cy="50" r="5"/>
+    <circle cx="61" cy="50" r="5"/>
+    <path d="M29 83h42c9 0 16 7 16 16v14H13V99c0-9 7-16 16-16z"/>
+  </g>
+  <text x="50" y="108" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="700">AI</text>
+</svg>

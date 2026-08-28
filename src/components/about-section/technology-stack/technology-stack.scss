@@ -1,7 +1,7 @@
 @import "src/global-styles/variables.scss";
 
 .technology-stack {
-  background-color: rgba($secondary-color, 0.03);
+  background-color: $card-background-color;
   border: 1px solid rgba($secondary-color, 0.1);
   border-radius: 12px;
   padding: 1rem 1.5rem;
@@ -78,8 +78,9 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(9, minmax(76px, 1fr));
+    column-gap: 1rem;
+    row-gap: 1.25rem;
     flex: 1;
     align-content: start;
   }
@@ -89,18 +90,12 @@
     flex-direction: column;
     align-items: center;
     gap: 0.4rem;
-    padding: 0.6rem 0.4rem;
-    border-radius: 8px;
-    background-color: $card-background-color;
-    border: 1px solid rgba($secondary-color, 0.08);
+    padding: 0.4rem 0.2rem;
     cursor: default;
-    transition:
-      border-color 0.2s ease,
-      background-color 0.2s ease;
+    transition: transform 0.2s ease;
 
     &:hover {
-      border-color: rgba($tertiary-color, 0.4);
-      background-color: rgba($tertiary-color, 0.06);
+      transform: translateY(-2px);
     }
   }
 
@@ -109,6 +104,17 @@
     height: 24px;
     filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
       brightness(86%) contrast(92%);
+
+    &--logo {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      filter: none;
+    }
+
+    &--inverted {
+      filter: invert(100%);
+    }
   }
 
   &__card-name {
@@ -117,9 +123,23 @@
     text-align: center;
   }
 
+  &__card-monogram {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgba($tertiary-color, 0.12);
+    border: 1px solid rgba($tertiary-color, 0.35);
+    color: $tertiary-color;
+    font-family: $subtitle-font;
+    font-weight: 700;
+  }
+
   @media screen and (max-width: $large-screen-width) {
     &__grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(6, 1fr);
     }
   }
 
@@ -140,10 +160,6 @@
   @media screen and (max-width: $phone-screen-width) {
     padding: 0.75rem;
 
-    &__filter-item--all {
-      display: none;
-    } // hide "All Technologies" on mobile
-
     &__title {
       text-align: center;
     }
@@ -163,9 +179,17 @@
       width: 120px;
     }
     &__card-icon {
-      // display: none;
       width: 20px;
       height: 20px;
+
+      &--logo {
+        width: 36px;
+        height: 36px;
+      }
+    }
+    &__card-monogram {
+      width: 36px;
+      height: 36px;
     }
   }
 }

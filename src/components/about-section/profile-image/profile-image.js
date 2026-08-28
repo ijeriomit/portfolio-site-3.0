@@ -6,7 +6,7 @@ export default function ProfileImage() {
       <div className="profile-image__glow-ring" aria-hidden="true"></div>
       <img
         className="profile-image__photo"
-        src="/assets/about-me-images/profile-icon.png"
+        src="/assets/about-me-images/headshot.jpg"
         alt="Ijeri Omitogun"
         loading="lazy"
       />

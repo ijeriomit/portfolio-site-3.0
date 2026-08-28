@@ -1,8 +1,8 @@
 import "./statistics-row.scss";
 
 const STATS = [
-  { icon: "</>", value: "6+",  label: "Years Experience"   },
-  { icon: "▦",   value: "20+", label: "Projects Delivered" },
+  { icon: "</>", value: "7+",  label: "Years Experience"   },
+  { icon: "▦",   value: "3", label: "Engineers Mentored" },
   { icon: ">_",  value: "10+", label: "Technologies"       },
 ];
 

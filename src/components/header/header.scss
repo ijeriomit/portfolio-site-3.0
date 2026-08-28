@@ -70,6 +70,10 @@ $icon-width: 32px;
       color: $tertiary-color;
       outline: none;
     }
+
+    &--active {
+      color: $tertiary-color;
+    }
   }
 
   .nav-cta {
@@ -145,6 +149,10 @@ $icon-width: 32px;
       &:focus-visible {
         color: $tertiary-color;
         outline: none;
+      }
+
+      &--active {
+        color: $tertiary-color;
       }
     }
 
