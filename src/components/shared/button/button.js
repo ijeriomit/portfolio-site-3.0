@@ -6,7 +6,7 @@ export default function Button({ children, onClick, href, type = "button", varia
 
   if (href) {
     return (
-      <a className={className} href={href}>
+      <a className={className} href={href} onClick={onClick}>
         {children}
       </a>
     );

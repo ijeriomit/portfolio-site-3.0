@@ -1,4 +1,4 @@
-import { forwardRef, useMemo, useRef, useState } from "react";
+import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import "./portfolio.scss";
 import { store } from "../../data.js";
 import MatrixBackground from "../matrix-background/matrix-background.js";
@@ -18,7 +18,7 @@ const PROJECT_META = {
   "ROS Video Recorder": { category: "Open Source", logo: null, badge: null, sortOrder: 6 },
   "Python Experiments": { category: "Personal", logo: null, badge: null, sortOrder: 12 },
   "Data Annotation Platform": { category: "AI / ML", logo: null, badge: null, sortOrder: 4 },
-  "Terraform Cloud (Intern)": { category: "Cloud Infrastructure", logo: "/assets/link-images/bit.png", badge: null, sortOrder: 2 },
+  "HCP Terraform": { category: "Cloud Infrastructure", logo: "/assets/link-images/bit.png", badge: null, sortOrder: 2 },
 };
 
 function trimDescription(description) {
@@ -44,13 +44,13 @@ function buildProjects() {
   return [
     ...baseProjects,
     {
-      title: "Terraform Cloud (Intern)",
-      companyLabel: "HashiCorp",
+      title: "HCP Terraform",
+      companyLabel: "HashiCorp at IBM",
       description:
-        "Contributed to Terraform Cloud's automation and infrastructure management experience used by thousands of teams.",
+        "A customer-facing infrastructure lifecycle management platform for provisioning, securing, and managing infrastructure at scale.",
       summary:
-        "Contributed to Terraform Cloud's automation and infrastructure management experience used by thousands of teams.",
-      techTags: ["Go", "React", "TypeScript", "PostgreSQL"],
+        "Built full-stack features for HCP Terraform across Ember.js, Ruby on Rails, authorization, testing, and production reliability.",
+      techTags: ["Ember.js", "Ruby on Rails", "RSpec", "QUnit", "Playwright"],
       category: "Cloud Infrastructure",
       logo: "/assets/link-images/bit.png",
       badge: null,
@@ -106,6 +106,29 @@ const Portfolio = forwardRef((props, ref) => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const featuredProject = selectedProject || projects[0];
+
+  useEffect(() => {
+    const selectLinkedProject = (event) => {
+      const project = projects.find(
+        (item) => item.title === event.detail?.projectTitle
+      );
+      if (!project) return;
+
+      setSelectedProject(project);
+      setActiveFilter(project.category);
+      requestAnimationFrame(() => {
+        projectRefs.current[project.title]?.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      });
+    };
+
+    window.addEventListener("portfolio:select-project", selectLinkedProject);
+    return () =>
+      window.removeEventListener("portfolio:select-project", selectLinkedProject);
+  }, [projects]);
 
   function handleFilterClick(filter) {
     setActiveFilter(filter);
@@ -193,12 +216,15 @@ const Portfolio = forwardRef((props, ref) => {
                 project={project}
                 isSelected={featuredProject.title === project.title}
                 onSelect={setSelectedProject}
-                projectRef={index === 0 ? (node) => {
-                  projectRefs.current[filter] = node;
-                  if (filter === PROJECT_CATEGORIES[0]) {
-                    projectRefs.current["All Projects"] = node;
+                projectRef={(node) => {
+                  projectRefs.current[project.title] = node;
+                  if (index === 0) {
+                    projectRefs.current[filter] = node;
+                    if (filter === PROJECT_CATEGORIES[0]) {
+                      projectRefs.current["All Projects"] = node;
+                    }
                   }
-                } : undefined}
+                }}
               />
             ));
           })}

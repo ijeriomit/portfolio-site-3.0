@@ -200,8 +200,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
+    width: 86px;
+    height: 86px;
     border-radius: 12px;
     border: 1px solid rgba($secondary-color, 0.08);
     background: $card-background-color;
@@ -211,8 +211,8 @@
       background-color 0.2s ease;
 
     img {
-      width: 24px;
-      height: 24px;
+      width: 48px;
+      height: 48px;
       filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(77deg)
         brightness(109%) contrast(101%);
       transition: filter 0.2s ease;
