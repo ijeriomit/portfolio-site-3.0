@@ -1,0 +1,42 @@
+@import "src/global-styles/variables.scss";
+
+.btn {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $title-font;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  padding: 10px 40px;
+  border: 2px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.btn--primary {
+  background-color: $tertiary-color;
+  color: $quaternary-color;
+  border-color: $tertiary-color;
+
+  &:hover {
+    background-color: darken($tertiary-color, 8%);
+    border-color: darken($tertiary-color, 8%);
+  }
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: $secondary-color;
+  border-color: $secondary-color;
+
+  &:hover {
+    background-color: $tertiary-color;
+    color: $quaternary-color;
+    border-color: $tertiary-color;
+  }
+}

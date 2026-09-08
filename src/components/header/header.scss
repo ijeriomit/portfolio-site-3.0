@@ -1,179 +1,212 @@
 @import "src/global-styles/variables.scss";
 
-$icon-width: 40px;
-$logo-white: #d6d6d6;
+$icon-width: 32px;
+
 #HEADER {
-  display: grid;
-  grid-template-rows: $header-height;
-  grid-template-columns: 15vw 67.5vw 17.5vw;
   position: fixed;
   z-index: 1000;
   width: 100vw;
+  height: $header-height;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  padding: 0 3vw;
+  box-sizing: border-box;
   background-image: linear-gradient(
-    rgba($quaternary-color, 0.6),
+    rgba($quaternary-color, 0.85),
     rgba($quaternary-color, 0)
   );
-  opacity: 80%;
-  .menu {
-    text-align: center;
-    margin-top: 2.5vh;
-    background-color: #0f190e;
-    // background-color: $quaternary-color-transparent;
-    flex-flow: column nowrap;
-    height: fit-content;
-    width: 12.5vw;
-    gap: 15px;
-    padding: 10% 3% 5% 3%;
-    justify-self: center;
+
+  .logo {
     display: flex;
-    cursor: pointer;
-    grid-column: 3;
-    animation: expand-down 0.25s linear 1;
-    overflow: hidden;
-    border: $tertiary-color solid 2px;
-  }
-  .menu-open {
-    max-height: 40vh;
-  }
-  .menu-link {
-    display: block;
-    margin: 15px 0;
-    color: $secondary-color;
-    font-family: $subtitle-font;
-    font-size: $text-size;
-    font-weight: bold;
+    align-items: center;
     text-decoration: none;
+    cursor: pointer;
+
+    .logo-icon {
+      width: 48px;
+    }
+    .logo-text {
+      width: 80px;
+      position: relative;
+      top: 3px;
+      margin-left: 6px;
+    }
   }
-  .menu-link:hover {
-    color: $tertiary-color;
-  }
-  .white {
-    filter: invert(94%) sepia(13%) saturate(36%) hue-rotate(338deg)
-      brightness(93%) contrast(84%);
-  }
+
   .whiter {
     filter: invert(100%) sepia(0%) saturate(7468%) hue-rotate(33deg)
       brightness(97%) contrast(99%);
   }
-  .logo {
-    grid-column: 1;
-    grid-row: 1;
-    margin: 0;
-    justify-self: center;
-    align-self: center;
-    cursor: pointer;
+
+  .logo-spin {
+    animation: spin 750ms linear 1;
+  }
+  .logo-text-appear {
+    animation: appear 1.75s both;
+  }
+  .logo-text-disappear {
+    animation: disappear 1.75s both;
+  }
+
+  .nav-links {
     display: flex;
     align-items: center;
-    .logo-icon {
-      width: 75px;
+    justify-content: center;
+    gap: 2.5vw;
+  }
+
+  .nav-link {
+    color: $secondary-color;
+    font-family: $subtitle-font;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: $tertiary-color;
+      outline: none;
     }
 
-    .green {
-      filter: invert(81%) sepia(9%) saturate(2656%) hue-rotate(100deg)
-        brightness(70%) contrast(102%);
+    &--active {
+      color: $tertiary-color;
     }
-    .logo-text {
-      width: 100px;
-      top: 5px;
-      position: relative;
-    }
-    .logo-icon-dark {
-      margin: -2px;
-      width: 62.5px;
+  }
+
+  .nav-cta {
+    margin-left: 2vw;
+
+    .btn {
+      font-size: 1rem;
+      padding: 8px 24px;
+      border-radius: 6px;
     }
   }
 
   .hamburger-menu {
+    display: none;
     background-color: transparent;
-    grid-row: 1;
-    grid-column: 3;
-    width: fit-content;
-    height: fit-content;
-    align-self: center;
-    justify-self: end;
-    cursor: pointer;
     border: none;
-    margin-right: 2.5vw;
-  }
-  .hamburger-menu > svg {
-    width: 90px;
-    height: 90px;
-    transform: scaleX(-1);
-  }
-  .close-menu {
-    background-color: transparent;
-    grid-row: 1;
-    grid-column: 3;
-    width: fit-content;
-    height: fit-content;
-    align-self: end;
     cursor: pointer;
-    border: none;
-    img {
-      border: none;
-      width: 40px;
-      padding: 10px 15px;
+    padding: 0;
+
+    svg {
+      width: 36px;
+      height: 36px;
     }
-  }
-  .logo-spin {
-    animation-name: spin;
-    animation-duration: 750ms;
-    animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.1, 0.3, 0.8, 1);
-    animation-timing-function: linear;
-  }
-  .logo-text-appear {
-    animation-name: appear;
-    animation-duration: 1.75s;
-    animation-fill-mode: both;
-  }
-  .logo-text-disappear {
-    animation-name: disappear;
-    animation-duration: 1.75s;
-    animation-fill-mode: both;
-  }
-  .socials {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 40px;
-    align-self: center;
-    margin: 20px 0px;
-  }
-  .social-link {
-    cursor: pointer;
-    max-width: fit-content;
-  }
-  .social-link img {
-    width: $icon-width;
-    filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(77deg)
-      brightness(109%) contrast(101%);
-  }
-  .social-link > img:hover {
-    filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
-      brightness(86%) contrast(92%);
   }
 
-  @media screen and (max-width: $large-screen-width) {
-    grid-template-columns: 20vw 60vw 20vw;
+  .mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: $quaternary-color;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 0 6vw;
+    animation: expand-down 0.25s ease 1;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: $header-height;
+    }
+
+    &__close {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 2vh;
+    }
+
+    &__link {
+      display: block;
+      color: $secondary-color;
+      font-family: $subtitle-font;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba($secondary-color, 0.1);
+      transition: color 0.2s ease;
+
+      &:hover,
+      &:focus-visible {
+        color: $tertiary-color;
+        outline: none;
+      }
+
+      &--active {
+        color: $tertiary-color;
+      }
+    }
+
+    &__socials {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 32px;
+      margin-top: auto;
+      padding: 32px 0;
+    }
+  }
+
+  .social-link {
+    cursor: pointer;
+
+    img {
+      width: $icon-width;
+      filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(77deg)
+        brightness(109%) contrast(101%);
+      transition: filter 0.2s ease;
+    }
+
+    img:hover {
+      filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
+        brightness(86%) contrast(92%);
+    }
+  }
+
+  @media screen and (max-width: $small-screen-width) {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .nav-links,
+    .nav-cta {
+      display: none;
+    }
+    .hamburger-menu {
+      display: block;
+      width: fit-content;
+      grid-column: 3;
+      justify-self: end;
+      margin-right: 3vw;
+      transform: scaleX(-1);
+    }
+  }
+
+  @media screen and (max-width: $phone-screen-width) {
     .logo {
+      margin-left: 3vw;
       .logo-icon {
-        width: 60px;
+        width: 40px;
       }
       .logo-text {
-        width: 75px;
+        width: 72px;
       }
-    }
-    .hamburger-menu svg {
-      width: 70px;
-    }
-    .menu-link {
-      font-size: $text-size-large-screen;
-    }
-    .social-link img {
-      width: 30px;
-    }
-    .menu {
-      width: 17.5vw;
     }
   }
 }

@@ -1,0 +1,126 @@
+@import "src/global-styles/variables.scss";
+
+.logo-strip {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(2.5rem, 4vw, 4rem);
+  width: 100%;
+  padding: 1rem 0 1.5rem;
+  border-bottom: 1px solid rgba($secondary-color, 0.18);
+
+  &__label {
+    font-family: $subtitle-font;
+    font-weight: 600;
+    color: rgba($secondary-color, 0.4);
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+    font-size: 1.25rem;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: clamp(3rem, 5vw, 6rem);
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+
+  &--visible &__item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__img {
+    height: 42px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.55;
+    transition: opacity 0.2s ease;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__wordmark {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba($secondary-color, 0.72);
+
+    span {
+      font-family: $title-font;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+  }
+
+  &__item:first-child &__img {
+    width: 104px;
+    height: auto;
+  }
+
+  &__item--nauticus &__img {
+    width: 150px;
+    height: 48px;
+    object-fit: cover;
+  }
+
+  &__placeholder {
+    font-family: $title-font;
+    font-weight: 700;
+    color: rgba($secondary-color, 0.72);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: rgba($secondary-color, 0.8);
+    }
+
+    &--google {
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+    }
+
+    &--nauticus {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.75rem;
+      line-height: 0.8;
+      letter-spacing: 0;
+
+      small {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+      }
+    }
+  }
+
+  @media screen and (max-width: $phone-screen-width) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+
+    &__list {
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+  }
+}

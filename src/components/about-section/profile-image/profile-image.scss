@@ -1,0 +1,64 @@
+@import "src/global-styles/variables.scss";
+
+.profile-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 25rem;
+  height: 25rem;
+
+  &__glow-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid $tertiary-color;
+    box-shadow:
+      0 0 12px $tertiary-color,
+      0 0 40px rgba($tertiary-color, 0.3),
+      inset 0 0 20px rgba($tertiary-color, 0.1);
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  &__photo {
+    width: 88%;
+    height: 88%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 12px $tertiary-color,
+      0 0 40px rgba($tertiary-color, 0.3),
+      inset 0 0 20px rgba($tertiary-color, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 20px $tertiary-color,
+      0 0 70px rgba($tertiary-color, 0.5),
+      inset 0 0 30px rgba($tertiary-color, 0.2);
+  }
+}
+
+@media screen and (max-width: $large-screen-width) {
+  .profile-image {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+@media screen and (max-width: $phone-screen-width) {
+  .profile-image {
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+  }
+}

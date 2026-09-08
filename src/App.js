@@ -4,10 +4,10 @@ import Header from "./components/header/header.js";
 import HomeSection from "./components/home-section/home-section.js";
 import AboutSection from "./components/about-section/about-section.js";
 import ExpSection from "./components/experience-section/experience-section.js";
-import SkillsSection from "./components/skills-section/skills-section.js";
+import ServicesSection from "./components/services-section/services-section.js";
 import Portfolio from "./components/portfolio/portfolio.js";
 import Testimonials from "./components/testimonials/testimonials.js";
-import MatrixBackground from "./components/matrix-background/matrix-background";
+import ContactSection from "./components/contact-section/contact-section.js";
 
 function App() {
   const [flipLogo, setLogo] = useState(false);
@@ -17,11 +17,10 @@ function App() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const expRef = useRef(null);
+  const servicesRef = useRef(null);
 
   useEffect(() => {
-    const observerOptions = {
-      threshold: [0.1, 0.9],
-    };
+    const observerOptions = { threshold: [0.1, 0.9] };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (
@@ -60,19 +59,20 @@ function App() {
     loadAboutContent,
     inExpSection,
   ]);
+
   return (
     <div className="App" ref={appRef}>
       <Header id="header" flipLogo={flipLogo}></Header>
-      <MatrixBackground className="bg-1"></MatrixBackground>
       <HomeSection ref={homeRef}></HomeSection>
       <AboutSection
         loadContent={loadAboutContent}
         ref={aboutRef}
       ></AboutSection>
       <ExpSection inView={inExpSection} ref={expRef}></ExpSection>
-      <SkillsSection></SkillsSection>
+      <ServicesSection ref={servicesRef}></ServicesSection>
       <Portfolio></Portfolio>
       <Testimonials></Testimonials>
+      <ContactSection></ContactSection>
     </div>
   );
 }

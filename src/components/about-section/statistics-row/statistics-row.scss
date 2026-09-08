@@ -1,0 +1,93 @@
+@import "src/global-styles/variables.scss";
+
+.statistics-row {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba($secondary-color, 0.04);
+  border: 1px solid rgba($secondary-color, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem 2.5rem;
+  gap: 1rem;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+
+    & + & {
+      border-left: 1px solid rgba($secondary-color, 0.1);
+      padding-left: 1.5rem;
+    }
+  }
+
+  &__icon {
+    font-family: $subtitle-font;
+    color: $tertiary-color;
+    background-color: rgba($tertiary-color, 0.1);
+    border: 1px solid rgba($tertiary-color, 0.3);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  &__value {
+    font-family: $title-font;
+    font-weight: 900;
+    color: $secondary-color;
+    line-height: 1;
+  }
+
+  &__label {
+    font-family: $subtitle-font;
+    color: rgba($secondary-color, 0.5);
+    letter-spacing: 0.03em;
+  }
+
+  @media screen and (max-width: $large-screen-width) {
+    padding: 1.25rem 1.5rem;
+  }
+
+  @media screen and (max-width: $phone-screen-width) {
+    // Single row — all 4 stats side by side
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: 0;
+    padding: 0.6rem 0.75rem;
+
+    &__item {
+      flex: 1;
+      gap: 0.4rem;
+      // Keep the left-border dividers but make them lighter
+      & + & {
+        border-left: 1px solid rgba($secondary-color, 0.1);
+        padding-left: 0.5rem;
+      }
+    }
+
+    &__icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+    }
+
+    &__text {
+      gap: 0.05rem;
+    }
+    &__label {
+      letter-spacing: 0;
+    }
+  }
+}

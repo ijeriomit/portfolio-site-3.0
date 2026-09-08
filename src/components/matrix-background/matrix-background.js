@@ -1,126 +1,38 @@
+import { useMemo } from "react";
 import "./matrix-background.scss";
 
-export default function MatrixBackground({ className }) {
-  return (
-    <div className={className + " matrix-bg"}>
-      <div className="section-bg-gradient">
-        <span
-          className="binary-code rain-animation-1"
-          style={{ left: "4%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-3"
-          style={{ left: "8%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-2"
-          style={{ left: "12%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-6"
-          style={{ left: "16%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-3"
-          style={{ left: "18%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation"
-          style={{ left: "20%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-2"
-          style={{ left: "24%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-7"
-          style={{ left: "28%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-4"
-          style={{ left: "30%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-1"
-          style={{ left: "32%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-5"
-          style={{ left: "36%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-2"
-          style={{ left: "40%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation"
-          style={{ left: "44%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-5"
-          style={{ left: "48%" }}
-        ></span>
+const COLUMNS_DESKTOP = [
+  [4,  "1"], [8,  "3"], [12, "2"], [16, "6"], [18, "3"],
+  [20, ""],  [24, "2"], [28, "7"], [32, "1"], [36, "5"],
+  [40, "2"], [44, ""],  [48, "5"], [52, "3"], [56, "6"],
+  [60, ""],  [64, "7"], [66, ""],  [68, "3"], [72, "4"],
+  [76, "2"], [80, "5"], [84, "1"], [86, "2"], [88, "6"],
+  [92, "4"], [96, "3"], [100,"1"],
+];
 
-        <span
-          className="binary-code rain-animation-3"
-          style={{ left: "52%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-6"
-          style={{ left: "56%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation"
-          style={{ left: "60%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-7"
-          style={{ left: "64%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation"
-          style={{ left: "66%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-3"
-          style={{ left: "68%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-4"
-          style={{ left: "72%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-2"
-          style={{ left: "76%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-5"
-          style={{ left: "80%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-1"
-          style={{ left: "84%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-2"
-          style={{ left: "86%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-6"
-          style={{ left: "88%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-4"
-          style={{ left: "92%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-3"
-          style={{ left: "96%" }}
-        ></span>
-        <span
-          className="binary-code rain-animation-1"
-          style={{ left: "100%" }}
-        ></span>
+const COLUMNS_MOBILE = [
+  [4,  "1"], [12, "3"], [24, "2"], [36, "6"],
+  [48, ""],  [60, "5"], [72, "3"], [84, "7"],
+  [92, "2"], [100,"4"],
+];
+
+export default function MatrixBackground({ className }) {
+  const isMobile = useMemo(
+    () => typeof window !== "undefined" && window.matchMedia("(max-width: 600px)").matches,
+    []
+  );
+  const columns = isMobile ? COLUMNS_MOBILE : COLUMNS_DESKTOP;
+
+  return (
+    <div className={(className ? className + " " : "") + "matrix-bg"}>
+      <div className="section-bg-gradient">
+        {columns.map(([left, variant], i) => (
+          <span
+            key={i}
+            className={"binary-code rain-animation" + (variant ? "-" + variant : "")}
+            style={{ left: `${left}%` }}
+          />
+        ))}
       </div>
       <div className="section-bg"></div>
     </div>

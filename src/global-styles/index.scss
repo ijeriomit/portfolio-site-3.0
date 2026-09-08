@@ -9,9 +9,43 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
 }
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4,
+h5 {
+  font-size: 1.1rem;
+}
+
+p,
+a,
+span,
+li,
+button,
+label,
+input,
+select,
+textarea {
+  font-size: 1.25rem;
+}
+
+h1 span,
+h2 span,
+h3 span {
+  font-size: inherit;
+}
+
 html {
-  // scroll-snap-type: y mandatory;
-  // overflow: hidden;
   height: fit-content;
 }
 .App {
@@ -22,14 +56,7 @@ html {
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: 100vh 100vh 100vh 100vh 100vh;
-}
-
-.bg-1 {
-  grid-row: 1/7;
-  grid-column: 1;
-  z-index: 1;
-  position: relative;
+  grid-template-rows: 100vh auto auto auto auto auto auto;
 }
 
 section {
@@ -41,64 +68,120 @@ section {
   position: relative;
 }
 
+#EXP {
+  height: auto !important;
+  min-height: 100vh;
+  overflow: visible !important;
+}
+
+#SERVICES {
+  height: auto !important;
+  min-height: 100vh;
+  overflow: visible !important;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  h4,
+  h5 {
+    font-size: 0.8rem;
+  }
+
+  p,
+  a,
+  span,
+  li,
+  button,
+  label,
+  input,
+  select,
+  textarea {
+    font-size: 1.1rem;
+  }
+
+  h1 span,
+  h2 span,
+  h3 span {
+    font-size: inherit;
+  }
+
+  .App {
+    // Disable mandatory snap on mobile — tall sections scroll naturally
+    scroll-snap-type: none;
+    // Keep content-sized rows from stretching to the App's viewport height.
+    // This lets tall sections such as Portfolio reserve space for their full content.
+    align-content: start;
+    grid-template-rows: repeat(7, max-content);
+  }
+  #HOME {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+  #ABOUT {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+    scroll-snap-align: none;
+  }
+  // EXP is a fixed 100vh viewport on mobile; cards scroll internally
+  #EXP {
+    height: 100vh !important;
+    overflow: hidden !important;
+    scroll-snap-align: none;
+  }
+  // PORT is a fixed mobile viewport; its project rail scrolls internally.
+  #PORT {
+    height: 100vh !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    scroll-snap-align: none;
+  }
+  // SERVICES grows to fit its content on mobile — no snap, no min-height forcing
+  #SERVICES {
+    height: auto !important;
+    min-height: unset !important;
+    overflow: visible !important;
+    scroll-snap-align: none;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
 }
 @keyframes appear {
-  0% {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  0%   { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 @keyframes disappear {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-75px);
-  }
+  0%   { opacity: 1; transform: translateX(0); }
+  50%  { opacity: 0; }
+  100% { opacity: 0; transform: translateX(-75px); }
 }
 @keyframes expandTextReverse {
-  0% {
-    clip-path: inset(0 0 0 100%); /* Start fully hidden on the right */
-  }
-  100% {
-    clip-path: inset(0 0 0 0); /* Fully revealed from the right */
-  }
+  0%   { clip-path: inset(0 0 0 100%); }
+  100% { clip-path: inset(0 0 0 0); }
 }
-
 @keyframes fadeOpacityReverse {
   0% {
-    -webkit-mask-image: linear-gradient(
-      to left,
-      transparent,
-      transparent 50%,
-      black 50%
-    );
-    mask-image: linear-gradient(
-      to left,
-      transparent,
-      transparent 50%,
-      black 50%
-    );
+    -webkit-mask-image: linear-gradient(to left, transparent, transparent 50%, black 50%);
+    mask-image: linear-gradient(to left, transparent, transparent 50%, black 50%);
   }
   100% {
     -webkit-mask-image: linear-gradient(to left, black, black);
@@ -106,28 +189,13 @@ code {
   }
 }
 @keyframes expandText {
-  0% {
-    clip-path: inset(0 100% 0 0); /* Start fully hidden */
-  }
-  100% {
-    clip-path: inset(0 0 0 0); /* Fully revealed */
-  }
+  0%   { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
 }
-
 @keyframes fadeOpacity {
   0% {
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent,
-      transparent 50%,
-      black 50%
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      transparent 50%,
-      black 50%
-    );
+    -webkit-mask-image: linear-gradient(to right, transparent, transparent 50%, black 50%);
+    mask-image: linear-gradient(to right, transparent, transparent 50%, black 50%);
   }
   100% {
     -webkit-mask-image: linear-gradient(to right, black, black);
@@ -135,65 +203,27 @@ code {
   }
 }
 @keyframes code {
-  10% {
-    content: "1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1 \A 1";
-  }
-  20% {
-    content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 0";
-  }
-  30% {
-    content: "1 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 1";
-  }
-  40% {
-    content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 1 \A 0";
-  }
-  50% {
-    content: "1 \A 1 \A 0 \A 1 \A 0 \A 0 \A 0 \A 0";
-  }
-  60% {
-    content: "1 \A 1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1";
-  }
-  70% {
-    content: "1 \A 0 \A 0 \A 1 \A 0 \A 1 \A 0 \A 0";
-  }
-  80% {
-    content: "1 \A 0 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0";
-  }
-  90% {
-    content: "0 \A 1 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0";
-  }
-  100% {
-    content: "1 \A  \A 0 \A 1 \A 0 \A 1 \A 1 \A 0";
-  }
+  10%  { content: "1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1 \A 1"; }
+  20%  { content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 0"; }
+  30%  { content: "1 \A 0 \A 1 \A 0 \A 1 \A 1 \A 0 \A 1"; }
+  40%  { content: "0 \A 0 \A 1 \A 0 \A 1 \A 1 \A 1 \A 0"; }
+  50%  { content: "1 \A 1 \A 0 \A 1 \A 0 \A 0 \A 0 \A 0"; }
+  60%  { content: "1 \A 1 \A 0 \A 1 \A 0 \A 1 \A 0 \A 1"; }
+  70%  { content: "1 \A 0 \A 0 \A 1 \A 0 \A 1 \A 0 \A 0"; }
+  80%  { content: "1 \A 0 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0"; }
+  90%  { content: "0 \A 1 \A 1 \A 0 \A 0 \A 1 \A 1 \A 0"; }
+  100% { content: "1 \A  \A 0 \A 1 \A 0 \A 1 \A 1 \A 0";  }
 }
 @keyframes rain {
-  0% {
-    top: -15%;
-  }
-  100% {
-    top: 100%;
-  }
+  0%   { top: -15%; }
+  100% { top: 100%; }
 }
 @keyframes fade-in-down {
-  0% {
-    opacity: 0;
-    transform: translateY(-20%);
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    // opacity: 1;
-    transform: translateY(0);
-  }
+  0%  { opacity: 0; transform: translateY(-20%); }
+  80% { opacity: 1; }
+  100%{ transform: translateY(0); }
 }
 @keyframes expand-down {
-  0% {
-    opacity: 0;
-    max-height: 0;
-  }
-  100% {
-    opacity: 1;
-    max-height: 100%;
-  }
+  0%   { opacity: 0; max-height: 0; }
+  100% { opacity: 1; max-height: 100%; }
 }

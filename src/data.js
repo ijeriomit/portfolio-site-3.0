@@ -116,107 +116,133 @@ export const store = {
     {
       title: "Buying Hub",
       companyName: "Google",
+      category: "Enterprise",
       description:
-        "Buying Hub is Google's procurement platform that centralizes purchasing, contract management, risk assessment, and supplier information, saving the company approximately $5 billion. As a front-end developer, I worked on web pages, forms, and search functionality, and earned Google certifications in Web Accessibility, TypeScript, and Angular. <br/> I contributed to the launch of versions A through C, creating unit tests, designing features, and delegating tasks to other engineers. This role involved close collaboration with Business Management, UI/UX, and Backend Engineering teams to ensure seamless product functionality and integration.",
-      media: ["supplier-nexus-art.png"],
+        "Buying Hub consolidated Google's fragmented purchasing, contracts, supplier management, compliance, and risk workflows into one internal platform credited with approximately $5 billion in first-year savings.",
+      workSummary:
+        "I built Angular and TypeScript interfaces, Reactive Forms, NgRx state, REST integrations, and accessible experiences. For Supplier Nexus, I developed supplier search, results, information fields, compliance forms, and risk-management pages while collaborating across product, UX, business, and backend teams.",
+      media: [
+        "supplier-nexus-art.png",
+        "buying_hub_nav.png",
+        "find-a-supplier.png",
+        "purchase_buying_hub.png",
+      ],
       coverImg: "supplier-nexus-art.png",
       coverImgPos: "center",
-      techStack: ["Angular", "Typescript", "Mocha/Chai", "REST API"],
+      techStack: [
+        "Angular",
+        "TypeScript",
+        "NgRx",
+        "Reactive Forms",
+        "Mocha",
+        "Chai",
+        "REST APIs",
+        "WCAG",
+      ],
+      logo: "/assets/experience-images/google-logo.png",
+      sortOrder: 1,
+    },
+    {
+      title: "HCP Terraform",
+      companyName: "HashiCorp at IBM",
+      category: "Cloud",
+      description:
+        "HCP Terraform is the customer-facing application teams use to manage Terraform infrastructure, permissions, organizations, projects, and production workflows at enterprise scale.",
+      workSummary:
+        "I build full-stack Ember and Rails features spanning Flexible Permissions, Site Auditor, Effective Permissions, safer organization deletion and restoration, and authorization consistency. The work includes Pundit policies, REST APIs, automated testing, production on-call, reliability improvements, ADRs, and cross-team delivery.",
+      media: [
+        "TerraformGeneralSettings.png",
+        "terraform.webp",
+        "TerraformProjects.png",
+      ],
+      coverImg: "terraform.webp",
+      url: "https://www.hashicorp.com/products/terraform",
+      techStack: [
+        "Ember.js",
+        "Ruby on Rails",
+        "Pundit",
+        "REST APIs",
+        "RSpec",
+        "QUnit",
+        "Playwright",
+      ],
+      logo: "/assets/clip-art-images/ibm-logo.svg",
+      sortOrder: 2,
     },
     {
       title: "Olympic Arm",
       companyName: "Nauticus Robotics",
+      category: "Robotics",
       description:
-        "Olympic Arm is a seven degree of freedom electronic manipulator. It's capable of performing complex operations like Absolute Position Sensing, Direct Cartesian Control, and Subsea Tool Changing in the subsea. On the Olympic Arm Team I developed the tool changing automation. Intergrating with visual sensors to determine the position of objects and calculating the path needed to reach the tool.",
-
-      media: [
-        "oly-arm.gif",
-        "olympic-arm.mp4",
-        "mock-oly-arm.mp4",
-        "oly-arm-tool.mp4",
-      ],
+        "Olympic Arm is a seven-degree-of-freedom subsea robotic manipulator built for underwater drilling, pipeline repair, tool manipulation, and intervention.",
+      workSummary:
+        "I owned its tool-pickup and tool-changing behavior. Using Python and ROS, my software consumed position, geometry, and compatibility data from the perception system, then determined and controlled how the physical arm interacted with each tool.",
+      media: ["olympic-arm.jpg", "oly-arm.gif"],
       coverImg: "olympic-arm.jpg",
       url: "https://nauticusrobotics.com/olympic-arm/",
       techStack: ["Vue.js", "ROS", "Python", "Docker"],
+      logo: "/assets/experience-images/nauticus-logo.jpeg",
+      sortOrder: 3,
     },
     {
-      title: "Haloguard",
+      title: "HaloGuard",
       companyName: "Nauticus Robotics",
+      category: "Robotics",
       description:
-        "Haloguard is a personnel monitoring safety system. Which integrates with multiple cameras to determine the position of people in industrials areas such as Oil rigs and factories. For the Haloguard Project I was in charge of developing and designing the Video Recording Feature. Giving our clients a backlog of video data for any accidents that occured. I also contributed to the development of the User Interface and components.",
+        "HaloGuard is an industrial personnel-safety system that uses Time-of-Flight cameras to track workers around heavy machinery and trigger safety stops in dangerous areas.",
+      workSummary:
+        "I developed the recording pipeline that captured camera data, processed images, synchronized eight feeds, and compiled them into a unified video. I also built the Vue playback page so users could review previous safety events.",
       media: ["haloguard.png"],
       coverImg: "haloguard.png",
       url: "https://www.rigzone.com/news/wire/transocean_deploys_drill_floor_safety_tech-12-feb-2021-164599-article/",
-      techStack: ["Vue", "Javascript", "ROS", "Python"],
-    },
-    {
-      title: "toolKITT",
-      companyName: "Nauticus Robotics",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec arcu mauris. Cras congue eu magna ut efficitur. Donec nec elit a massa cursus consectetur. Nam maximus consequat metus eu malesuada. Pellentesque aliquet, lectus id maximus laoreet, nulla libero fermentum risus, varius iaculis arcu turpis in nisl. Curabitur accumsan a ligula vitae ullamcorper. Nulla eget ultrices sapien, at auctor dui. Aenean sollicitudin, metus sed.",
-      media: ["aquanaut-commander.webp"],
-      coverImg: "aquanaut-commander.webp",
-      url: "https://nauticusrobotics.com/toolkitt/",
-      techStack: ["ROS", "Python"],
+      techStack: ["Vue.js", "JavaScript", "ROS", "Python"],
+      logo: "/assets/experience-images/nauticus-logo.jpeg",
+      sortOrder: 4,
     },
     {
       title: "LAB",
+      companyName: "Independent",
+      category: "Games",
       description:
-        "Lab is a 3D chemistry Lab simulator designed with the intent to allow students to conduct chemistry experiments in a safe and controlled environment. Lab would be beneficial for public schools without funding for a chemistry Lab and would allow users to learn without any risks. Lab was built using C# and Unity 3D.",
-      media: ["LAB.png"],
+        "LAB is a 3D virtual chemistry laboratory designed to let students perform experiments without the cost or physical risks of a fully equipped lab.",
+      workSummary:
+        "I designed and built the simulation in Unity and C#, applying object-oriented design, 3D interaction, and UX principles to create a controlled educational environment.",
+      media: ["LAB.png", "lab.gif"],
       coverImg: "LAB.png",
-
       url: "https://github.com/ijeriomit/LAB",
       techStack: ["C#", "Unity 3D"],
+      logo: "/assets/clip-art-images/ijeri-logo-icon.png",
+      sortOrder: 5,
     },
     {
       title: "Epoch",
+      companyName: "Independent",
+      category: "Games",
       description:
-        "Epoch is a 2D side-scrolling RPG I built in Unity, full of magic, monsters, and adventure. Players can customize their character’s gear and abilities—projectiles, swords, or magic—and face new enemies and challenges in each level. Collect coins to upgrade skills after every stage and progress through three unique levels. Developed in C#, it combines fast combat with strategic skill-building.",
-      media: ["epoch.gif"],
-      coverImg: "aquanaut-commander.webp",
-
+        "Epoch is a 2D side-scrolling RPG with customizable weapons, abilities, enemies, upgrades, and three playable levels.",
+      workSummary:
+        "I created the game in Unity and C#, building its combat, state management, progression, character equipment, enemies, coin upgrades, level flow, and animated interactions.",
+      media: ["epoch.gif", "epoch-short.gif", "player-jumping.png"],
+      coverImg: "epoch.gif",
       url: "https://github.com/ijeriomit/Epoch",
-      skills: ["C#", "Unity 3D"],
+      techStack: ["C#", "Unity 3D"],
+      logo: "/assets/clip-art-images/ijeri-logo-icon.png",
+      sortOrder: 6,
     },
     {
-      title: "Personal Portfolio",
+      title: "React Portfolio",
+      companyName: "Independent",
+      category: "Personal",
       description:
-        "This is the website you are currently navigating, which I designed and developed to market myself and showcase my work. It highlights my skills in web development and design, while also serving as a platform for displaying my completed projects. My portfolio was built using Vue and JavaScript, chosen for their flexibility in creating dynamic, user-friendly interfaces.",
-      media: ["portfolio.png"],
+        "This portfolio presents my engineering progression, case studies, services, and professional identity as one responsive interactive experience.",
+      workSummary:
+        "I designed and developed the current React version, including its component architecture, responsive layouts, accessible navigation, project storytelling, motion, deployment, and matrix-inspired visual system.",
+      media: ["portfolio.png", "portfolio-2.png", "portfolio.gif"],
       coverImg: "portfolio.png",
-
-      url: "https://github.com/ijeriomit/portfolio-site-2.0",
-      skills: ["Vue.js", "SCSS"],
-    },
-    {
-      title: "LeetCode Practice",
-      description:
-        "This GitHub repository features my LeetCode practice examples, primarily coded in JavaScript. By working through these problems, I’ve gained a deeper understanding of data structures, algorithms, and essential programming practices. It reflects my ongoing commitment to honing my problem-solving skills and applying core concepts in real-world coding scenarios.",
-      media: ["leetcode.png"],
-      coverImg: "leetcode.png",
-
-      url: "https://github.com/ijeriomit/leetcode-practice",
-      skills: ["Javascript"],
-    },
-    {
-      title: "ROS Video Recorder",
-      description:
-        "A ROS-based system designed to capture images sent over ROS topics and compile them into specified video formats. Developed using Python and ROS, the system has been tested with specially designed Baumer cameras and can integrate seamlessly with any robotic sensor system using ROS. Key functionalities include resizing images, receiving images via an API, and compiling the captured images into various requested video formats.",
-      media: ["ROS.png"],
-      coverImg: "ROS.png",
-
-      url: "https://github.com/ijeriomit/ROS-Video-Recorder",
-      skills: ["ROS", "Python", "OpenCV"],
-    },
-    {
-      title: "Python Experiments",
-      description:
-        "A collection of a differnet python code snippets. Showcases famailiarity with the syntax and concepts of the Python coding language. ",
-      media: ["python.jpeg"],
-      coverImg: "python.jpeg",
-      url: "https://github.com/ijeriomit/Python",
-      skills: ["Python"],
+      url: "https://github.com/ijeriomit/portfolio-site-3.0",
+      techStack: ["React", "JavaScript", "SCSS", "HTML"],
+      logo: "/assets/clip-art-images/ijeri-logo-icon.png",
+      sortOrder: 7,
     },
   ],
 };

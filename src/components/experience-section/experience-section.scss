@@ -1,156 +1,670 @@
 @import "src/global-styles/variables.scss";
 
-$title-height: 18vh;
-$timeline-point-width: 100px;
-$border-width: 5px;
-$green-border: $tertiary-color $border-width solid;
+// ── Section shell ────────────────────────────────────────────────────────────
+// Mobile snap container hidden on desktop; desktop layout hidden on mobile (via breakpoint)
+.exp-section__mobile {
+  display: none;
+}
+.exp-section__desktop {
+  display: contents;
+  position: relative;
+  z-index: 1;
+} // transparent wrapper on desktop
 
-#EXP {
-  height: 375vh;
-  scroll-snap-align: start;
-  overflow: visible;
+.exp-section {
+  background-color: $quaternary-color;
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 100%;
-  .timeline-bg {
-    background-image: linear-gradient(
-      rgba(#1e1f1d, 1),
-      rgba(#1e1f1d, 0.9),
-      rgba(#1e1f1d, 0.6)
-    );
-    height: 100vh - $title-height;
-    width: 100%;
-    grid-row: 3;
-    grid-column: 1/3;
-    top: $title-height;
-    z-index: 2;
-    position: sticky;
-    .left {
-      border-right: $green-border;
-      width: 50%;
-      height: 100%;
-    }
-    .right {
-      border-left: $green-border;
-      width: 50%;
-      height: 100%;
-    }
+  grid-template-columns: 420px calc(100vw - 420px);
+  gap: 0;
+  height: auto !important;
+  min-height: 100vh;
+  overflow: visible !important;
+  position: relative;
+}
+
+// ── LEFT COLUMN ──────────────────────────────────────────────────────────────
+.exp-section__left {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: calc($header-height + 2vh) 1.5rem 3vh 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-right: 1px solid rgba($secondary-color, 0.06);
+}
+
+// Header block
+.exp-section__header {
+  padding: 1.25rem;
+  border: 1px solid rgba($secondary-color, 0.08);
+  border-radius: 16px;
+  background: $card-background-color;
+}
+
+.exp-section__eyebrow {
+  font-family: $subtitle-font;
+  font-weight: 700;
+  color: $tertiary-color;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.5rem;
+}
+
+.exp-section__headline {
+  font-family: $title-font;
+  font-weight: 900;
+  color: $secondary-color;
+  line-height: 1.1;
+  margin: 0 0 0.75rem;
+
+  &--accent {
+    color: $tertiary-color;
   }
-  .title {
-    text-transform: uppercase;
-    font-style: italic;
-    background-color: rgba(#1e1f1d, 0.98);
-    height: $title-height;
-    text-align: center;
-    vertical-align: middle;
-    line-height: $title-height;
-    color: $secondary-color;
-    font-family: $title-font;
-    margin: 0;
-    font-size: 3.5rem;
-    z-index: 3;
+}
+
+.exp-section__subhead {
+  font-family: $title-font;
+  color: rgba($secondary-color, 0.6);
+  line-height: 1.55;
+  margin: 0;
+}
+
+// Timeline nav
+.exp-section__timeline {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  min-height: 0;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid rgba($secondary-color, 0.08);
+  border-radius: 16px;
+  background: $card-background-color;
+}
+
+// Timeline owns its overflow; entries stay aligned and can scroll independently.
+.exp-section__timeline-track {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior-y: auto;
+  position: relative;
+  mask-image: none;
+  -webkit-mask-image: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba($tertiary-color, 0.45) transparent;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba($tertiary-color, 0.45);
+  }
+}
+
+.exp-section__timeline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  // vertical line through all dots
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 7px;
     top: 0;
-    grid-row: 1;
-    grid-column: 1/3;
-    align-self: start;
-    position: sticky;
+    bottom: 0;
+    width: 1px;
+    background: rgba($secondary-color, 0.12);
   }
-  .exp-content {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 100%;
-    height: 85%;
-    top: -10vh;
-    z-index: 2;
-    position: relative;
-  }
-  .active-image {
-    grid-column: 1;
-    grid-row: 1;
-    width: 500px;
-    height: 500px;
-    position: sticky;
-    justify-self: center;
-    top: 25%;
-    z-index: 2;
-  }
+}
 
-  .experiences {
+.exp-section__timeline-item-wrap {
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+}
+
+.exp-section__timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  text-align: left;
+  width: 100%;
+  opacity: 1; // always fully visible — active state handles highlight
+  transition: opacity 0.25s ease;
+
+  &--active {
+    .exp-section__timeline-dot {
+      background: $tertiary-color;
+      box-shadow: 0 0 8px rgba($tertiary-color, 0.6);
+      border-color: $tertiary-color;
+    }
+    .exp-section__timeline-name {
+      color: $secondary-color;
+      font-weight: 700;
+    }
+    .exp-section__timeline-dates {
+      color: rgba($secondary-color, 0.5);
+    }
+  }
+}
+
+.exp-section__timeline-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid rgba($secondary-color, 0.3);
+  background: $card-background-color;
+  flex-shrink: 0;
+  margin-top: 3px;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.exp-section__timeline-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.exp-section__timeline-num {
+  font-family: $subtitle-font;
+  color: rgba($secondary-color, 0.35);
+  letter-spacing: 0.05em;
+}
+
+.exp-section__timeline-name {
+  font-family: $title-font;
+  font-weight: 500;
+  color: rgba($secondary-color, 0.55);
+  transition: color 0.2s ease;
+}
+
+.exp-section__timeline-dates {
+  font-family: $subtitle-font;
+  color: rgba($secondary-color, 0.3);
+}
+
+// scroll-hint removed — all timeline items are visible
+
+// ── RIGHT COLUMN — scrollable pane ──────────────────────────────────────────
+.exp-section__cards {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  padding: calc($header-height + 2vh) 1.5rem 2vh;
+  box-sizing: border-box;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc($header-height + 2vh);
+  scroll-padding-bottom: 2vh;
+  // Hand wheel/touch scrolling back to the page at the first and last card.
+  overscroll-behavior-y: auto;
+
+  // hide scrollbar visually but keep it functional
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// ── CARD ─────────────────────────────────────────────────────────────────────
+.exp-section__card {
+  position: relative;
+  background: $card-background-color;
+  border: 1px solid rgba($secondary-color, 0.08);
+  border-radius: 16px;
+  padding: 4.5rem 1.5rem 1.25rem;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: 1.5rem;
+  align-content: start;
+  flex: 0 0 calc(100vh - #{$header-height} - 4vh);
+  min-height: calc(100vh - #{$header-height} - 4vh);
+  max-height: calc(100vh - #{$header-height} - 4vh);
+  overflow: hidden;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  scroll-margin-top: calc($header-height + 2vh);
+  scrollbar-width: thin;
+  scrollbar-color: rgba($tertiary-color, 0.4) transparent;
+  transition: border-color 0.3s ease;
+  width: 85%;
+  max-width: none;
+  margin-inline: auto;
+
+  &--active {
+    border-color: $tertiary-color;
+  }
+}
+
+// Card header
+.exp-section__card-counter {
+  font-family: $subtitle-font;
+  color: rgba($secondary-color, 0.35);
+  letter-spacing: 0.06em;
+}
+
+.exp-section__card > .exp-section__card-header > .exp-section__card-counter {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.5rem;
+}
+
+.exp-section__card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.exp-section__card-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(400px, 0.8fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.exp-section__card-header-copy {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.exp-section__card-media {
+  width: 400px;
+  height: 300px;
+  justify-self: end;
+  overflow: hidden;
+  border-radius: 10px;
+
+  img {
+    width: unset;
     height: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    grid-row: 1;
-    grid-column: 2;
-    gap: 10;
-    z-index: 2;
-    align-self: start;
-    top: $title-height + 5vh;
-    position: relative;
-    padding-top: 5%;
+    object-fit: cover;
+    border: 1px solid rgba($secondary-color, 0.12);
+    border-radius: 10px;
   }
-  .experience {
-    display: flex;
-    flex-flow: row nowrap;
+}
+
+.exp-section__card-logos {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.exp-section__card-company {
+  font-family: $title-font;
+  font-weight: 900;
+  color: $secondary-color;
+  margin: 0;
+  line-height: 1;
+}
+
+.exp-section__card-logo {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  border-radius: 6px;
+  flex-shrink: 0;
+
+  &[src*="hashicorp-logo"],
+  &[src*="ibm-logo"] {
+    filter: brightness(0) invert(1);
+  }
+}
+
+.exp-section__card-role {
+  font-family: $subtitle-font;
+  color: $tertiary-color;
+  margin: 0;
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+.exp-section__card-meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-family: $subtitle-font;
+  color: rgba($secondary-color, 0.5);
+
+  span {
+    display: inline-flex;
     align-items: center;
-    right: calc((($border-width * 2) + $timeline-point-width) / 2);
-    position: relative;
-    gap: 10%;
-    transition: opacity ease-in 0.2s;
+    gap: 0.5rem;
   }
-  .exp-bubble {
-    width: 750px;
-    border-radius: 75px;
-    height: 800px;
-    border: $green-border;
-    color: $secondary-color;
+
+  img {
+    width: 1.1rem;
+    height: 1.1rem;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+  }
+}
+
+.exp-section__card-desc {
+  font-family: $title-font;
+  color: rgba($secondary-color, 0.75);
+  line-height: 1.55;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+// Sub-section label
+.exp-section__sub-label {
+  font-family: $subtitle-font;
+  font-weight: 700;
+  color: $tertiary-color;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+}
+
+// Impact grid — small fixed-size square cards
+.exp-section__impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.exp-section__impact-card {
+  width: auto;
+  min-height: 92px;
+  background: $card-background-color;
+  border: 1px solid rgba($secondary-color, 0.08);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 1rem;
+  align-content: center;
+}
+
+.exp-section__impact-icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  grid-row: 1 / -1;
+  align-self: center;
+  filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
+    brightness(86%) contrast(92%);
+}
+
+.exp-section__impact-value {
+  font-family: $title-font;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: $secondary-color;
+  line-height: 1;
+  align-self: end;
+}
+
+.exp-section__impact-label {
+  font-family: $subtitle-font;
+  font-size: 1.1rem;
+  color: rgba($secondary-color, 0.5);
+  line-height: 1.4;
+  align-self: start;
+}
+
+// Editorial content: career story left, supporting evidence right
+.exp-section__content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
+  gap: 3rem;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.exp-section__sidebar {
+  display: grid;
+  align-content: start;
+  gap: 2.5rem;
+  min-width: 0;
+}
+
+.exp-section__story-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.exp-section__story-copy p {
+  font-family: $title-font;
+  color: rgba($secondary-color, 0.75);
+  font-size: 1.5rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.exp-section__check {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
+    brightness(86%) contrast(92%);
+}
+
+.exp-section__tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.exp-section__tech-pill {
+  font-family: $subtitle-font;
+  font-size: 1.1rem;
+  color: rgba($secondary-color, 0.8);
+  background: rgba($secondary-color, 0.06);
+  border: 1px solid rgba($secondary-color, 0.12);
+  border-radius: 20px;
+  padding: 0.25rem 0.65rem;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: $phone-screen-width) {
+  .exp-section__impact-value,
+  .exp-section__impact-label,
+  .exp-section__tech-pill {
+    font-size: 0.8rem;
+  }
+
+  .exp-section__impact-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+// Featured project
+.exp-section__project-card {
+  background: $card-background-color;
+  border: 1px solid rgba($secondary-color, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.exp-section__project-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.exp-section__project-title {
+  font-family: $title-font;
+  font-weight: 700;
+  color: $secondary-color;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.exp-section__project-desc {
+  font-family: $title-font;
+  color: rgba($secondary-color, 0.75);
+  font-size: 1.5rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.exp-section__project-highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  li {
     display: flex;
-    flex-flow: column nowrap;
     align-items: flex-start;
-    justify-content: flex-start;
-    overflow: hidden;
-    background-color: rgba(#1e1f1d, 0.5);
-  }
-  .thumbnail {
-    width: 100%;
-    height: 30%;
-    // align-self: flex-start;
-    border-top-right-radius: 70px;
-    border-top-left-radius: 70px;
-  }
-  .exp-title {
-    font-size: 2.5rem;
-    margin: 30px 20px 15px 20px;
-
+    gap: 0.4rem;
     font-family: $title-font;
-    align-self: flex-start;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: rgba($secondary-color, 0.65);
   }
-  .job-title {
-    font-size: 1.75rem;
-    margin: 30px 20px;
+}
 
-    font-family: $subtitle-font;
-    font-style: italic;
-    align-self: flex-start;
+// ── Large screen adjustments ─────────────────────────────────────────────────
+@media screen and (max-width: $large-screen-width) {
+  .exp-section {
+    grid-template-columns: 420px 1fr;
   }
-  .exp-desc {
-    margin: 40px 20px;
-    font-size: $text-size;
-    font-family: $text-font;
+}
+
+// ── Small screen — 100vh section, flex-fill scroll ───────────────────────────
+@media screen and (max-width: $small-screen-width) {
+  // Section owns exactly one viewport; no guessing
+  .exp-section {
+    display: block;
+    height: 100vh;
+    overflow: hidden;
   }
-  .date {
-    margin: 40px 20px;
-    color: $secondary-color;
-    font-size: 1.5rem;
-    font-family: $subtitle-font;
-    margin: 0 20px;
+
+  // Hide desktop layout
+  .exp-section__desktop {
+    display: none;
   }
-  .point {
-    border: $green-border;
-    border-radius: 50%;
-    width: $timeline-point-width;
-    height: $timeline-point-width;
-    background-color: #1e1f1d;
+
+  // Mobile wrapper fills the section as a flex column
+  // padding-top clears the fixed header; left/right give breathing room
+  .exp-section__mobile {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 0vh;
+    // padding-top: $header-height;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-sizing: border-box;
+    gap: 0;
+    position: relative;
+    z-index: 1;
   }
-  @media screen and (max-width: $large-screen-width) {
+
+  // Centred hero header — shrinks to its natural height
+  .exp-section__mobile-header {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+    padding: 1.5rem 0 1rem;
+  }
+
+  .exp-section__headline {
+    line-height: 1.05;
+    margin: 0;
+  }
+  .exp-section__subhead {
+    line-height: 1.55;
+    margin: 0;
+    color: rgba($secondary-color, 0.6);
+    font-family: $title-font;
+    max-width: 340px;
+  }
+
+  // Cards container — fills all remaining space exactly, scrolls internally
+  .exp-section__mobile-cards {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // Individual card
+  .exp-section__mobile-card {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: $card-background-color;
+    border: 1px solid rgba($tertiary-color, 0.2);
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem;
+  }
+
+  // Impact grid
+  .exp-section__impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+  }
+  .exp-section__impact-card {
+    width: auto;
+    height: auto;
+    aspect-ratio: 1;
+    padding: 0.5rem;
+    gap: 0.15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  .exp-section__impact-icon {
+    margin-bottom: auto;
+  }
+  .exp-section__card-logo {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  .exp-section__card-desc {
+    line-height: 1.45;
+  }
+}
+
+// ── Override: lock #EXP to 100vh on mobile (matches section rule above) ───────
+@media screen and (max-width: $small-screen-width) {
+  #EXP {
+    height: 100vh !important;
+    overflow: hidden !important;
   }
 }
