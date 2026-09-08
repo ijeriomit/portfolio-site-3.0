@@ -78,7 +78,7 @@ export default function TechnologyStack() {
                 aria-pressed={activeFilter === cat}
               >
                 <img
-                  src="/assets/clip-art-images/check-mark.svg"
+                  src={`${process.env.PUBLIC_URL}/assets/clip-art-images/check-mark.svg`}
                   alt=""
                   aria-hidden="true"
                   className="technology-stack__filter-icon"
@@ -93,7 +93,7 @@ export default function TechnologyStack() {
             <li key={tech.name} className="technology-stack__card">
               {tech.logo ? (
                 <img
-                  src={`/assets/clip-art-images/${tech.logo}`}
+                  src={`${process.env.PUBLIC_URL}/assets/clip-art-images/${tech.logo}`}
                   alt=""
                   aria-hidden="true"
                   className={`technology-stack__card-icon technology-stack__card-icon--logo${

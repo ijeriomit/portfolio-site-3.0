@@ -8,7 +8,7 @@ const SkillsSection = forwardRef((props, ref) => {
     <section id="SKILLS">
       <img
         className="image-bg"
-        src="/assets/background-images/typing-hands.png"
+        src={`${process.env.PUBLIC_URL}/assets/background-images/typing-hands.png`}
         alt="laptop"
       ></img>
       <div className="green-tint"></div>

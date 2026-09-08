@@ -49,7 +49,7 @@ export default function Header({ flipLogo }) {
       <a href="#HOME" className="logo" aria-label="Go to home">
         <img
           className={"logo-icon " + (flipLogo ? "logo-spin" : "")}
-          src="/assets/clip-art-images/ijeri-logo-icon-gw.png"
+          src={`${process.env.PUBLIC_URL}/assets/clip-art-images/Ijeri-logo-icon-gw.png`}
           alt="Ijeri logo icon"
         />
         <img
@@ -57,7 +57,7 @@ export default function Header({ flipLogo }) {
             "logo-text whiter " +
             (flipLogo ? "logo-text-disappear" : "logo-text-appear")
           }
-          src="/assets/clip-art-images/ijeri-logo-text.png"
+          src={`${process.env.PUBLIC_URL}/assets/clip-art-images/ijeri-logo-text.png`}
           alt="Ijeri logo text"
         />
       </a>
@@ -113,7 +113,7 @@ export default function Header({ flipLogo }) {
             >
               <img
                 className="logo-icon"
-                src="/assets/clip-art-images/ijeri-logo-icon-gw.png"
+                src={`${process.env.PUBLIC_URL}/assets/clip-art-images/Ijeri-logo-icon-gw.png`}
                 alt="Ijeri logo icon"
               />
             </a>
@@ -157,7 +157,7 @@ export default function Header({ flipLogo }) {
               rel="noreferrer"
               aria-label="LinkedIn"
             >
-              <img src="/assets/link-images/linkedin.svg" alt="LinkedIn" />
+              <img src={`${process.env.PUBLIC_URL}/assets/link-images/linkedin.svg`} alt="LinkedIn" />
             </a>
             <a
               className="social-link"
@@ -166,7 +166,7 @@ export default function Header({ flipLogo }) {
               rel="noreferrer"
               aria-label="GitHub"
             >
-              <img src="/assets/link-images/github.svg" alt="GitHub" />
+              <img src={`${process.env.PUBLIC_URL}/assets/link-images/github.svg`} alt="GitHub" />
             </a>
             <a
               className="social-link"
@@ -175,7 +175,7 @@ export default function Header({ flipLogo }) {
               rel="noreferrer"
               aria-label="Medium"
             >
-              <img src="/assets/link-images/medium.svg" alt="Medium" />
+              <img src={`${process.env.PUBLIC_URL}/assets/link-images/medium.svg`} alt="Medium" />
             </a>
           </div>
         </div>

@@ -60,7 +60,7 @@ const ContactSection = forwardRef((props, ref) => {
             <p className="contact-section__eyebrow">GET IN TOUCH</p>
             <img
               className="contact-section__memoji"
-              src="/assets/clip-art-images/memoji-wave.svg"
+              src={`${process.env.PUBLIC_URL}/assets/clip-art-images/memoji-wave.svg`}
               alt="Ijeri waving"
             />
           </div>
@@ -113,13 +113,13 @@ const ContactSection = forwardRef((props, ref) => {
               <h3 className="contact-section__social-title">Connect</h3>
               <div className="contact-section__socials">
                 <a className="social-link" href="https://www.linkedin.com/in/ijeri-omitogun/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                  <img src="/assets/link-images/linkedin.svg" alt="LinkedIn" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/link-images/linkedin.svg`} alt="LinkedIn" />
                 </a>
                 <a className="social-link" href="https://github.com/ijeriomit" target="_blank" rel="noreferrer" aria-label="GitHub">
-                  <img src="/assets/link-images/github.svg" alt="GitHub" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/link-images/github.svg`} alt="GitHub" />
                 </a>
                 <a className="social-link" href="https://medium.com/@jeri-omit" target="_blank" rel="noreferrer" aria-label="Medium">
-                  <img src="/assets/link-images/medium.svg" alt="Medium" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/link-images/medium.svg`} alt="Medium" />
                 </a>
               </div>
             </div>

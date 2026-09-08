@@ -2,17 +2,17 @@ import { useEffect, useRef, useState } from "react";
 import "./logo-strip.scss";
 
 const LOGOS = [
-  { name: "IBM", src: "/assets/clip-art-images/ibm-logo.svg", alt: "IBM" },
+  { name: "IBM", src: `${process.env.PUBLIC_URL}/assets/clip-art-images/ibm-logo.svg`, alt: "IBM" },
   {
     name: "HashiCorp",
-    src: "/assets/clip-art-images/hashicorp-logo.svg",
+    src: `${process.env.PUBLIC_URL}/assets/clip-art-images/hashicorp-logo.svg`,
     alt: "HashiCorp",
     showName: true,
   },
   { name: "Google", src: null, alt: "Google", className: "google" },
   {
     name: "nauticus",
-    src: "/assets/clip-art-images/nauticus-wordmark.svg",
+    src: `${process.env.PUBLIC_URL}/assets/clip-art-images/nauticus-wordmark.svg`,
     alt: "Nauticus Robotics",
     className: "nauticus",
   },

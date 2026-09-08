@@ -5,7 +5,7 @@ export default function ProfileGraphic() {
     <div className="profile-graphic" aria-hidden="true">
       <img
         className="profile-graphic__image"
-        src="/assets/clip-art-images/memoji-laptop.svg"
+        src={`${process.env.PUBLIC_URL}/assets/clip-art-images/memoji-laptop.svg`}
         alt=""
       />
     </div>

@@ -7,7 +7,7 @@ const EXPERIENCES = [
   {
     index: 1,
     companyName: "University of Houston",
-    logo: "/assets/experience-images/uh-logo.png",
+    logo: `${process.env.PUBLIC_URL}/assets/experience-images/uh-logo.png`,
     jobTitle: "Bachelor of Science, Computer Science",
     startDate: "Aug 2015",
     endDate: "May 2019",
@@ -15,7 +15,7 @@ const EXPERIENCES = [
     description:
       "Earned a Bachelor of Science in Computer Science with minors in Mathematics and Management Information Systems.",
     image: {
-      src: "/assets/experience-images/uh-me.png",
+      src: `${process.env.PUBLIC_URL}/assets/experience-images/uh-me.png`,
       alt: "Ijere Omitogun posing with the University of Houston cougar statue",
     },
     impactLabel: "ACADEMIC DETAILS",
@@ -36,7 +36,7 @@ const EXPERIENCES = [
   {
     index: 2,
     companyName: "Nauticus Robotics",
-    logo: "/assets/experience-images/nauticus-logo.jpeg",
+    logo: `${process.env.PUBLIC_URL}/assets/experience-images/nauticus-logo.jpeg`,
     jobTitle: "Software Engineer",
     startDate: "Feb 2019",
     endDate: "Jun 2021",
@@ -67,7 +67,7 @@ const EXPERIENCES = [
   {
     index: 3,
     companyName: "Google LLC",
-    logo: "/assets/experience-images/google-logo.png",
+    logo: `${process.env.PUBLIC_URL}/assets/experience-images/google-logo.png`,
     jobTitle: "Software Engineer",
     startDate: "Nov 2021",
     endDate: "Mar 2024",
@@ -100,10 +100,10 @@ const EXPERIENCES = [
     companyName: "HashiCorp at IBM",
     logos: [
       {
-        src: "/assets/clip-art-images/hashicorp-logo.svg",
+        src: `${process.env.PUBLIC_URL}/assets/clip-art-images/hashicorp-logo.svg`,
         alt: "HashiCorp logo",
       },
-      { src: "/assets/clip-art-images/ibm-logo.svg", alt: "IBM logo" },
+      { src: `${process.env.PUBLIC_URL}/assets/clip-art-images/ibm-logo.svg`, alt: "IBM logo" },
     ],
     jobTitle: "Software Engineer (Band 7)",
     startDate: "Feb 2024",
@@ -135,7 +135,7 @@ const EXPERIENCES = [
   {
     index: 5,
     companyName: "Data Annotation",
-    logo: "/assets/experience-images/data-annotations-logo.jpg",
+    logo: `${process.env.PUBLIC_URL}/assets/experience-images/data-annotations-logo.jpg`,
     jobTitle: "AI Trainer (Contract)",
     startDate: "Apr 2024",
     endDate: "Present",
@@ -287,8 +287,8 @@ const ExpSection = forwardRef((props, ref) => {
               </div>
               <p className="exp-section__card-role">{exp.jobTitle}</p>
               <div className="exp-section__card-meta">
-                <span><img src="/assets/clip-art-images/calendar.svg" alt="" aria-hidden="true" />{exp.startDate} – {exp.endDate}</span>
-                <span><img src="/assets/clip-art-images/location-pin.svg" alt="" aria-hidden="true" />{exp.location}</span>
+                <span><img src={`${process.env.PUBLIC_URL}/assets/clip-art-images/calendar.svg`} alt="" aria-hidden="true" />{exp.startDate} – {exp.endDate}</span>
+                <span><img src={`${process.env.PUBLIC_URL}/assets/clip-art-images/location-pin.svg`} alt="" aria-hidden="true" />{exp.location}</span>
               </div>
               <p className="exp-section__card-desc">{exp.description}</p>
               <div className="exp-section__impact">
@@ -298,7 +298,7 @@ const ExpSection = forwardRef((props, ref) => {
                 <div className="exp-section__impact-grid">
                   {exp.impact.map((item) => (
                     <div key={item.label} className="exp-section__impact-card">
-                      <img src={`/assets/clip-art-images/${item.icon}`} alt="" aria-hidden="true" className="exp-section__impact-icon" />
+                      <img src={`${process.env.PUBLIC_URL}/assets/clip-art-images/${item.icon}`} alt="" aria-hidden="true" className="exp-section__impact-icon" />
                       <span className="exp-section__impact-value">{item.value}</span>
                       <span className="exp-section__impact-label">{item.label}</span>
                     </div>
@@ -385,8 +385,8 @@ const ExpSection = forwardRef((props, ref) => {
                 </div>
                 <p className="exp-section__card-role">{exp.jobTitle}</p>
                 <div className="exp-section__card-meta">
-                  <span><img src="/assets/clip-art-images/calendar.svg" alt="" aria-hidden="true" />{exp.startDate} – {exp.endDate}</span>
-                  <span><img src="/assets/clip-art-images/location-pin.svg" alt="" aria-hidden="true" />{exp.location}</span>
+                  <span><img src={`${process.env.PUBLIC_URL}/assets/clip-art-images/calendar.svg`} alt="" aria-hidden="true" />{exp.startDate} – {exp.endDate}</span>
+                  <span><img src={`${process.env.PUBLIC_URL}/assets/clip-art-images/location-pin.svg`} alt="" aria-hidden="true" />{exp.location}</span>
                 </div>
                 <p className="exp-section__card-desc">{exp.description}</p>
               </div>
@@ -401,7 +401,7 @@ const ExpSection = forwardRef((props, ref) => {
               <div className="exp-section__impact-grid">
                 {exp.impact.map((item) => (
                   <div key={item.label} className="exp-section__impact-card">
-                    <img src={`/assets/clip-art-images/${item.icon}`} alt="" aria-hidden="true" className="exp-section__impact-icon" />
+                    <img src={`${process.env.PUBLIC_URL}/assets/clip-art-images/${item.icon}`} alt="" aria-hidden="true" className="exp-section__impact-icon" />
                     <span className="exp-section__impact-value">{item.value}</span>
                     <span className="exp-section__impact-label">{item.label}</span>
                   </div>
@@ -442,7 +442,7 @@ const ExpSection = forwardRef((props, ref) => {
                         <ul className="exp-section__project-highlights">
                           {exp.featuredProject.highlights.map((h) => (
                             <li key={h}>
-                              <img src="/assets/clip-art-images/check-mark.svg" alt="" aria-hidden="true" className="exp-section__check" />
+                              <img src={`${process.env.PUBLIC_URL}/assets/clip-art-images/check-mark.svg`} alt="" aria-hidden="true" className="exp-section__check" />
                               {h}
                             </li>
                           ))}

@@ -139,7 +139,7 @@ export const store = {
         "REST APIs",
         "WCAG",
       ],
-      logo: "/assets/experience-images/google-logo.png",
+      logo: `${process.env.PUBLIC_URL}/assets/experience-images/google-logo.png`,
       sortOrder: 1,
     },
     {
@@ -166,7 +166,7 @@ export const store = {
         "QUnit",
         "Playwright",
       ],
-      logo: "/assets/clip-art-images/ibm-logo.svg",
+      logo: `${process.env.PUBLIC_URL}/assets/clip-art-images/ibm-logo.svg`,
       sortOrder: 2,
     },
     {
@@ -181,7 +181,7 @@ export const store = {
       coverImg: "olympic-arm.jpg",
       url: "https://nauticusrobotics.com/olympic-arm/",
       techStack: ["Vue.js", "ROS", "Python", "Docker"],
-      logo: "/assets/experience-images/nauticus-logo.jpeg",
+      logo: `${process.env.PUBLIC_URL}/assets/experience-images/nauticus-logo.jpeg`,
       sortOrder: 3,
     },
     {
@@ -196,7 +196,7 @@ export const store = {
       coverImg: "haloguard.png",
       url: "https://www.rigzone.com/news/wire/transocean_deploys_drill_floor_safety_tech-12-feb-2021-164599-article/",
       techStack: ["Vue.js", "JavaScript", "ROS", "Python"],
-      logo: "/assets/experience-images/nauticus-logo.jpeg",
+      logo: `${process.env.PUBLIC_URL}/assets/experience-images/nauticus-logo.jpeg`,
       sortOrder: 4,
     },
     {
@@ -211,7 +211,7 @@ export const store = {
       coverImg: "LAB.png",
       url: "https://github.com/ijeriomit/LAB",
       techStack: ["C#", "Unity 3D"],
-      logo: "/assets/clip-art-images/ijeri-logo-icon.png",
+      logo: `${process.env.PUBLIC_URL}/assets/clip-art-images/ijeri-logo-icon.png`,
       sortOrder: 5,
     },
     {
@@ -226,7 +226,7 @@ export const store = {
       coverImg: "epoch.gif",
       url: "https://github.com/ijeriomit/Epoch",
       techStack: ["C#", "Unity 3D"],
-      logo: "/assets/clip-art-images/ijeri-logo-icon.png",
+      logo: `${process.env.PUBLIC_URL}/assets/clip-art-images/ijeri-logo-icon.png`,
       sortOrder: 6,
     },
     {
@@ -241,7 +241,7 @@ export const store = {
       coverImg: "portfolio.png",
       url: "https://github.com/ijeriomit/portfolio-site-3.0",
       techStack: ["React", "JavaScript", "SCSS", "HTML"],
-      logo: "/assets/clip-art-images/ijeri-logo-icon.png",
+      logo: `${process.env.PUBLIC_URL}/assets/clip-art-images/ijeri-logo-icon.png`,
       sortOrder: 7,
     },
   ],

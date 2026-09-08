@@ -13,9 +13,9 @@ function buildProjects() {
       ...project,
       companyLabel: project.companyName || "Independent",
       media: (project.media?.length ? project.media : [project.coverImg]).map(
-        (image) => `/assets/project-images/${image}`
+        (image) => `${process.env.PUBLIC_URL}/assets/project-images/${image}`
       ),
-      image: `/assets/project-images/${project.coverImg}`,
+      image: `${process.env.PUBLIC_URL}/assets/project-images/${project.coverImg}`,
     }))
     .sort((a, b) => a.sortOrder - b.sortOrder);
 }

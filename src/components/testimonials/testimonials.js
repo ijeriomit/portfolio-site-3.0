@@ -109,7 +109,7 @@ const Testimonials = forwardRef((props, ref) => {
             <p className="testimonials-section__quote-mark" aria-hidden="true">“</p>
             <p className="testimonials-section__quote">{selectedTestimonial.text}</p>
             <div className="testimonials-section__person">
-              <img className="testimonials-section__avatar" src={`/assets/about-me-images/${selectedTestimonial.imageSrc}`} alt={selectedTestimonial.name} />
+              <img className="testimonials-section__avatar" src={`${process.env.PUBLIC_URL}/assets/about-me-images/${selectedTestimonial.imageSrc}`} alt={selectedTestimonial.name} />
               <div className="testimonials-section__person-text">
                 <p className="testimonials-section__name">{selectedTestimonial.name}</p>
                 <p className="testimonials-section__role">{selectedTestimonial.role}</p>
@@ -127,7 +127,7 @@ const Testimonials = forwardRef((props, ref) => {
               className={"testimonials-section__avatar-button" + (selectedTestimonial.id === item.id ? " testimonials-section__avatar-button--active" : "")}
               onClick={() => setSelectedId(item.id)}
             >
-              <img src={`/assets/about-me-images/${item.imageSrc}`} alt={item.name} className="testimonials-section__avatar-thumb" />
+              <img src={`${process.env.PUBLIC_URL}/assets/about-me-images/${item.imageSrc}`} alt={item.name} className="testimonials-section__avatar-thumb" />
               <span className="testimonials-section__avatar-name">{item.name}</span>
               <span className="testimonials-section__avatar-company">{item.company}</span>
             </button>
