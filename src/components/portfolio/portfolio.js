@@ -3,109 +3,99 @@ import "./portfolio.scss";
 import { store } from "../../data.js";
 import MatrixBackground from "../matrix-background/matrix-background.js";
 
-const PROJECT_CATEGORIES = ["Enterprise", "Cloud Infrastructure", "Robotics", "AI / ML", "Open Source", "Personal"];
+const PROJECT_CATEGORIES = ["Enterprise", "Cloud", "Robotics", "Games", "Personal"];
 const FILTERS = ["All Projects", ...PROJECT_CATEGORIES];
-
-const PROJECT_META = {
-  "Buying Hub": { category: "Enterprise", logo: "/assets/experience-images/google-logo.png", badge: null, sortOrder: 1 },
-  "Olympic Arm": { category: "Robotics", logo: null, badge: null, sortOrder: 3 },
-  Haloguard: { category: "Robotics", logo: null, badge: null, sortOrder: 5 },
-  toolKITT: { category: "Robotics", logo: null, badge: null, sortOrder: 8 },
-  LAB: { category: "Personal", logo: null, badge: null, sortOrder: 9 },
-  Epoch: { category: "Personal", logo: null, badge: null, sortOrder: 10 },
-  "Personal Portfolio": { category: "Open Source", logo: null, badge: null, sortOrder: 7 },
-  "LeetCode Practice": { category: "Open Source", logo: null, badge: null, sortOrder: 11 },
-  "ROS Video Recorder": { category: "Open Source", logo: null, badge: null, sortOrder: 6 },
-  "Python Experiments": { category: "Personal", logo: null, badge: null, sortOrder: 12 },
-  "Data Annotation Platform": { category: "AI / ML", logo: null, badge: null, sortOrder: 4 },
-  "HCP Terraform": { category: "Cloud Infrastructure", logo: "/assets/link-images/bit.png", badge: null, sortOrder: 2 },
-};
-
-function trimDescription(description) {
-  return description.replace(/<br\s*\/?>/g, " ").replace(/\s+/g, " ").trim();
-}
+const GALLERY_INTERVAL = 6000;
 
 function buildProjects() {
-  const baseProjects = store.projects.map((project) => {
-    const meta = PROJECT_META[project.title] || {};
-    return {
+  return store.projects
+    .map((project) => ({
       ...project,
-      category: meta.category || "Personal",
       companyLabel: project.companyName || "Independent",
-      summary: trimDescription(project.description),
-      techTags: project.techStack || project.skills || [],
-      logo: meta.logo,
-      badge: meta.badge,
-      sortOrder: meta.sortOrder || 99,
+      media: (project.media?.length ? project.media : [project.coverImg]).map(
+        (image) => `/assets/project-images/${image}`
+      ),
       image: `/assets/project-images/${project.coverImg}`,
-    };
-  });
-
-  return [
-    ...baseProjects,
-    {
-      title: "HCP Terraform",
-      companyLabel: "HashiCorp at IBM",
-      description:
-        "A customer-facing infrastructure lifecycle management platform for provisioning, securing, and managing infrastructure at scale.",
-      summary:
-        "Built full-stack features for HCP Terraform across Ember.js, Ruby on Rails, authorization, testing, and production reliability.",
-      techTags: ["Ember.js", "Ruby on Rails", "RSpec", "QUnit", "Playwright"],
-      category: "Cloud Infrastructure",
-      logo: "/assets/link-images/bit.png",
-      badge: null,
-      sortOrder: 2,
-      image: "/assets/project-images/buying_hub_nav.png",
-      url: "https://www.hashicorp.com/products/terraform",
-    },
-    {
-      title: "Data Annotation Platform",
-      companyLabel: "DataAnnotation",
-      description:
-        "Built internal tools and ML workflows to improve annotation quality and accelerate model training.",
-      summary:
-        "Built internal tools and ML workflows to improve annotation quality and accelerate model training.",
-      techTags: ["Python", "FastAPI", "PostgreSQL", "MLflow"],
-      category: "AI / ML",
-      logo: null,
-      badge: null,
-      sortOrder: 4,
-      image: "/assets/project-images/image-manip.png",
-      url: "https://www.dataannotation.tech/",
-    },
-  ]
-    .sort((a, b) => a.sortOrder - b.sortOrder)
-    .filter((project, index, list) => list.findIndex((item) => item.title === project.title) === index);
+    }))
+    .sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
 function ProjectCard({ project, projectRef, isSelected, onSelect }) {
   return (
     <button
       type="button"
-      className={"portfolio-section__card" + (isSelected ? " portfolio-section__card--selected" : "")}
+      className={
+        "portfolio-section__card" +
+        (isSelected ? " portfolio-section__card--selected" : "")
+      }
       ref={projectRef}
+      aria-pressed={isSelected}
       onClick={() => onSelect(project)}
     >
       <div className="portfolio-section__card-media">
-        <img src={project.image} alt={project.title} className="portfolio-section__card-image" />
-        {project.logo && <img src={project.logo} alt={`${project.companyLabel} logo`} className="portfolio-section__card-logo" />}
+        <img
+          src={project.image}
+          alt=""
+          loading="lazy"
+          className="portfolio-section__card-image"
+        />
+        {project.logo && (
+          <img
+            src={project.logo}
+            alt=""
+            className="portfolio-section__card-logo"
+          />
+        )}
+        <div className="portfolio-section__card-overlay" aria-hidden="true">
+          <p>{project.description}</p>
+        </div>
       </div>
-      <div className="portfolio-section__card-content">
-        <h3 className="portfolio-section__card-title">{project.title}</h3>
-        <p className="portfolio-section__card-desc">{project.summary}</p>
-      </div>
+      <h3 className="portfolio-section__card-title">{project.title}</h3>
     </button>
   );
 }
 
 const Portfolio = forwardRef((props, ref) => {
+  const projects = useMemo(() => buildProjects(), []);
   const [activeFilter, setActiveFilter] = useState(FILTERS[0]);
+  const [selectedProject, setSelectedProject] = useState(projects[0]);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [isGalleryPaused, setIsGalleryPaused] = useState(false);
   const railRef = useRef(null);
   const projectRefs = useRef({});
-  const projects = useMemo(() => buildProjects(), []);
-  const [selectedProject, setSelectedProject] = useState(null);
 
-  const featuredProject = selectedProject || projects[0];
+  const filteredProjects = useMemo(
+    () =>
+      activeFilter === "All Projects"
+        ? projects
+        : projects.filter((project) => project.category === activeFilter),
+    [activeFilter, projects]
+  );
+
+  const galleryImages = selectedProject.media;
+  const selectedIndex = filteredProjects.findIndex(
+    (project) => project.title === selectedProject.title
+  );
+
+  useEffect(() => {
+    setActiveImageIndex(0);
+  }, [selectedProject.title]);
+
+  useEffect(() => {
+    if (
+      galleryImages.length < 2 ||
+      isGalleryPaused ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return undefined;
+    }
+
+    const interval = window.setInterval(() => {
+      setActiveImageIndex((current) => (current + 1) % galleryImages.length);
+    }, GALLERY_INTERVAL);
+
+    return () => window.clearInterval(interval);
+  }, [galleryImages.length, isGalleryPaused, selectedProject.title]);
 
   useEffect(() => {
     const selectLinkedProject = (event) => {
@@ -114,15 +104,9 @@ const Portfolio = forwardRef((props, ref) => {
       );
       if (!project) return;
 
+      setActiveFilter("All Projects");
       setSelectedProject(project);
-      setActiveFilter(project.category);
-      requestAnimationFrame(() => {
-        projectRefs.current[project.title]?.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center",
-        });
-      });
+      requestAnimationFrame(() => scrollProjectIntoView(project.title));
     };
 
     window.addEventListener("portfolio:select-project", selectLinkedProject);
@@ -130,23 +114,53 @@ const Portfolio = forwardRef((props, ref) => {
       window.removeEventListener("portfolio:select-project", selectLinkedProject);
   }, [projects]);
 
-  function handleFilterClick(filter) {
-    setActiveFilter(filter);
-    const target = projectRefs.current[filter];
-    const project = filter === "All Projects"
-      ? projects[0]
-      : projects.find((item) => item.category === filter);
-    if (project) {
-      setSelectedProject(project);
-    }
-    requestAnimationFrame(() => {
-      const rail = railRef.current;
-      if (!rail || !target) return;
-      rail.scrollTo({
-        left: target.offsetLeft,
-        behavior: "smooth",
-      });
+  function scrollProjectIntoView(title) {
+    projectRefs.current[title]?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
     });
+  }
+
+  function selectProject(project) {
+    setSelectedProject(project);
+    requestAnimationFrame(() => scrollProjectIntoView(project.title));
+  }
+
+  function handleFilterClick(filter) {
+    const nextProjects =
+      filter === "All Projects"
+        ? projects
+        : projects.filter((project) => project.category === filter);
+
+    setActiveFilter(filter);
+    if (nextProjects[0]) {
+      setSelectedProject(nextProjects[0]);
+      requestAnimationFrame(() => {
+        railRef.current?.scrollTo({ left: 0, behavior: "smooth" });
+      });
+    }
+  }
+
+  function handleRailStep(direction) {
+    const nextIndex = Math.min(
+      Math.max(selectedIndex + direction, 0),
+      filteredProjects.length - 1
+    );
+    const nextProject = filteredProjects[nextIndex];
+    if (nextProject) selectProject(nextProject);
+  }
+
+  function handleGalleryStep(direction) {
+    setActiveImageIndex((current) =>
+      (current + direction + galleryImages.length) % galleryImages.length
+    );
+  }
+
+  function handleGalleryBlur(event) {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setIsGalleryPaused(false);
+    }
   }
 
   return (
@@ -154,38 +168,128 @@ const Portfolio = forwardRef((props, ref) => {
       <MatrixBackground />
       <div className="portfolio-section__content">
         <div className="portfolio-section__hero-grid">
-          <div className="portfolio-section__intro">
+          <header className="portfolio-section__intro">
             <p className="portfolio-section__eyebrow">ENGINEERING PORTFOLIO</p>
             <h2 className="portfolio-section__headline">
               I BUILD PRODUCTS
               <br />
-              THAT SOLVE <span className="portfolio-section__headline--accent">REAL PROBLEMS.</span>
+              THAT SOLVE{" "}
+              <span className="portfolio-section__headline--accent">
+                REAL PROBLEMS.
+              </span>
             </h2>
             <p className="portfolio-section__copy">
-              A collection of industrial, enterprise, and personal projects where I designed, built, and shipped impactful solutions.
+              Seven years building products across enterprise software, cloud
+              infrastructure, robotics, and interactive experiences.
             </p>
-            <div className="portfolio-section__stats">
-              <div className="portfolio-section__stat"><span className="portfolio-section__stat-value">15+</span><span className="portfolio-section__stat-label">Projects Built</span></div>
-              <div className="portfolio-section__stat"><span className="portfolio-section__stat-value">4+</span><span className="portfolio-section__stat-label">Industries Served</span></div>
-              <div className="portfolio-section__stat"><span className="portfolio-section__stat-value">5+</span><span className="portfolio-section__stat-label">Years Building</span></div>
-              <div className="portfolio-section__stat"><span className="portfolio-section__stat-value">Global</span><span className="portfolio-section__stat-label">Impact</span></div>
-            </div>
-          </div>
+            <p className="portfolio-section__proof">
+              Products shipped across four industries · Full-stack engineering ·
+              UI/UX and testing
+            </p>
+          </header>
 
-          <div className="portfolio-section__featured">
-            <article className="portfolio-section__featured-card">
-              <div className="portfolio-section__featured-copy">
+          <article className="portfolio-section__featured">
+            <div className="portfolio-section__featured-copy-column">
+              <div className="portfolio-section__featured-heading">
                 <p className="portfolio-section__eyebrow">SELECTED PROJECT</p>
-                <h3 className="portfolio-section__featured-title">{featuredProject.title}</h3>
-                <p className="portfolio-section__featured-company">{featuredProject.companyLabel}</p>
-                <p className="portfolio-section__featured-desc">{featuredProject.summary}</p>
+                <h3 className="portfolio-section__featured-title">
+                  {selectedProject.title}
+                </h3>
+                <p className="portfolio-section__featured-company">
+                  {selectedProject.companyLabel}
+                </p>
               </div>
-              <div className="portfolio-section__featured-media">
-                <img src={featuredProject.image} alt={featuredProject.title} className="portfolio-section__featured-image" />
-                {featuredProject.logo && <img src={featuredProject.logo} alt={`${featuredProject.companyLabel} logo`} className="portfolio-section__featured-logo" />}
+
+              <div className="portfolio-section__detail-block">
+                <h4>THE PRODUCT</h4>
+                <p>{selectedProject.description}</p>
               </div>
-            </article>
-          </div>
+
+              <div className="portfolio-section__detail-block">
+                <h4>WHAT I WORKED ON</h4>
+                <p>{selectedProject.workSummary}</p>
+              </div>
+            </div>
+
+            <div className="portfolio-section__featured-media-column">
+              <div
+                className="portfolio-section__gallery"
+                onMouseEnter={() => setIsGalleryPaused(true)}
+                onMouseLeave={() => setIsGalleryPaused(false)}
+                onFocus={() => setIsGalleryPaused(true)}
+                onBlur={handleGalleryBlur}
+              >
+                <div className="portfolio-section__gallery-stage">
+                  <img
+                    src={galleryImages[activeImageIndex]}
+                    alt={`${selectedProject.title} project view ${activeImageIndex + 1}`}
+                    className="portfolio-section__featured-image"
+                  />
+                  {selectedProject.logo && (
+                    <img
+                      src={selectedProject.logo}
+                      alt={`${selectedProject.companyLabel} logo`}
+                      className="portfolio-section__featured-logo"
+                    />
+                  )}
+                  {galleryImages.length > 1 && (
+                    <>
+                      <button
+                        type="button"
+                        className="portfolio-section__gallery-arrow portfolio-section__gallery-arrow--previous"
+                        aria-label={`Previous ${selectedProject.title} image`}
+                        onClick={() => handleGalleryStep(-1)}
+                      >
+                        ‹
+                      </button>
+                      <button
+                        type="button"
+                        className="portfolio-section__gallery-arrow portfolio-section__gallery-arrow--next"
+                        aria-label={`Next ${selectedProject.title} image`}
+                        onClick={() => handleGalleryStep(1)}
+                      >
+                        ›
+                      </button>
+                    </>
+                  )}
+                </div>
+
+                {galleryImages.length > 1 && (
+                  <div className="portfolio-section__gallery-controls">
+                    <div className="portfolio-section__gallery-dots" aria-label="Project images">
+                      {galleryImages.map((image, index) => (
+                        <button
+                          key={image}
+                          type="button"
+                          className={
+                            "portfolio-section__gallery-dot" +
+                            (activeImageIndex === index
+                              ? " portfolio-section__gallery-dot--active"
+                              : "")
+                          }
+                          aria-label={`Show image ${index + 1} of ${galleryImages.length}`}
+                          aria-current={activeImageIndex === index ? "true" : undefined}
+                          onClick={() => setActiveImageIndex(index)}
+                        />
+                      ))}
+                    </div>
+                    <p className="portfolio-section__gallery-count">
+                      IMAGE {activeImageIndex + 1} OF {galleryImages.length}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              <div className="portfolio-section__detail-block portfolio-section__detail-block--technologies">
+                <h4>TECHNOLOGIES</h4>
+                <ul className="portfolio-section__tech-list" aria-label="Technologies used">
+                  {selectedProject.techStack.map((technology) => (
+                    <li key={technology}>{technology}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
         </div>
 
         <div className="portfolio-section__controls">
@@ -194,40 +298,57 @@ const Portfolio = forwardRef((props, ref) => {
               <button
                 key={filter}
                 type="button"
-                className={"portfolio-section__filter" + (activeFilter === filter ? " portfolio-section__filter--active" : "")}
+                className={
+                  "portfolio-section__filter" +
+                  (activeFilter === filter
+                    ? " portfolio-section__filter--active"
+                    : "")
+                }
+                aria-pressed={activeFilter === filter}
                 onClick={() => handleFilterClick(filter)}
               >
                 {filter}
               </button>
             ))}
           </div>
-          <p className="portfolio-section__sort">Sort by: <span>Latest</span></p>
+          <p className="portfolio-section__project-count" aria-live="polite">
+            {String(selectedIndex + 1).padStart(2, "0")} /{" "}
+            {String(filteredProjects.length).padStart(2, "0")}
+          </p>
         </div>
 
-        <div className="portfolio-section__rail" ref={railRef}>
-          {PROJECT_CATEGORIES.map((filter) => {
-            const categoryProjects = projects.filter((project) => project.category === filter);
-            if (categoryProjects.length === 0) {
-              return null;
-            }
-            return categoryProjects.map((project, index) => (
+        <div className="portfolio-section__rail-shell">
+          <button
+            type="button"
+            className="portfolio-section__rail-arrow"
+            aria-label="Show previous project"
+            disabled={selectedIndex <= 0}
+            onClick={() => handleRailStep(-1)}
+          >
+            ‹
+          </button>
+          <div className="portfolio-section__rail" ref={railRef}>
+            {filteredProjects.map((project) => (
               <ProjectCard
                 key={project.title}
                 project={project}
-                isSelected={featuredProject.title === project.title}
-                onSelect={setSelectedProject}
+                isSelected={selectedProject.title === project.title}
+                onSelect={selectProject}
                 projectRef={(node) => {
                   projectRefs.current[project.title] = node;
-                  if (index === 0) {
-                    projectRefs.current[filter] = node;
-                    if (filter === PROJECT_CATEGORIES[0]) {
-                      projectRefs.current["All Projects"] = node;
-                    }
-                  }
                 }}
               />
-            ));
-          })}
+            ))}
+          </div>
+          <button
+            type="button"
+            className="portfolio-section__rail-arrow"
+            aria-label="Show next project"
+            disabled={selectedIndex >= filteredProjects.length - 1}
+            onClick={() => handleRailStep(1)}
+          >
+            ›
+          </button>
         </div>
       </div>
     </section>
