@@ -208,13 +208,13 @@
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  gap: 2vh;
-  padding: calc($header-height + 2vh) 1.5rem 2vh;
+  gap: 20vh;
+  padding: 14vh 1.5rem 6vh;
   box-sizing: border-box;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-  scroll-padding-top: calc($header-height + 2vh);
-  scroll-padding-bottom: 2vh;
+  // Shift the snap center down 4vh while keeping the full card visible.
+  scroll-padding: 8vh 0 0;
   // Hand wheel/touch scrolling back to the page at the first and last card.
   overscroll-behavior-y: auto;
 
@@ -231,23 +231,24 @@
   background: $card-background-color;
   border: 1px solid rgba($secondary-color, 0.08);
   border-radius: 16px;
-  padding: 4.5rem 1.5rem 1.25rem;
+  padding: 3.5rem 1.5rem 1.25rem;
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  grid-template-rows: auto auto;
   gap: 1.5rem;
   align-content: start;
-  flex: 0 0 calc(100vh - #{$header-height} - 4vh);
-  min-height: calc(100vh - #{$header-height} - 4vh);
-  max-height: calc(100vh - #{$header-height} - 4vh);
-  overflow: hidden;
+  flex: 0 0 auto;
+  height: auto;
+  min-height: 80vh;
+  overflow: visible;
   box-sizing: border-box;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
   scroll-snap-stop: always;
-  scroll-margin-top: calc($header-height + 2vh);
+  scroll-margin: 0;
   scrollbar-width: thin;
   scrollbar-color: rgba($tertiary-color, 0.4) transparent;
   transition: border-color 0.3s ease;
-  width: 85%;
+  width: 80%;
   max-width: none;
   margin-inline: auto;
 
@@ -573,8 +574,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-top: 0vh;
-    // padding-top: $header-height;
+    padding-top: $header-height;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     box-sizing: border-box;
@@ -666,5 +666,76 @@
   #EXP {
     height: 100vh !important;
     overflow: hidden !important;
+  }
+}
+
+// Desktop editorial layout: summary and impact above story and evidence.
+.exp-section__card {
+  > .exp-section__card-header {
+    display: block;
+    min-width: 0;
+  }
+
+  > .exp-section__impact {
+    min-width: 0;
+  }
+
+
+  .exp-section__impact-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  .exp-section__impact-card {
+    min-height: 0;
+    padding: 0.6rem 0.75rem;
+  }
+
+  > .exp-section__content-grid {
+    display: contents;
+  }
+
+  .exp-section__story {
+    min-width: 0;
+  }
+
+  .exp-section__sidebar {
+    gap: 1rem;
+  }
+
+  .exp-section__card-media {
+    width: 100%;
+    height: auto;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      box-sizing: border-box;
+    }
+  }
+}
+
+// Image cards give the story its own column rather than a shared tall top row.
+.exp-section__card--with-media {
+  grid-template-areas:
+    "header media"
+    "story impact"
+    "story sidebar";
+  grid-template-rows: auto auto 1fr;
+
+  > .exp-section__card-header { grid-area: header; }
+  > .exp-section__impact { grid-area: impact; }
+  .exp-section__story { grid-area: story; }
+  .exp-section__sidebar { grid-area: sidebar; }
+
+  > .exp-section__card-media {
+    grid-area: media;
+    width: 100%;
+    max-width: 320px;
+    align-self: start;
+    img {
+      max-height: 22vh;
+      object-fit: contain;
+    }
   }
 }

@@ -12,12 +12,6 @@ const SERVICES = [
 
 const EXPECTATIONS = ["End-to-end delivery", "Accessible, responsive interfaces", "Automated testing and quality controls", "Deployment and post-launch support"];
 
-const PROCESS = [
-  { number: "01", title: "UNDERSTAND THE PROBLEM", description: "Align on goals, users, constraints, and the right outcome." },
-  { number: "02", title: "DESIGN THE SOLUTION", description: "Plan and validate an approach focused on usability and maintainability." },
-  { number: "03", title: "BUILD, TEST & LAUNCH", description: "Deliver production-ready work and support it beyond launch." },
-];
-
 function ServiceIcon({ type }) {
   const paths = {
     code: <><rect x="4" y="8" width="40" height="30" rx="3"/><path d="m16 19-7 6 7 6M32 19l7 6-7 6M27 16l-6 18"/></>,
@@ -65,17 +59,7 @@ const ServicesSection = forwardRef((props, ref) => (
         </div>
       </div>
 
-      <div className="services-section__process">
-        <p className="services-section__eyebrow">HOW WE'LL WORK</p>
-        <ol>
-          {PROCESS.map((step) => (
-            <li key={step.number}>
-              <span className="services-section__process-number">{step.number}</span>
-              <div><h3>{step.title}</h3><p>{step.description}</p></div>
-            </li>
-          ))}
-        </ol>
-      </div>
+
     </div>
   </section>
 ));

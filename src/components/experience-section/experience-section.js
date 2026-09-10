@@ -216,11 +216,13 @@ const ExpSection = forwardRef((props, ref) => {
 
     const findActive = () => {
       if (pane.scrollHeight <= pane.clientHeight) return;
-      const triggerY = pane.getBoundingClientRect().top + pane.clientHeight * 0.25;
+      const snapPadding = parseFloat(getComputedStyle(pane).scrollPaddingTop) || 0;
+      const triggerY = pane.getBoundingClientRect().top + (pane.clientHeight + snapPadding) / 2;
       let closest = 0, closestDist = Infinity;
       cardRefs.current.forEach((card, i) => {
         if (!card) return;
-        const dist = Math.abs(card.getBoundingClientRect().top - triggerY);
+        const rect = card.getBoundingClientRect();
+        const dist = Math.abs(rect.top + rect.height / 2 - triggerY);
         if (dist < closestDist) { closestDist = dist; closest = i; }
       });
       setActiveIndex(closest);
@@ -371,7 +373,7 @@ const ExpSection = forwardRef((props, ref) => {
         {ORDERED_EXPERIENCES.map((exp, i) => (
           <article
             key={exp.companyName}
-            className={"exp-section__card" + (activeIndex === i ? " exp-section__card--active" : "")}
+            className={"exp-section__card" + (exp.image ? " exp-section__card--with-media" : "") + (activeIndex === i ? " exp-section__card--active" : "")}
             ref={(el) => (cardRefs.current[i] = el)}
             data-exp-index={i}
           >
@@ -390,8 +392,9 @@ const ExpSection = forwardRef((props, ref) => {
                 </div>
                 <p className="exp-section__card-desc">{exp.description}</p>
               </div>
-              <ExperienceMedia image={exp.image} />
             </div>
+
+            <ExperienceMedia image={exp.image} />
 
             {/* Key impact */}
             <div className="exp-section__impact">
