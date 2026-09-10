@@ -1,6 +1,6 @@
 @import "src/global-styles/variables.scss";
 
-$icon-width: 32px;
+$icon-width: 25.6px;
 
 #HEADER {
   position: fixed;
@@ -24,10 +24,10 @@ $icon-width: 32px;
     cursor: pointer;
 
     .logo-icon {
-      width: 48px;
+      width: 38.4px;
     }
     .logo-text {
-      width: 80px;
+      width: 64px;
       position: relative;
       top: 3px;
       margin-left: 6px;
@@ -59,7 +59,7 @@ $icon-width: 32px;
   .nav-link {
     color: $secondary-color;
     font-family: $subtitle-font;
-    font-size: 1rem;
+    font-size: calc(1 * var(--text-size-unit));
     font-weight: 600;
     text-decoration: none;
     letter-spacing: 0.05em;
@@ -80,7 +80,7 @@ $icon-width: 32px;
     margin-left: 2vw;
 
     .btn {
-      font-size: 1rem;
+      font-size: calc(1 * var(--text-size-unit));
       padding: 8px 24px;
       border-radius: 6px;
     }
@@ -138,7 +138,7 @@ $icon-width: 32px;
       display: block;
       color: $secondary-color;
       font-family: $subtitle-font;
-      font-size: 1.8rem;
+      font-size: calc(1.8 * var(--text-size-unit));
       font-weight: bold;
       text-decoration: none;
       padding: 14px 0;
@@ -202,10 +202,10 @@ $icon-width: 32px;
     .logo {
       margin-left: 3vw;
       .logo-icon {
-        width: 40px;
+        width: 32px;
       }
       .logo-text {
-        width: 72px;
+        width: 57.6px;
       }
     }
   }

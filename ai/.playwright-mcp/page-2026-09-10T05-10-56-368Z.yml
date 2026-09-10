@@ -1,0 +1,861 @@
+- generic [ref=f4e3]:
+  - banner [ref=f4e4]:
+    - link "Go to home" [ref=f4e5] [cursor=pointer]:
+      - /url: "#HOME"
+      - img "Ijeri logo icon" [ref=f4e6]
+      - img "Ijeri logo text" [ref=f4e7]
+    - navigation "Primary navigation" [ref=f4e8]:
+      - link "Home" [ref=f4e9] [cursor=pointer]:
+        - /url: "#HOME"
+      - link "About" [ref=f4e10] [cursor=pointer]:
+        - /url: "#ABOUT"
+      - link "Experience" [ref=f4e11] [cursor=pointer]:
+        - /url: "#EXP"
+      - link "Services" [ref=f4e12] [cursor=pointer]:
+        - /url: "#SERVICES"
+      - link "Portfolio" [ref=f4e13] [cursor=pointer]:
+        - /url: "#PORT"
+      - link "Testimonials" [ref=f4e14] [cursor=pointer]:
+        - /url: "#TEST"
+      - link "Contact" [ref=f4e15] [cursor=pointer]:
+        - /url: "#CONTACT"
+    - link "Let's Talk" [ref=f4e17] [cursor=pointer]:
+      - /url: mailto:ijeri.omitogun@gmail.com
+  - generic [ref=f4e18]:
+    - generic:
+      - generic:
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+    - generic [ref=f4e20]:
+      - generic [ref=f4e21]:
+        - heading "HELLO, I'M IJERI OMITOGUN" [level=3] [ref=f4e22]: "|"
+        - heading "I BUILD SOFTWARE THAT SOLVES REAL BUSINESS PROBLEMS." [level=1] [ref=f4e23]:
+          - generic [ref=f4e24]: I BUILD SOFTWARE
+          - generic [ref=f4e25]: THAT SOLVES REAL
+          - generic [ref=f4e26]: BUSINESS PROBLEMS.
+        - paragraph [ref=f4e27]: Full Stack Engineer specializing in scalable web applications, UX design, and AI-powered solutions.
+      - generic [ref=f4e28]:
+        - link "View My Work" [ref=f4e29] [cursor=pointer]:
+          - /url: "#PORT"
+        - link "Hire Me" [ref=f4e30] [cursor=pointer]:
+          - /url: "#CONTACT"
+    - generic [ref=f4e33]:
+      - generic [ref=f4e34]: TRUSTED BY
+      - list [ref=f4e35]:
+        - listitem [ref=f4e36]:
+          - img "IBM" [ref=f4e38]
+        - listitem [ref=f4e39]:
+          - generic [ref=f4e40]: HashiCorp
+        - listitem [ref=f4e43]: Google
+        - listitem [ref=f4e44]:
+          - img "Nauticus Robotics" [ref=f4e46]
+  - generic [ref=f4e47]:
+    - generic [ref=f4e48]:
+      - generic:
+        - generic:
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+          - generic: 1 0 1 0 1 0 1 0
+      - generic [ref=f4e49]:
+        - img "Ijeri Omitogun" [ref=f4e52]
+        - generic [ref=f4e53]:
+          - heading "ABOUT ME" [level=3] [ref=f4e54]
+          - heading "I COMBINE CODE WITH CREATIVITY TO DELIVER IMPACT." [level=2] [ref=f4e55]: I COMBINE CODEWITH CREATIVITYTO DELIVER IMPACT.
+          - paragraph [ref=f4e56]: I'm a full stack software engineer with 7 years of experience building enterprise SaaS, internal business platforms, and robotics software.
+          - list [ref=f4e57]:
+            - listitem [ref=f4e58]:
+              - generic [aria-hidden] [ref=f4e59]: ✓
+              - text: Frontend architecture and full-stack product development
+            - listitem [ref=f4e60]:
+              - generic [aria-hidden] [ref=f4e61]: ✓
+              - text: Accessible interfaces designed around WCAG standards
+            - listitem [ref=f4e62]:
+              - generic [aria-hidden] [ref=f4e63]: ✓
+              - text: Automated testing and production reliability
+            - listitem [ref=f4e64]:
+              - generic [aria-hidden] [ref=f4e65]: ✓
+              - text: Enterprise SaaS, business platforms, and robotics
+    - generic [ref=f4e66]:
+      - heading "TECH STACK" [level=3] [ref=f4e67]
+      - generic [ref=f4e68]:
+        - list [ref=f4e69]:
+          - listitem [ref=f4e70]:
+            - button "All Technologies" [pressed] [ref=f4e71] [cursor=pointer]
+          - listitem [ref=f4e73]:
+            - button "Frontend" [ref=f4e74] [cursor=pointer]
+          - listitem [ref=f4e76]:
+            - button "Backend" [ref=f4e77] [cursor=pointer]
+          - listitem [ref=f4e79]:
+            - button "Testing" [ref=f4e80] [cursor=pointer]
+          - listitem [ref=f4e82]:
+            - button "Tools" [ref=f4e83] [cursor=pointer]
+        - list [ref=f4e85]:
+          - listitem [ref=f4e86]:
+            - generic [ref=f4e88]: TypeScript
+          - listitem [ref=f4e89]:
+            - generic [ref=f4e91]: JavaScript
+          - listitem [ref=f4e92]:
+            - generic [ref=f4e94]: React
+          - listitem [ref=f4e95]:
+            - generic [ref=f4e97]: Angular
+          - listitem [ref=f4e98]:
+            - generic [ref=f4e100]: Ember.js
+          - listitem [ref=f4e101]:
+            - generic [ref=f4e103]: Vue.js
+          - listitem [ref=f4e104]:
+            - generic [ref=f4e106]: SCSS/CSS
+          - listitem [ref=f4e107]:
+            - generic [ref=f4e109]: Python
+          - listitem [ref=f4e110]:
+            - generic [ref=f4e112]: Rails
+          - listitem [ref=f4e113]:
+            - generic [ref=f4e115]: Node.js
+          - listitem [ref=f4e116]:
+            - generic [aria-hidden] [ref=f4e117]: API
+            - generic [ref=f4e118]: REST APIs
+          - listitem [ref=f4e119]:
+            - generic [ref=f4e121]: C#
+          - listitem [ref=f4e122]:
+            - generic [ref=f4e124]: QUnit
+          - listitem [ref=f4e125]:
+            - generic [ref=f4e127]: RSpec
+          - listitem [ref=f4e128]:
+            - generic [ref=f4e130]: Playwright
+          - listitem [ref=f4e131]:
+            - generic [ref=f4e133]: Selenium
+          - listitem [ref=f4e134]:
+            - generic [ref=f4e136]: Mocha/Chai
+          - listitem [ref=f4e137]:
+            - generic [ref=f4e139]: Docker
+          - listitem [ref=f4e140]:
+            - generic [ref=f4e142]: Git/GitHub
+          - listitem [ref=f4e143]:
+            - generic [ref=f4e145]: Figma
+          - listitem [ref=f4e146]:
+            - generic [ref=f4e148]: Unity 3D
+          - listitem [ref=f4e149]:
+            - generic [ref=f4e151]: ROS
+          - listitem [ref=f4e152]:
+            - generic [ref=f4e154]: AI Agents
+  - generic [ref=f4e155]:
+    - generic:
+      - generic:
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+    - generic [ref=f4e156]:
+      - generic [ref=f4e157]:
+        - generic [ref=f4e158]:
+          - paragraph [ref=f4e159]: MY JOURNEY
+          - heading "A JOURNEY OF BUILDING IMPACT" [level=2] [ref=f4e160]: A JOURNEY OFBUILDING IMPACT
+          - paragraph [ref=f4e161]: From robotics to enterprise software and AI, I've helped teams build products that solve complex problems and create real value.
+        - navigation "Experience timeline" [ref=f4e162]:
+          - list [ref=f4e164]:
+            - listitem [ref=f4e165]:
+              - button "01 University of Houston Aug 2015 – May 2019" [ref=f4e166] [cursor=pointer]:
+                - generic [ref=f4e168]:
+                  - generic [ref=f4e169]: "01"
+                  - generic [ref=f4e170]: University of Houston
+                  - generic [ref=f4e171]: Aug 2015 – May 2019
+            - listitem [ref=f4e172]:
+              - button "02 Nauticus Robotics Feb 2019 – Jun 2021" [ref=f4e173] [cursor=pointer]:
+                - generic [ref=f4e175]:
+                  - generic [ref=f4e176]: "02"
+                  - generic [ref=f4e177]: Nauticus Robotics
+                  - generic [ref=f4e178]: Feb 2019 – Jun 2021
+            - listitem [ref=f4e179]:
+              - button "03 Google LLC Nov 2021 – Mar 2024" [ref=f4e180] [cursor=pointer]:
+                - generic [ref=f4e182]:
+                  - generic [ref=f4e183]: "03"
+                  - generic [ref=f4e184]: Google LLC
+                  - generic [ref=f4e185]: Nov 2021 – Mar 2024
+            - listitem [ref=f4e186]:
+              - button "04 Data Annotation Apr 2024 – Present" [ref=f4e187] [cursor=pointer]:
+                - generic [ref=f4e189]:
+                  - generic [ref=f4e190]: "04"
+                  - generic [ref=f4e191]: Data Annotation
+                  - generic [ref=f4e192]: Apr 2024 – Present
+            - listitem [ref=f4e193]:
+              - button "05 HashiCorp at IBM Feb 2024 – Present" [ref=f4e194] [cursor=pointer]:
+                - generic [ref=f4e196]:
+                  - generic [ref=f4e197]: "05"
+                  - generic [ref=f4e198]: HashiCorp at IBM
+                  - generic [ref=f4e199]: Feb 2024 – Present
+      - generic [ref=f4e200]:
+        - article [ref=f4e201]:
+          - generic [ref=f4e202]:
+            - generic [ref=f4e203]: 01 / 05
+            - generic [ref=f4e204]:
+              - generic [ref=f4e205]:
+                - heading "University of Houston" [level=2] [ref=f4e206]
+                - img "University of Houston logo" [ref=f4e208]
+              - paragraph [ref=f4e209]: Bachelor of Science, Computer Science
+              - generic [ref=f4e210]:
+                - generic [ref=f4e211]: Aug 2015 – May 2019
+                - generic [ref=f4e213]: Houston, TX
+              - paragraph [ref=f4e215]: Earned a Bachelor of Science in Computer Science with minors in Mathematics and Management Information Systems.
+            - img "Ijere Omitogun posing with the University of Houston cougar statue" [ref=f4e217]
+          - generic [ref=f4e218]:
+            - heading "ACADEMIC DETAILS" [level=3] [ref=f4e219]
+            - generic [ref=f4e220]:
+              - generic [ref=f4e221]:
+                - generic [ref=f4e223]: B.S.
+                - generic [ref=f4e224]: Computer Science
+              - generic [ref=f4e225]:
+                - generic [ref=f4e227]: CodeRED
+                - generic [ref=f4e228]: hackathon organizer
+              - generic [ref=f4e229]:
+                - generic [ref=f4e231]: Dean's List
+                - generic [ref=f4e232]: academic recognition
+          - generic [ref=f4e233]:
+            - generic [ref=f4e234]:
+              - heading "ACADEMIC STORY" [level=3] [ref=f4e235]
+              - generic [ref=f4e236]:
+                - paragraph [ref=f4e237]: My computer science education established the technical foundation for my engineering career. Alongside the core degree, I studied Mathematics and Management Information Systems, earned a 3.22 GPA, and received Dean's List recognition.
+                - paragraph [ref=f4e238]: Outside the classroom, I volunteered with the CodeRED hackathon during my junior year and returned as an organizer during my senior year. I also built projects such as LAB, a 3D virtual chemistry laboratory, and Epoch, a 2D side-scrolling RPG using Unity and C#.
+            - complementary [ref=f4e239]:
+              - generic [ref=f4e240]:
+                - heading "PROJECT TOOLS" [level=3] [ref=f4e241]
+                - generic [ref=f4e242]:
+                  - generic [ref=f4e243]: Unity
+                  - generic [ref=f4e244]: C#
+                  - generic [ref=f4e245]: JavaScript
+                  - generic [ref=f4e246]: Python
+        - article [ref=f4e247]:
+          - generic [ref=f4e248]:
+            - generic [ref=f4e249]: 02 / 05
+            - generic [ref=f4e250]:
+              - generic [ref=f4e251]:
+                - heading "Nauticus Robotics" [level=2] [ref=f4e252]
+                - img "Nauticus Robotics logo" [ref=f4e254]
+              - paragraph [ref=f4e255]: Software Engineer
+              - generic [ref=f4e256]:
+                - generic [ref=f4e257]: Feb 2019 – Jun 2021
+                - generic [ref=f4e259]: Webster, TX
+              - paragraph [ref=f4e261]: Built software for subsea robotics and industrial safety systems across robotics, frontend development, automated testing, and hardware integration.
+          - generic [ref=f4e262]:
+            - heading "KEY IMPACT" [level=3] [ref=f4e263]
+            - generic [ref=f4e264]:
+              - generic [ref=f4e265]:
+                - generic [ref=f4e267]: Customer
+                - generic [ref=f4e268]: demos and field delivery
+              - generic [ref=f4e269]:
+                - generic [ref=f4e271]: Subsea
+                - generic [ref=f4e272]: robotic development
+              - generic [ref=f4e273]:
+                - generic [ref=f4e275]: Underwater
+                - generic [ref=f4e276]: testing and validation
+          - generic [ref=f4e277]:
+            - generic [ref=f4e278]:
+              - heading "THE STORY" [level=3] [ref=f4e279]
+              - generic [ref=f4e280]:
+                - paragraph [ref=f4e281]: I joined Nauticus as a Software and QA Intern and grew into a full-time Software Engineer working across robotics, frontend development, testing, and hardware integration. I owned tool-pickup behavior for the 7-DOF Olympic Arm, using ROS and Python to translate perception data into physical robotic movement.
+                - paragraph [ref=f4e282]: The role expanded my ownership beyond robotics into product interfaces, automated testing, and field delivery. I led customer demonstrations, became scuba certified to support Aquanaut testing, and dove in NASA's Neutral Buoyancy Laboratory while helping validate the system underwater.
+            - complementary [ref=f4e283]:
+              - generic [ref=f4e284]:
+                - heading "TECHNOLOGIES" [level=3] [ref=f4e285]
+                - generic [ref=f4e286]:
+                  - generic [ref=f4e287]: Vue.js
+                  - generic [ref=f4e288]: JavaScript
+                  - generic [ref=f4e289]: Python
+                  - generic [ref=f4e290]: ROS
+                  - generic [ref=f4e291]: Docker
+                  - generic [ref=f4e292]: Selenium
+              - generic [ref=f4e293]:
+                - heading "FEATURED PROJECT" [level=3] [ref=f4e294]
+                - generic [ref=f4e296]:
+                  - heading "HaloGuard" [level=4] [ref=f4e297]
+                  - paragraph [ref=f4e298]: An industrial safety platform that tracked personnel around heavy machinery using Time-of-Flight cameras.
+                  - list [ref=f4e299]:
+                    - listitem [ref=f4e300]: Captured and processed camera image data into video
+                    - listitem [ref=f4e302]: Synchronized feeds from eight cameras
+                    - listitem [ref=f4e304]: Built the playback interface for reviewing safety events
+        - article [ref=f4e306]:
+          - generic [ref=f4e307]:
+            - generic [ref=f4e308]: 03 / 05
+            - generic [ref=f4e309]:
+              - generic [ref=f4e310]:
+                - heading "Google LLC" [level=2] [ref=f4e311]
+                - img "Google LLC logo" [ref=f4e313]
+              - paragraph [ref=f4e314]: Software Engineer
+              - generic [ref=f4e315]:
+                - generic [ref=f4e316]: Nov 2021 – Mar 2024
+                - generic [ref=f4e318]: Austin, TX
+              - paragraph [ref=f4e320]: Built Angular and TypeScript features for Buying Hub, Google's company-wide procurement platform.
+          - generic [ref=f4e321]:
+            - heading "KEY IMPACT" [level=3] [ref=f4e322]
+            - generic [ref=f4e323]:
+              - generic [ref=f4e324]:
+                - generic [ref=f4e326]: Buying Hub
+                - generic [ref=f4e327]: enterprise procurement
+              - generic [ref=f4e328]:
+                - generic [ref=f4e330]: Supplier Nexus
+                - generic [ref=f4e331]: centralized discovery
+              - generic [ref=f4e332]:
+                - generic [ref=f4e334]: Accessible
+                - generic [ref=f4e335]: frontend delivery
+          - generic [ref=f4e336]:
+            - generic [ref=f4e337]:
+              - heading "THE STORY" [level=3] [ref=f4e338]
+              - generic [ref=f4e339]:
+                - paragraph [ref=f4e340]: At Google, I developed Angular and TypeScript features for Buying Hub, a company-wide platform that unified purchasing, contracts, supplier management, compliance, and risk workflows. The broader platform was credited internally with approximately $5 billion in first-year savings through consolidation and process improvements.
+                - paragraph [ref=f4e341]: I contributed frontend features to Supplier Nexus, a centralized discovery experience that gave employees access to supplier information previously spread across separate systems and workflows. I also solved complex state and API integration problems, built reusable WCAG-accessible components, and mentored engineering contractors across multiple time zones.
+            - complementary [ref=f4e342]:
+              - generic [ref=f4e343]:
+                - heading "TECHNOLOGIES" [level=3] [ref=f4e344]
+                - generic [ref=f4e345]:
+                  - generic [ref=f4e346]: Angular
+                  - generic [ref=f4e347]: TypeScript
+                  - generic [ref=f4e348]: NgRx
+                  - generic [ref=f4e349]: Reactive Forms
+                  - generic [ref=f4e350]: REST APIs
+                  - generic [ref=f4e351]: WCAG
+              - generic [ref=f4e352]:
+                - heading "FEATURED PROJECT" [level=3] [ref=f4e353]
+                - generic [ref=f4e355]:
+                  - heading "Buying Hub" [level=4] [ref=f4e356]
+                  - paragraph [ref=f4e357]: A unified internal platform for purchasing, contracts, suppliers, compliance, and risk-management workflows.
+                  - list [ref=f4e358]:
+                    - listitem [ref=f4e359]: Contributed to supplier discovery and search experiences
+                    - listitem [ref=f4e361]: Developed complex procurement and compliance forms
+                    - listitem [ref=f4e363]: Integrated REST APIs with reliable frontend state
+        - article [ref=f4e365]:
+          - generic [ref=f4e366]:
+            - generic [ref=f4e367]: 04 / 05
+            - generic [ref=f4e368]:
+              - generic [ref=f4e369]:
+                - heading "Data Annotation" [level=2] [ref=f4e370]
+                - img "Data Annotation logo" [ref=f4e372]
+              - paragraph [ref=f4e373]: AI Trainer (Contract)
+              - generic [ref=f4e374]:
+                - generic [ref=f4e375]: Apr 2024 – Present
+                - generic [ref=f4e377]: Remote
+              - paragraph [ref=f4e379]: Evaluate AI-generated code and provide structured feedback used to improve model correctness and software quality.
+          - generic [ref=f4e380]:
+            - heading "KEY IMPACT" [level=3] [ref=f4e381]
+            - generic [ref=f4e382]:
+              - generic [ref=f4e383]:
+                - generic [ref=f4e385]: AI
+                - generic [ref=f4e386]: code evaluation
+              - generic [ref=f4e387]:
+                - generic [ref=f4e389]: Quality
+                - generic [ref=f4e390]: correctness review
+              - generic [ref=f4e391]:
+                - generic [ref=f4e393]: Multi-Language
+                - generic [ref=f4e394]: technical assessment
+          - generic [ref=f4e395]:
+            - generic [ref=f4e396]:
+              - heading "THE STORY" [level=3] [ref=f4e397]
+              - generic [ref=f4e398]:
+                - paragraph [ref=f4e399]: As an AI Trainer, I evaluate AI-generated code and compare alternative solutions for correctness, reasoning quality, efficiency, and maintainability. The work requires identifying subtle technical problems and explaining why an implementation succeeds or fails.
+                - paragraph [ref=f4e400]: I provide structured feedback across Python, JavaScript, PHP, C#, and other languages. This experience has strengthened my code-review skills and my understanding of AI-assisted development, model behavior, and generated-software quality.
+            - complementary [ref=f4e401]:
+              - generic [ref=f4e402]:
+                - heading "TECHNOLOGIES" [level=3] [ref=f4e403]
+                - generic [ref=f4e404]:
+                  - generic [ref=f4e405]: Python
+                  - generic [ref=f4e406]: JavaScript
+                  - generic [ref=f4e407]: PHP
+                  - generic [ref=f4e408]: C#
+        - article [ref=f4e409]:
+          - generic [ref=f4e410]:
+            - generic [ref=f4e411]: 05 / 05
+            - generic [ref=f4e412]:
+              - generic [ref=f4e413]:
+                - heading "HashiCorp at IBM" [level=2] [ref=f4e414]
+                - generic [ref=f4e415]:
+                  - img "HashiCorp logo" [ref=f4e416]
+                  - img "IBM logo" [ref=f4e417]
+              - paragraph [ref=f4e418]: Software Engineer (Band 7)
+              - generic [ref=f4e419]:
+                - generic [ref=f4e420]: Feb 2024 – Present
+                - generic [ref=f4e422]: Austin, TX
+              - paragraph [ref=f4e424]: Build full-stack features for the HCP Terraform application using Ember.js and Ruby on Rails.
+          - generic [ref=f4e425]:
+            - heading "KEY IMPACT" [level=3] [ref=f4e426]
+            - generic [ref=f4e427]:
+              - generic [ref=f4e428]:
+                - generic [ref=f4e430]: Full-Stack
+                - generic [ref=f4e431]: product delivery
+              - generic [ref=f4e432]:
+                - generic [ref=f4e434]: Authorization
+                - generic [ref=f4e435]: architecture leadership
+              - generic [ref=f4e436]:
+                - generic [ref=f4e438]: Production
+                - generic [ref=f4e439]: on-call ownership
+          - generic [ref=f4e440]:
+            - generic [ref=f4e441]:
+              - heading "THE STORY" [level=3] [ref=f4e442]
+              - generic [ref=f4e443]:
+                - paragraph [ref=f4e444]: At HashiCorp at IBM, I build full-stack HCP Terraform features across Ember interfaces, Rails models, controllers, serializers, REST APIs, and Pundit authorization policies. My work has expanded from frontend delivery into Rails development, authorization architecture, and independent project leadership.
+                - paragraph [ref=f4e445]: I progressed into independent project leadership by delivering enterprise RBAC and read-only auditing features, building organization recovery safeguards, and leading a cross-team authorization audit. I also own production reliability through automated testing, observability, incident response, and on-call support.
+            - complementary [ref=f4e446]:
+              - generic [ref=f4e447]:
+                - heading "TECHNOLOGIES" [level=3] [ref=f4e448]
+                - generic [ref=f4e449]:
+                  - generic [ref=f4e450]: Ember.js
+                  - generic [ref=f4e451]: Ruby on Rails
+                  - generic [ref=f4e452]: RSpec
+                  - generic [ref=f4e453]: QUnit
+                  - generic [ref=f4e454]: Playwright
+                  - generic [ref=f4e455]: Pundit
+                  - generic [ref=f4e456]: Datadog
+              - generic [ref=f4e457]:
+                - heading "FEATURED PROJECT" [level=3] [ref=f4e458]
+                - generic [ref=f4e460]:
+                  - heading "HCP Terraform" [level=4] [ref=f4e461]
+                  - paragraph [ref=f4e462]: A customer-facing infrastructure lifecycle management platform for provisioning and managing infrastructure at scale.
+                  - list [ref=f4e463]:
+                    - listitem [ref=f4e464]: Delivered full-stack features across Ember.js and Rails
+                    - listitem [ref=f4e466]: Built enterprise authorization and auditing workflows
+                    - listitem [ref=f4e468]: Improved organization recovery and production reliability
+  - generic [ref=f4e470]:
+    - generic:
+      - generic:
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+    - generic [ref=f4e471]:
+      - generic [ref=f4e472]:
+        - generic [ref=f4e473]:
+          - paragraph [ref=f4e474]: WHAT I DO
+          - heading "BUILD. IMPROVE. REDESIGN. AUTOMATE." [level=2] [ref=f4e475]: BUILD. IMPROVE.REDESIGN. AUTOMATE.
+          - paragraph [ref=f4e476]: I help businesses design, build, modernize, and launch reliable digital products—from websites and applications to internal tools and test automation.
+          - generic [ref=f4e477]:
+            - link "DISCUSS YOUR PROJECT" [ref=f4e478] [cursor=pointer]:
+              - /url: "#CONTACT"
+            - link "VIEW MY WORK" [ref=f4e479] [cursor=pointer]:
+              - /url: "#PORT"
+        - generic [ref=f4e480]:
+          - paragraph [ref=f4e481]: WHAT YOU CAN EXPECT
+          - list [ref=f4e482]:
+            - listitem [ref=f4e483]:
+              - generic [aria-hidden] [ref=f4e484]: ✓
+              - text: End-to-end delivery
+            - listitem [ref=f4e485]:
+              - generic [aria-hidden] [ref=f4e486]: ✓
+              - text: Accessible, responsive interfaces
+            - listitem [ref=f4e487]:
+              - generic [aria-hidden] [ref=f4e488]: ✓
+              - text: Automated testing and quality controls
+            - listitem [ref=f4e489]:
+              - generic [aria-hidden] [ref=f4e490]: ✓
+              - text: Deployment and post-launch support
+      - generic [ref=f4e491]:
+        - paragraph [ref=f4e492]: HOW I CAN HELP
+        - generic [ref=f4e493]:
+          - article [ref=f4e494]:
+            - heading "WEBSITES & FULL-STACK APPLICATIONS" [level=3] [ref=f4e500]
+            - paragraph [ref=f4e501]: Build and launch reliable digital products that support your customers, team, and business goals.
+            - paragraph [ref=f4e502]: TYPICAL WORK
+            - list [ref=f4e503]:
+              - listitem [ref=f4e504]: ✓ Business websites and MVPs
+              - listitem [ref=f4e505]: ✓ Portals, internal tools, and APIs
+              - listitem [ref=f4e506]: ✓ Deployment and ongoing maintenance
+          - article [ref=f4e507]:
+            - heading "UI/UX DESIGN & IMPLEMENTATION" [level=3] [ref=f4e513]
+            - paragraph [ref=f4e514]: Create clear, accessible interfaces and turn approved designs into responsive production experiences.
+            - paragraph [ref=f4e515]: TYPICAL WORK
+            - list [ref=f4e516]:
+              - listitem [ref=f4e517]: ✓ New interface and workflow design
+              - listitem [ref=f4e518]: ✓ UX reviews and responsive redesigns
+              - listitem [ref=f4e519]: ✓ Accessibility and frontend implementation
+          - article [ref=f4e520]:
+            - heading "APPLICATION IMPROVEMENT & ARCHITECTURE" [level=3] [ref=f4e529]
+            - paragraph [ref=f4e530]: Strengthen existing applications through focused technical improvements and dependable engineering practices.
+            - paragraph [ref=f4e531]: TYPICAL WORK
+            - list [ref=f4e532]:
+              - listitem [ref=f4e533]: ✓ Modernization, performance, and architecture
+              - listitem [ref=f4e534]: ✓ Authorization and reliability improvements
+              - listitem [ref=f4e535]: ✓ Unit, E2E, Selenium, Playwright, and CI testing
+          - article [ref=f4e536]:
+            - heading "TECHNICAL CONSULTING" [level=3] [ref=f4e542]
+            - paragraph [ref=f4e543]: Clarify complex technical problems and create a practical path from investigation to implementation.
+            - paragraph [ref=f4e544]: TYPICAL WORK
+            - list [ref=f4e545]:
+              - listitem [ref=f4e546]: ✓ Technical and architecture audits
+              - listitem [ref=f4e547]: ✓ Debugging, accessibility, and test strategy
+              - listitem [ref=f4e548]: ✓ Implementation plans and engineering guidance
+      - generic [ref=f4e549]:
+        - paragraph [ref=f4e550]: HOW WE'LL WORK
+        - list [ref=f4e551]:
+          - listitem [ref=f4e552]:
+            - generic [ref=f4e553]: "01"
+            - generic [ref=f4e554]:
+              - heading "UNDERSTAND THE PROBLEM" [level=3] [ref=f4e555]
+              - paragraph [ref=f4e556]: Align on goals, users, constraints, and the right outcome.
+          - listitem [ref=f4e557]:
+            - generic [ref=f4e558]: "02"
+            - generic [ref=f4e559]:
+              - heading "DESIGN THE SOLUTION" [level=3] [ref=f4e560]
+              - paragraph [ref=f4e561]: Plan and validate an approach focused on usability and maintainability.
+          - listitem [ref=f4e562]:
+            - generic [ref=f4e563]: "03"
+            - generic [ref=f4e564]:
+              - heading "BUILD, TEST & LAUNCH" [level=3] [ref=f4e565]
+              - paragraph [ref=f4e566]: Deliver production-ready work and support it beyond launch.
+  - generic [ref=f4e567]:
+    - generic:
+      - generic:
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+    - generic [ref=f4e568]:
+      - generic [ref=f4e569]:
+        - generic [ref=f4e570]:
+          - paragraph [ref=f4e571]: ENGINEERING PORTFOLIO
+          - heading "I BUILD PRODUCTS THAT SOLVE REAL PROBLEMS." [level=2] [ref=f4e572]: I BUILD PRODUCTSTHAT SOLVE REAL PROBLEMS.
+          - paragraph [ref=f4e573]: Seven years building products across enterprise software, cloud infrastructure, robotics, and interactive experiences.
+          - paragraph [ref=f4e574]: Products shipped across four industries · Full-stack engineering · UI/UX and testing
+        - article [ref=f4e575]:
+          - generic [ref=f4e576]:
+            - generic [ref=f4e577]:
+              - paragraph [ref=f4e578]: SELECTED PROJECT
+              - heading "Buying Hub" [level=3] [ref=f4e579]
+              - paragraph [ref=f4e580]: Google
+            - generic [ref=f4e581]:
+              - heading "THE PRODUCT" [level=4] [ref=f4e582]
+              - paragraph [ref=f4e583]: Buying Hub consolidated Google's fragmented purchasing, contracts, supplier management, compliance, and risk workflows into one internal platform credited with approximately $5 billion in first-year savings.
+            - generic [ref=f4e584]:
+              - heading "WHAT I WORKED ON" [level=4] [ref=f4e585]
+              - paragraph [ref=f4e586]: I built Angular and TypeScript interfaces, Reactive Forms, NgRx state, REST integrations, and accessible experiences. For Supplier Nexus, I developed supplier search, results, information fields, compliance forms, and risk-management pages while collaborating across product, UX, business, and backend teams.
+          - generic [ref=f4e587]:
+            - generic [ref=f4e588]:
+              - generic [ref=f4e589]:
+                - img "Buying Hub project view 1" [ref=f4e590]
+                - img "Google logo" [ref=f4e591]
+                - button "Previous Buying Hub image" [ref=f4e592] [cursor=pointer]: ‹
+                - button "Next Buying Hub image" [ref=f4e593] [cursor=pointer]: ›
+              - generic [ref=f4e594]:
+                - generic "Project images" [ref=f4e595]:
+                  - button "Show image 1 of 4" [ref=f4e596] [cursor=pointer]
+                  - button "Show image 2 of 4" [ref=f4e597] [cursor=pointer]
+                  - button "Show image 3 of 4" [ref=f4e598] [cursor=pointer]
+                  - button "Show image 4 of 4" [ref=f4e599] [cursor=pointer]
+                - paragraph [ref=f4e600]: IMAGE 1 OF 4
+            - generic [ref=f4e601]:
+              - heading "TECHNOLOGIES" [level=4] [ref=f4e602]
+              - list "Technologies used" [ref=f4e603]:
+                - listitem [ref=f4e604]: Angular
+                - listitem [ref=f4e605]: TypeScript
+                - listitem [ref=f4e606]: NgRx
+                - listitem [ref=f4e607]: Reactive Forms
+                - listitem [ref=f4e608]: Mocha
+                - listitem [ref=f4e609]: Chai
+                - listitem [ref=f4e610]: REST APIs
+                - listitem [ref=f4e611]: WCAG
+      - generic [ref=f4e612]:
+        - generic "Project categories" [ref=f4e613]:
+          - button "All Projects" [pressed] [ref=f4e614] [cursor=pointer]
+          - button "Enterprise" [ref=f4e615] [cursor=pointer]
+          - button "Cloud" [ref=f4e616] [cursor=pointer]
+          - button "Robotics" [ref=f4e617] [cursor=pointer]
+          - button "Games" [ref=f4e618] [cursor=pointer]
+          - button "Personal" [ref=f4e619] [cursor=pointer]
+        - paragraph [ref=f4e620]: 01 / 07
+      - generic [ref=f4e621]:
+        - button "Show previous project" [disabled] [ref=f4e622]: ‹
+        - generic [ref=f4e623]:
+          - button [pressed] [ref=f4e624] [cursor=pointer]:
+            - paragraph [ref=f4e627]: Buying Hub consolidated Google's fragmented purchasing, contracts, supplier management, compliance, and risk workflows into one internal platform credited with approximately $5 billion in first-year savings.
+            - heading "Buying Hub" [level=3] [ref=f4e628]
+          - button [ref=f4e629] [cursor=pointer]:
+            - paragraph [ref=f4e632]: HCP Terraform is the customer-facing application teams use to manage Terraform infrastructure, permissions, organizations, projects, and production workflows at enterprise scale.
+            - heading "HCP Terraform" [level=3] [ref=f4e633]
+          - button [ref=f4e634] [cursor=pointer]:
+            - paragraph [ref=f4e637]: Olympic Arm is a seven-degree-of-freedom subsea robotic manipulator built for underwater drilling, pipeline repair, tool manipulation, and intervention.
+            - heading "Olympic Arm" [level=3] [ref=f4e638]
+          - button [ref=f4e639] [cursor=pointer]:
+            - paragraph [ref=f4e642]: HaloGuard is an industrial personnel-safety system that uses Time-of-Flight cameras to track workers around heavy machinery and trigger safety stops in dangerous areas.
+            - heading "HaloGuard" [level=3] [ref=f4e643]
+          - button [ref=f4e644] [cursor=pointer]:
+            - paragraph [ref=f4e647]: LAB is a 3D virtual chemistry laboratory designed to let students perform experiments without the cost or physical risks of a fully equipped lab.
+            - heading "LAB" [level=3] [ref=f4e648]
+          - button [ref=f4e649] [cursor=pointer]:
+            - paragraph [ref=f4e652]: Epoch is a 2D side-scrolling RPG with customizable weapons, abilities, enemies, upgrades, and three playable levels.
+            - heading "Epoch" [level=3] [ref=f4e653]
+          - button [ref=f4e654] [cursor=pointer]:
+            - paragraph [ref=f4e657]: This portfolio presents my engineering progression, case studies, services, and professional identity as one responsive interactive experience.
+            - heading "React Portfolio" [level=3] [ref=f4e658]
+        - button "Show next project" [ref=f4e659] [cursor=pointer]: ›
+  - generic [ref=f4e660]:
+    - generic:
+      - generic:
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+    - generic [ref=f4e661]:
+      - generic [ref=f4e662]:
+        - generic [ref=f4e663]:
+          - paragraph [ref=f4e664]: TESTIMONIALS
+          - heading "WHAT PEOPLE SAY ABOUT ME" [level=2] [ref=f4e665]: WHAT PEOPLESAY ABOUT ME
+          - paragraph [ref=f4e666]: Recommendations from colleagues and leaders I've worked with across startups and enterprise teams.
+          - generic [ref=f4e667]:
+            - paragraph [ref=f4e668]: CATEGORIES
+            - button "All Recommendations" [ref=f4e669] [cursor=pointer]
+            - button "Engineering Leaders" [ref=f4e670] [cursor=pointer]
+            - button "Colleagues" [ref=f4e671] [cursor=pointer]
+            - button "Clients" [ref=f4e672] [cursor=pointer]
+            - button "Professors & Mentors" [ref=f4e673] [cursor=pointer]
+        - generic [ref=f4e674]:
+          - paragraph [aria-hidden] [ref=f4e675]: “
+          - paragraph [ref=f4e676]: Ijeri is hardworking and driven to solve even the toughest of problems. His curiosity and love of programming show in the quality and depth of his work.
+          - generic [ref=f4e677]:
+            - img "Mayuri Raja" [ref=f4e678]
+            - generic [ref=f4e679]:
+              - paragraph [ref=f4e680]: Mayuri Raja
+              - paragraph [ref=f4e681]: Software Engineer
+              - paragraph [ref=f4e682]: Google
+      - generic "Testimonial navigation" [ref=f4e683]:
+        - button "Mayuri Raja Mayuri Raja Google" [ref=f4e684] [cursor=pointer]:
+          - img "Mayuri Raja" [ref=f4e685]
+          - generic [ref=f4e686]: Mayuri Raja
+          - generic [ref=f4e687]: Google
+        - button "Blake DeBenon Blake DeBenon Google" [ref=f4e688] [cursor=pointer]:
+          - img "Blake DeBenon" [ref=f4e689]
+          - generic [ref=f4e690]: Blake DeBenon
+          - generic [ref=f4e691]: Google
+        - button "John John John John Google" [ref=f4e692] [cursor=pointer]:
+          - img "John John" [ref=f4e693]
+          - generic [ref=f4e694]: John John
+          - generic [ref=f4e695]: Google
+        - button "Thanh Truong Thanh Truong Google" [ref=f4e696] [cursor=pointer]:
+          - img "Thanh Truong" [ref=f4e697]
+          - generic [ref=f4e698]: Thanh Truong
+          - generic [ref=f4e699]: Google
+        - button "Jide Akinyode Jide Akinyode Nauticus Robotics" [ref=f4e700] [cursor=pointer]:
+          - img "Jide Akinyode" [ref=f4e701]
+          - generic [ref=f4e702]: Jide Akinyode
+          - generic [ref=f4e703]: Nauticus Robotics
+      - generic [ref=f4e704]:
+        - generic [ref=f4e705]:
+          - paragraph [ref=f4e706]: Want to share your experience working with me?
+          - paragraph [ref=f4e707]: I'd love to hear from you.
+        - link "Leave a Recommendation" [ref=f4e708] [cursor=pointer]:
+          - /url: mailto:ijeri.omitogun@gmail.com?subject=Recommendation
+  - generic [ref=f4e709]:
+    - generic:
+      - generic:
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+        - generic: 1 0 1 0 1 0 1 0
+    - generic [ref=f4e710]:
+      - generic [ref=f4e711]:
+        - generic [ref=f4e712]:
+          - paragraph [ref=f4e713]: GET IN TOUCH
+          - img "Ijeri waving" [ref=f4e714]
+        - generic [ref=f4e715]:
+          - heading "LET'S WORK TOGETHER" [level=2] [ref=f4e716]: LET'S WORKTOGETHER
+          - paragraph [ref=f4e717]: Have a project in mind, a question, or just want to say hi? Feel free to reach out using the form or connect via socials.
+      - generic [ref=f4e718]:
+        - generic [ref=f4e719]:
+          - generic [ref=f4e720]:
+            - generic [ref=f4e726]:
+              - heading "Email Me" [level=3] [ref=f4e727]
+              - link "ijeri.omitogun@gmail.com" [ref=f4e728] [cursor=pointer]:
+                - /url: mailto:ijeri.omitogun@gmail.com
+            - generic [ref=f4e734]:
+              - heading "Location" [level=3] [ref=f4e735]
+              - paragraph [ref=f4e736]: Houston, TX / Remote
+          - generic [ref=f4e737]:
+            - heading "Connect" [level=3] [ref=f4e738]
+            - generic [ref=f4e739]:
+              - link "LinkedIn" [ref=f4e740] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/ijeri-omitogun/
+                - img "LinkedIn" [ref=f4e741]
+              - link "GitHub" [ref=f4e742] [cursor=pointer]:
+                - /url: https://github.com/ijeriomit
+                - img "GitHub" [ref=f4e743]
+              - link "Medium" [ref=f4e744] [cursor=pointer]:
+                - /url: https://medium.com/@jeri-omit
+                - img "Medium" [ref=f4e745]
+        - generic [ref=f4e747]:
+          - generic [ref=f4e748]:
+            - generic [ref=f4e749]: Name
+            - textbox "Name" [ref=f4e750]:
+              - /placeholder: Your name
+          - generic [ref=f4e751]:
+            - generic [ref=f4e752]: Email
+            - textbox "Email" [ref=f4e753]:
+              - /placeholder: you@example.com
+          - generic [ref=f4e754]:
+            - generic [ref=f4e755]: Message
+            - textbox "Message" [ref=f4e756]:
+              - /placeholder: Describe your project, question, or opportunity...
+          - button "Send Message" [ref=f4e758] [cursor=pointer]

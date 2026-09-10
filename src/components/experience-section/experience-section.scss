@@ -290,8 +290,8 @@
 }
 
 .exp-section__card-media {
-  width: 400px;
-  height: 300px;
+  width: 320px;
+  height: 240px;
   justify-self: end;
   overflow: hidden;
   border-radius: 10px;
@@ -321,8 +321,8 @@
 }
 
 .exp-section__card-logo {
-  width: 3rem;
-  height: 3rem;
+  width: 2.4rem;
+  height: 2.4rem;
   object-fit: contain;
   border-radius: 6px;
   flex-shrink: 0;
@@ -355,8 +355,8 @@
   }
 
   img {
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 0.88rem;
+    height: 0.88rem;
     filter: brightness(0) invert(1);
     opacity: 0.85;
   }
@@ -367,7 +367,7 @@
   color: rgba($secondary-color, 0.75);
   line-height: 1.55;
   margin: 0;
-  font-size: 1.5rem;
+  font-size: calc(1.5 * var(--text-size-unit));
 }
 
 // Sub-section label
@@ -402,8 +402,8 @@
 }
 
 .exp-section__impact-icon {
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 2.6rem;
+  height: 2.6rem;
   grid-row: 1 / -1;
   align-self: center;
   filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
@@ -412,7 +412,7 @@
 
 .exp-section__impact-value {
   font-family: $title-font;
-  font-size: 1.25rem;
+  font-size: calc(1.25 * var(--text-size-unit));
   font-weight: 900;
   color: $secondary-color;
   line-height: 1;
@@ -421,7 +421,7 @@
 
 .exp-section__impact-label {
   font-family: $subtitle-font;
-  font-size: 1.1rem;
+  font-size: calc(1.1 * var(--text-size-unit));
   color: rgba($secondary-color, 0.5);
   line-height: 1.4;
   align-self: start;
@@ -452,14 +452,14 @@
 .exp-section__story-copy p {
   font-family: $title-font;
   color: rgba($secondary-color, 0.75);
-  font-size: 1.5rem;
+  font-size: calc(1.5 * var(--text-size-unit));
   line-height: 1.55;
   margin: 0;
 }
 
 .exp-section__check {
-  width: 14px;
-  height: 14px;
+  width: 11.2px;
+  height: 11.2px;
   flex-shrink: 0;
   margin-top: 2px;
   filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
@@ -474,7 +474,7 @@
 
 .exp-section__tech-pill {
   font-family: $subtitle-font;
-  font-size: 1.1rem;
+  font-size: calc(1.1 * var(--text-size-unit));
   color: rgba($secondary-color, 0.8);
   background: rgba($secondary-color, 0.06);
   border: 1px solid rgba($secondary-color, 0.12);
@@ -487,12 +487,12 @@
   .exp-section__impact-value,
   .exp-section__impact-label,
   .exp-section__tech-pill {
-    font-size: 0.8rem;
+    font-size: calc(0.8 * var(--text-size-unit));
   }
 
   .exp-section__impact-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
   }
 }
 
@@ -515,14 +515,14 @@
   font-family: $title-font;
   font-weight: 700;
   color: $secondary-color;
-  font-size: 1.5rem;
+  font-size: calc(1.5 * var(--text-size-unit));
   margin: 0;
 }
 
 .exp-section__project-desc {
   font-family: $title-font;
   color: rgba($secondary-color, 0.75);
-  font-size: 1.5rem;
+  font-size: calc(1.5 * var(--text-size-unit));
   line-height: 1.55;
   margin: 0;
 }
@@ -540,7 +540,7 @@
     align-items: flex-start;
     gap: 0.4rem;
     font-family: $title-font;
-    font-size: 1.1rem;
+    font-size: calc(1.1 * var(--text-size-unit));
     line-height: 1.4;
     color: rgba($secondary-color, 0.65);
   }
@@ -653,8 +653,8 @@
     margin-bottom: auto;
   }
   .exp-section__card-logo {
-    width: 1.75rem;
-    height: 1.75rem;
+    width: 1.4rem;
+    height: 1.4rem;
   }
   .exp-section__card-desc {
     line-height: 1.45;

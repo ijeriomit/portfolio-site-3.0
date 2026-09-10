@@ -39,7 +39,7 @@
 
 .contact-section__memoji {
   display: block;
-  width: clamp(180px, 18vw, 280px);
+  width: clamp(144px, 14.4vw, 224px);
   max-width: 100%;
   height: auto;
   align-self: center;
@@ -211,8 +211,8 @@
       background-color 0.2s ease;
 
     img {
-      width: 48px;
-      height: 48px;
+      width: 38.4px;
+      height: 38.4px;
       filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(77deg)
         brightness(109%) contrast(101%);
       transition: filter 0.2s ease;
@@ -364,7 +364,7 @@
   }
 
   .contact-section__memoji {
-    width: 220px;
+    width: 176px;
   }
 
   .contact-section__hero-copy {
@@ -403,7 +403,7 @@
   }
 
   .contact-section__memoji {
-    width: 160px;
+    width: 128px;
   }
 
   .contact-section__hero-copy {

@@ -125,6 +125,9 @@
 }
 
 .portfolio-section__gallery-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: 430px;
   height: 430px;
@@ -135,8 +138,9 @@
 
 .portfolio-section__featured-image {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
+  margin: auto;
   object-fit: contain;
 }
 
@@ -144,8 +148,8 @@
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  width: 38px;
-  height: 38px;
+  width: 30.4px;
+  height: 30.4px;
   object-fit: contain;
 }
 
@@ -229,7 +233,7 @@
   margin: 0;
   color: rgba($secondary-color, 0.72);
   font-family: $subtitle-font;
-  font-size: 0.8rem;
+  font-size: calc(0.8 * var(--text-size-unit));
 }
 
 .portfolio-section__detail-block {
@@ -270,7 +274,7 @@
   border-radius: 9px;
   color: rgba($secondary-color, 0.88);
   font-family: $title-font;
-  font-size: 1.25rem;
+  font-size: calc(1.25 * var(--text-size-unit));
 }
 
 .portfolio-section__controls {
@@ -384,8 +388,9 @@
 
 .portfolio-section__card-image {
   display: block;
-  width: 100%;
-  height: clamp(100px, 12vh, 145px);
+  margin-inline: auto;
+  width: 80%;
+  height: clamp(80px, 9.6vh, 116px);
   object-fit: cover;
 }
 
@@ -393,8 +398,8 @@
   position: absolute;
   top: 0.55rem;
   right: 0.55rem;
-  width: 32px;
-  height: 32px;
+  width: 25.6px;
+  height: 25.6px;
   object-fit: contain;
 }
 
@@ -422,7 +427,7 @@
   overflow: hidden;
   color: $secondary-color;
   font-family: $title-font;
-  font-size: 0.92rem;
+  font-size: calc(0.92 * var(--text-size-unit));
   line-height: 1.35;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -473,17 +478,17 @@
   }
 
   .portfolio-section__headline {
-    font-size: 2.5rem;
+    font-size: calc(2.5 * var(--text-size-unit));
   }
 
   .portfolio-section__copy,
   .portfolio-section__proof {
-    font-size: 1.05rem;
+    font-size: calc(1.05 * var(--text-size-unit));
   }
 
   .portfolio-section__detail-block p,
   .portfolio-section__tech-list li {
-    font-size: 1rem;
+    font-size: calc(1 * var(--text-size-unit));
   }
 }
 
@@ -510,14 +515,14 @@
   }
 
   .portfolio-section__headline {
-    font-size: 2.2rem;
+    font-size: calc(2.2 * var(--text-size-unit));
   }
 
   .portfolio-section__copy,
   .portfolio-section__proof,
   .portfolio-section__detail-block p,
   .portfolio-section__tech-list li {
-    font-size: 1rem;
+    font-size: calc(1 * var(--text-size-unit));
   }
 }
 
@@ -585,18 +590,18 @@
   }
 
   .portfolio-section__headline {
-    font-size: 2.2rem;
+    font-size: calc(2.2 * var(--text-size-unit));
     line-height: 1.02;
   }
 
   .portfolio-section__copy {
     margin-top: 1rem;
-    font-size: 1.1rem;
+    font-size: calc(1.1 * var(--text-size-unit));
   }
 
   .portfolio-section__proof {
     margin-top: 0.65rem;
-    font-size: 0.95rem;
+    font-size: calc(0.95 * var(--text-size-unit));
   }
 
   .portfolio-section__featured {
@@ -622,12 +627,12 @@
 
   .portfolio-section__detail-block p {
     display: block;
-    font-size: 1.05rem;
+    font-size: calc(1.05 * var(--text-size-unit));
     overflow: visible;
   }
 
   .portfolio-section__tech-list li {
-    font-size: 1.1rem;
+    font-size: calc(1.1 * var(--text-size-unit));
   }
 
   .portfolio-section__controls {
@@ -654,7 +659,7 @@
   }
 
   .portfolio-section__card-image {
-    height: 135px;
+    height: 108px;
   }
 }
 

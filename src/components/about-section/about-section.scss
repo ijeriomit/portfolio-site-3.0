@@ -108,7 +108,7 @@
   flex-shrink: 0;
   color: $tertiary-color;
   font-family: $title-font;
-  font-size: 1.25rem;
+  font-size: calc(1.25 * var(--text-size-unit));
   font-weight: 700;
   line-height: 1;
 }

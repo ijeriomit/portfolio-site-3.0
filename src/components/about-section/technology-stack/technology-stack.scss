@@ -65,8 +65,8 @@
   }
 
   &__filter-icon {
-    width: 14px;
-    height: 14px;
+    width: 11.2px;
+    height: 11.2px;
     flex-shrink: 0;
     opacity: 0.3;
     filter: invert(100%);
@@ -100,14 +100,14 @@
   }
 
   &__card-icon {
-    width: 24px;
-    height: 24px;
+    width: 19.2px;
+    height: 19.2px;
     filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
       brightness(86%) contrast(92%);
 
     &--logo {
-      width: 44px;
-      height: 44px;
+      width: 35.2px;
+      height: 35.2px;
       object-fit: contain;
       filter: none;
     }
@@ -124,8 +124,8 @@
   }
 
   &__card-monogram {
-    width: 44px;
-    height: 44px;
+    width: 35.2px;
+    height: 35.2px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -179,17 +179,17 @@
       width: 120px;
     }
     &__card-icon {
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
 
       &--logo {
-        width: 36px;
-        height: 36px;
+        width: 28.8px;
+        height: 28.8px;
       }
     }
     &__card-monogram {
-      width: 36px;
-      height: 36px;
+      width: 28.8px;
+      height: 28.8px;
     }
   }
 }

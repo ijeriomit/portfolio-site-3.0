@@ -1,3 +1,14 @@
+// Scale typography without changing rem-based spacing or layout.
+:root {
+  --text-size-unit: 0.8rem;
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --text-size-unit: 1rem;
+  }
+}
+
 // @import "src/global-styles/variables.scss";
 
 body {
@@ -11,20 +22,20 @@ body {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: calc(5 * var(--text-size-unit));
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: calc(3 * var(--text-size-unit));
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: calc(1.5 * var(--text-size-unit));
 }
 
 h4,
 h5 {
-  font-size: 1.1rem;
+  font-size: calc(1.1 * var(--text-size-unit));
 }
 
 p,
@@ -36,7 +47,7 @@ label,
 input,
 select,
 textarea {
-  font-size: 1.25rem;
+  font-size: calc(1.25 * var(--text-size-unit));
 }
 
 h1 span,
@@ -82,20 +93,20 @@ section {
 
 @media screen and (max-width: 600px) {
   h1 {
-    font-size: 2.2rem;
+    font-size: calc(2.2 * var(--text-size-unit));
   }
 
   h2 {
-    font-size: 1.75rem;
+    font-size: calc(1.75 * var(--text-size-unit));
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: calc(1.2 * var(--text-size-unit));
   }
 
   h4,
   h5 {
-    font-size: 0.8rem;
+    font-size: calc(0.8 * var(--text-size-unit));
   }
 
   p,
@@ -107,7 +118,7 @@ section {
   input,
   select,
   textarea {
-    font-size: 1.1rem;
+    font-size: calc(1.1 * var(--text-size-unit));
   }
 
   h1 span,
