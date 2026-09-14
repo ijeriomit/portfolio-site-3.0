@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "./header.scss";
+import { RESUME_URL } from "../../data.js";
 import variables from "../../global-styles/variables.scss";
-import Button from "../shared/button/button.js";
+import "../shared/button/button.scss";
 
 const NAV_LINKS = [
   { label: "Home", href: "#HOME" },
@@ -82,9 +83,12 @@ export default function Header({ flipLogo }) {
       </nav>
 
       <div className="nav-cta">
-        <Button variant="secondary" href="mailto:ijeri.omitogun@gmail.com">
+        <a className="btn btn--secondary" href={RESUME_URL} target="_blank" rel="noopener noreferrer">
+          Resume
+        </a>
+        <a className="btn btn--secondary" href="mailto:ijeriomitogun@gmail.com" target="_blank" rel="noopener noreferrer">
           Let's Talk
-        </Button>
+        </a>
       </div>
 
       <button
@@ -148,6 +152,10 @@ export default function Header({ flipLogo }) {
                 {link.label}
               </a>
             ))}
+            <a className="mobile-overlay__link" href={RESUME_URL}
+              target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>
+              Resume
+            </a>
           </nav>
           <div className="mobile-overlay__socials">
             <a

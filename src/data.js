@@ -246,3 +246,5 @@ export const store = {
     },
   ],
 };
+
+export const RESUME_URL = "https://docs.google.com/document/d/e/2PACX-1vSVUipMvyjLoCQHtjjNIMTgP9k76EsOsacsX8mCDS8lTCU6zke-P5JzfH2sIpSkSg/pub";

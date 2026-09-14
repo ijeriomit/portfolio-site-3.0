@@ -1,5 +1,7 @@
 import { forwardRef } from "react";
 import "./about-section.scss";
+import "../shared/button/button.scss";
+import { RESUME_URL } from "../../data.js";
 import ProfileImage from "./profile-image/profile-image.js";
 import TechnologyStack from "./technology-stack/technology-stack.js";
 import MatrixBackground from "../matrix-background/matrix-background.js";
@@ -54,6 +56,14 @@ const AboutSection = forwardRef((props, ref) => {
                 </li>
               ))}
             </ul>
+            <a
+              className="btn btn--secondary about-section__resume"
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Resume
+            </a>
           </div>
         </div>
       </div>

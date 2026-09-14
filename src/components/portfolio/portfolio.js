@@ -50,7 +50,13 @@ function ProjectCard({ project, projectRef, isSelected, onSelect }) {
           <p>{project.description}</p>
         </div>
       </div>
-      <h3 className="portfolio-section__card-title">{project.title}</h3>
+      <div className="portfolio-section__card-copy">
+        <span className="portfolio-section__card-category">{project.category}</span>
+        <h3 className="portfolio-section__card-title">{project.title}</h3>
+        <p className="portfolio-section__card-company">{project.companyLabel}</p>
+        <p className="portfolio-section__card-description">{project.description}</p>
+      </div>
+      <span className="portfolio-section__card-chevron" aria-hidden="true">›</span>
     </button>
   );
 }
@@ -115,10 +121,18 @@ const Portfolio = forwardRef((props, ref) => {
   }, [projects]);
 
   function scrollProjectIntoView(title) {
-    projectRefs.current[title]?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
+    const rail = railRef.current;
+    const card = projectRefs.current[title];
+    if (!rail || !card) return;
+
+    const railBounds = rail.getBoundingClientRect();
+    const cardBounds = card.getBoundingClientRect();
+    rail.scrollTo({
+      left: rail.scrollLeft + cardBounds.left - railBounds.left
+        - (rail.clientWidth - cardBounds.width) / 2,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
     });
   }
 
@@ -188,7 +202,7 @@ const Portfolio = forwardRef((props, ref) => {
             </p>
           </header>
 
-          <article className="portfolio-section__featured">
+          <article className="portfolio-section__featured" aria-label="Selected project">
             <div className="portfolio-section__featured-copy-column">
               <div className="portfolio-section__featured-heading">
                 <p className="portfolio-section__eyebrow">SELECTED PROJECT</p>
@@ -293,6 +307,7 @@ const Portfolio = forwardRef((props, ref) => {
         </div>
 
         <div className="portfolio-section__controls">
+          <p className="portfolio-section__browse-label">EXPLORE PROJECTS</p>
           <div className="portfolio-section__filters" aria-label="Project categories">
             {FILTERS.map((filter) => (
               <button
@@ -318,6 +333,7 @@ const Portfolio = forwardRef((props, ref) => {
         </div>
 
         <div className="portfolio-section__rail-shell">
+          <p className="portfolio-section__swipe-hint">Swipe to explore</p>
           <button
             type="button"
             className="portfolio-section__rail-arrow"
@@ -327,7 +343,7 @@ const Portfolio = forwardRef((props, ref) => {
           >
             ‹
           </button>
-          <div className="portfolio-section__rail" ref={railRef}>
+          <div className="portfolio-section__rail" ref={railRef} aria-label="Select a project">
             {filteredProjects.map((project) => (
               <ProjectCard
                 key={project.title}

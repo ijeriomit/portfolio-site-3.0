@@ -77,6 +77,10 @@ $icon-width: 25.6px;
   }
 
   .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap;
     margin-left: 2vw;
 
     .btn {

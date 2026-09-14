@@ -278,10 +278,13 @@
 }
 
 @media screen and (max-width: $phone-screen-width) {
+  .testimonials-section {
+    min-height: unset;
+  }
   .testimonials-section__content {
     align-items: stretch;
     gap: 2rem;
-    padding: calc($header-height + 1.5rem) 4vw 1.75rem;
+    padding: 5vh 4vw 1.75rem;
   }
 
   .testimonials-section__showcase {

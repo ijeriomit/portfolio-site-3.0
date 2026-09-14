@@ -85,32 +85,25 @@
   color: rgba($secondary-color, 0.74);
 }
 
-.contact-section__grid {
+.contact-section__connect {
   width: 100%;
-  max-width: 1180px;
+  max-width: 760px;
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 3rem;
-  align-items: start;
-  margin-top: 1rem;
-}
-
-.contact-section__info {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
+  gap: 1.25rem;
 }
 
 .contact-section__cards {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
 .contact-card {
+  text-decoration: none;
+  min-width: 0;
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 3rem;
   padding: 1.25rem;
   border-radius: 16px;
   border: 1px solid rgba($secondary-color, 0.08);
@@ -144,6 +137,8 @@
 }
 
 .contact-card__details {
+  min-width: 0;
+  overflow-wrap: anywhere;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -158,18 +153,6 @@
   color: rgba($secondary-color, 0.6);
 }
 
-.contact-card__link {
-  font-family: $title-font;
-  font-weight: 700;
-  color: $secondary-color;
-  text-decoration: none;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: $tertiary-color;
-  }
-}
-
 .contact-card__text {
   margin: 0;
   font-family: $title-font;
@@ -177,179 +160,14 @@
   color: $secondary-color;
 }
 
-.contact-section__social-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
 .contact-section__social-title {
+  text-align: center;
   margin: 0;
   font-family: $title-font;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: rgba($secondary-color, 0.6);
-}
-
-.contact-section__socials {
-  display: flex;
-  gap: 1.25rem;
-
-  .social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 86px;
-    height: 86px;
-    border-radius: 12px;
-    border: 1px solid rgba($secondary-color, 0.08);
-    background: $card-background-color;
-    transition:
-      transform 0.2s ease,
-      border-color 0.2s ease,
-      background-color 0.2s ease;
-
-    img {
-      width: 38.4px;
-      height: 38.4px;
-      filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(77deg)
-        brightness(109%) contrast(101%);
-      transition: filter 0.2s ease;
-    }
-
-    &:hover {
-      transform: translateY(-2px);
-      border-color: $tertiary-color;
-      background: rgba($tertiary-color, 0.04);
-
-      img {
-        filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
-          brightness(86%) contrast(92%);
-      }
-    }
-  }
-}
-
-.contact-section__form-container {
-  padding: 2rem;
-  border-radius: 20px;
-  border: 1px solid rgba($tertiary-color, 0.16);
-  background: $card-background-color;
-  backdrop-filter: blur(6px);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.contact-form__field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.contact-form__label {
-  font-family: $title-font;
-  font-weight: 700;
-  color: rgba($secondary-color, 0.88);
-}
-
-.contact-form__input,
-.contact-form__textarea {
-  appearance: none;
-  width: 100%;
-  box-sizing: border-box;
-  background: rgba($quaternary-color, 0.6);
-  border: 1px solid rgba($secondary-color, 0.12);
-  border-radius: 12px;
-  padding: 0.9rem 1.1rem;
-  font-family: $title-font;
-  color: $secondary-color;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-
-  &::placeholder {
-    color: rgba($secondary-color, 0.38);
-  }
-
-  &:focus {
-    outline: none;
-    border-color: $tertiary-color;
-    box-shadow: 0 0 0 3px rgba($tertiary-color, 0.12);
-  }
-
-  &--error {
-    border-color: #ff4a4a !important;
-    &:focus {
-      box-shadow: 0 0 0 3px rgba(#ff4a4a, 0.12) !important;
-    }
-  }
-}
-
-.contact-form__textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.contact-form__error {
-  margin: 0;
-  font-family: $title-font;
-  color: #ff4a4a;
-  margin-top: 0.15rem;
-}
-
-.contact-form__submit {
-  margin-top: 0.5rem;
-
-  .btn {
-    width: 100%;
-    border-radius: 12px;
-    padding: 0.9rem;
-  }
-}
-
-.contact-section__success-msg {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-.contact-section__success-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba($tertiary-color, 0.1);
-  color: $tertiary-color;
-  margin-bottom: 1.5rem;
-
-  svg {
-    width: 32px;
-    height: 32px;
-  }
-}
-
-.contact-section__success-title {
-  margin: 0 0 0.5rem;
-  font-family: $title-font;
-  font-weight: 800;
-  color: $secondary-color;
-}
-
-.contact-section__success-desc {
-  margin: 0 0 2rem;
-  font-family: $title-font;
-  line-height: 1.6;
-  color: rgba($secondary-color, 0.74);
-  max-width: 24rem;
 }
 
 @media screen and (max-width: $small-screen-width) {
@@ -371,31 +189,15 @@
     text-align: center;
   }
 
-  .contact-section__grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .contact-section__info {
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-
   .contact-section__cards {
-    flex: 1 1 300px;
-  }
-
-  .contact-section__social-wrapper {
-    flex: 1 1 200px;
+    grid-template-columns: 1fr;
   }
 }
 
 @media screen and (max-width: $phone-screen-width) {
   .contact-section__content {
     gap: 1rem;
-    padding: calc($header-height + 1vh) 4vw 2rem;
+    padding: 5vh 4vw 2rem;
   }
 
   .contact-section__copy {
@@ -411,21 +213,17 @@
     border-radius: 16px;
   }
 
-  .contact-section__info {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1.5rem;
-  }
 
-  .contact-section__cards {
-    flex: none;
-  }
+}
 
-  .contact-section__social-wrapper {
-    flex: none;
-  }
+.contact-card:focus-visible {
+  outline: 2px solid $tertiary-color;
+  outline-offset: 3px;
+}
 
-  .contact-section__form-container {
-    padding: 1.25rem;
-  }
+.contact-card__icon img {
+  width: 22px;
+  height: 22px;
+  filter: invert(57%) sepia(73%) saturate(385%) hue-rotate(105deg)
+    brightness(86%) contrast(92%);
 }

@@ -206,6 +206,38 @@ const ExpSection = forwardRef((props, ref) => {
 
   const cardRefs  = useRef([]);
   const cardsPane = useRef(null);
+  const mobileCardsPane = useRef(null);
+  const mobileCardRefs = useRef([]);
+  const [mobileActiveIndex, setMobileActiveIndex] = useState(0);
+
+  function updateMobileActive() {
+    const pane = mobileCardsPane.current;
+    if (!pane || !pane.clientHeight) return;
+    const top = pane.getBoundingClientRect().top;
+    let index = 0;
+    mobileCardRefs.current.forEach((card, i) => {
+      if (card && card.getBoundingClientRect().top <= top + 30) index = i;
+    });
+    if (pane.scrollTop + pane.clientHeight >= pane.scrollHeight - 2) {
+      index = ORDERED_EXPERIENCES.length - 1;
+    }
+    setMobileActiveIndex(index);
+  }
+
+  function selectMobileExperience(index) {
+    const pane = mobileCardsPane.current;
+    const card = mobileCardRefs.current[index];
+    if (!pane || !card) return;
+    setMobileActiveIndex(index);
+    pane.scrollTo({
+      top: pane.scrollTop + card.getBoundingClientRect().top
+        - pane.getBoundingClientRect().top,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+    });
+  }
+
 
   // ── Desktop: scroll listener on the cards pane ────────────────────────────
   useEffect(() => {
@@ -278,10 +310,28 @@ const ExpSection = forwardRef((props, ref) => {
           </p>
         </div>
 
-        {/* Stacked experience cards */}
-        <div className="exp-section__mobile-cards">
+        <nav className="exp-section__mobile-timeline" aria-label="Experience timeline">
           {ORDERED_EXPERIENCES.map((exp, i) => (
-            <div key={exp.companyName} className="exp-section__mobile-card">
+            <button
+              key={exp.companyName}
+              type="button"
+              aria-label={`${i + 1}: ${exp.companyName}`}
+              aria-current={mobileActiveIndex === i ? "true" : undefined}
+              aria-controls={`mobile-experience-${i}`}
+              onClick={() => selectMobileExperience(i)}
+            >
+              {String(i + 1).padStart(2, "0")}
+            </button>
+          ))}
+        </nav>
+
+        {/* Stacked experience cards */}
+        <div className="exp-section__mobile-cards" ref={mobileCardsPane}
+          onScroll={updateMobileActive}>
+          {ORDERED_EXPERIENCES.map((exp, i) => (
+            <div key={exp.companyName} className="exp-section__mobile-card"
+              id={`mobile-experience-${i}`}
+              ref={(node) => { mobileCardRefs.current[i] = node; }}>
               <span className="exp-section__card-counter">{String(i + 1).padStart(2, "0")} / {String(ORDERED_EXPERIENCES.length).padStart(2, "0")}</span>
               <div className="exp-section__card-title-row">
                 <h2 className="exp-section__card-company">{exp.companyName}</h2>

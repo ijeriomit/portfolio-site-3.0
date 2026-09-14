@@ -484,19 +484,6 @@
   white-space: nowrap;
 }
 
-@media screen and (max-width: $phone-screen-width) {
-  .exp-section__impact-value,
-  .exp-section__impact-label,
-  .exp-section__tech-pill {
-    font-size: calc(0.8 * var(--text-size-unit));
-  }
-
-  .exp-section__impact-icon {
-    width: 1.2rem;
-    height: 1.2rem;
-  }
-}
-
 // Featured project
 .exp-section__project-card {
   background: $card-background-color;
@@ -547,14 +534,92 @@
   }
 }
 
-// ── Large screen adjustments ─────────────────────────────────────────────────
+// Desktop editorial layout: summary and impact above story and evidence.
+.exp-section__card {
+  > .exp-section__card-header {
+    display: block;
+    min-width: 0;
+  }
+
+  > .exp-section__impact {
+    min-width: 0;
+  }
+
+  .exp-section__impact-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  .exp-section__impact-card {
+    min-height: 0;
+    padding: 0.6rem 0.75rem;
+  }
+
+  > .exp-section__content-grid {
+    display: contents;
+  }
+
+  .exp-section__story {
+    min-width: 0;
+  }
+
+  .exp-section__sidebar {
+    gap: 1rem;
+  }
+
+  .exp-section__card-media {
+    width: 100%;
+    height: auto;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      box-sizing: border-box;
+    }
+  }
+}
+
+// Image cards give the story its own column rather than a shared tall top row.
+.exp-section__card--with-media {
+  grid-template-areas:
+    "header media"
+    "story impact"
+    "story sidebar";
+  grid-template-rows: auto auto 1fr;
+
+  > .exp-section__card-header {
+    grid-area: header;
+  }
+  > .exp-section__impact {
+    grid-area: impact;
+  }
+  .exp-section__story {
+    grid-area: story;
+  }
+  .exp-section__sidebar {
+    grid-area: sidebar;
+  }
+
+  > .exp-section__card-media {
+    grid-area: media;
+    width: 100%;
+    max-width: 320px;
+    align-self: start;
+    img {
+      max-height: 22vh;
+      object-fit: contain;
+    }
+  }
+}
+
+// Large screens.
 @media screen and (max-width: $large-screen-width) {
   .exp-section {
     grid-template-columns: 420px 1fr;
   }
 }
 
-// ── Small screen — 100vh section, flex-fill scroll ───────────────────────────
+// Small screens.
 @media screen and (max-width: $small-screen-width) {
   // Section owns exactly one viewport; no guessing
   .exp-section {
@@ -647,10 +712,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-end;
+    justify-content: center;
   }
   .exp-section__impact-icon {
-    margin-bottom: auto;
+    margin-bottom: 0;
+  }
+  .exp-section__mobile-card .exp-section__card-meta {
+    color: $secondary-color;
   }
   .exp-section__card-logo {
     width: 1.4rem;
@@ -659,83 +727,122 @@
   .exp-section__card-desc {
     line-height: 1.45;
   }
-}
 
-// ── Override: lock #EXP to 100vh on mobile (matches section rule above) ───────
-@media screen and (max-width: $small-screen-width) {
   #EXP {
     height: 100vh !important;
     overflow: hidden !important;
   }
+
+  .exp-section__mobile-timeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 22px;
+      right: 22px;
+      height: 1px;
+      background: rgba($tertiary-color, 0.3);
+    }
+
+    button {
+      position: relative;
+      flex: 0 0 44px;
+      height: 44px;
+      border: 1px solid rgba($tertiary-color, 0.4);
+      border-radius: 50%;
+      background: $quaternary-color;
+      color: rgba($secondary-color, 0.8);
+      font-family: $subtitle-font;
+      font-size: 0.85rem;
+      cursor: pointer;
+
+      &[aria-current="true"] {
+        background: $tertiary-color;
+        border-color: $tertiary-color;
+        color: $quaternary-color;
+        box-shadow: 0 0 0 4px rgba($tertiary-color, 0.12);
+      }
+
+      &:focus-visible {
+        outline: 2px solid $secondary-color;
+        outline-offset: 3px;
+      }
+    }
+  }
+
+  .exp-section__mobile-cards {
+    min-height: 0;
+  }
 }
 
-// Desktop editorial layout: summary and impact above story and evidence.
-.exp-section__card {
-  > .exp-section__card-header {
-    display: block;
-    min-width: 0;
+// Phone screens — keep phone overrides last.
+@media screen and (max-width: $phone-screen-width) {
+  .exp-section__mobile {
+    padding-top: 5vh;
   }
 
-  > .exp-section__impact {
-    min-width: 0;
+  .exp-section__mobile-header {
+    padding-top: 0;
   }
 
-
-  .exp-section__impact-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.5rem;
+  .exp-section__impact-value,
+  .exp-section__impact-label,
+  .exp-section__tech-pill {
+    font-size: calc(0.8 * var(--text-size-unit));
   }
 
   .exp-section__impact-card {
-    min-height: 0;
-    padding: 0.6rem 0.75rem;
-  }
+    align-items: center;
+    gap: 0.5rem;
 
-  > .exp-section__content-grid {
-    display: contents;
-  }
-
-  .exp-section__story {
-    min-width: 0;
-  }
-
-  .exp-section__sidebar {
-    gap: 1rem;
-  }
-
-  .exp-section__card-media {
-    width: 100%;
-    height: auto;
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-      box-sizing: border-box;
+    .exp-section__impact-value {
+      align-self: center;
+    }
+    .exp-section__impact-label {
+      text-align: center;
+      color: $secondary-color;
     }
   }
-}
+  .exp-section__impact-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  .exp-section__card-title-row {
+    justify-content: center;
+  }
+  .exp-section__mobile-card {
+    .exp-section__card-company {
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
 
-// Image cards give the story its own column rather than a shared tall top row.
-.exp-section__card--with-media {
-  grid-template-areas:
-    "header media"
-    "story impact"
-    "story sidebar";
-  grid-template-rows: auto auto 1fr;
+    .exp-section__card-desc {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
 
-  > .exp-section__card-header { grid-area: header; }
-  > .exp-section__impact { grid-area: impact; }
-  .exp-section__story { grid-area: story; }
-  .exp-section__sidebar { grid-area: sidebar; }
+    .exp-section__card-role {
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
 
-  > .exp-section__card-media {
-    grid-area: media;
-    width: 100%;
-    max-width: 320px;
-    align-self: start;
-    img {
-      max-height: 22vh;
-      object-fit: contain;
+    .exp-section__card-meta span,
+    .exp-section__card-counter {
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .exp-section__sub-label {
+      font-size: 0.8rem;
+      line-height: 1.3;
     }
   }
 }

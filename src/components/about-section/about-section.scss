@@ -136,8 +136,14 @@
 }
 
 @media screen and (max-width: $phone-screen-width) {
+  .about-section__hero {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .about-section {
-    padding: calc($header-height - 2vh) 6vw 4vh;
+    padding: 5vh 6vw 4vh;
     gap: 0rem; // space between hero, stats, tech stack
   }
   .about-section__hero-wrapper {
@@ -153,4 +159,12 @@
   .about-section__bullets {
     gap: 0.5rem; // breathe between bullet items
   }
+}
+
+.about-section__resume {
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-top: 0.75rem;
+  text-align: center;
 }

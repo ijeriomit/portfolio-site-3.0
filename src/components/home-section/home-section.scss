@@ -52,7 +52,7 @@
     height: auto;
     min-height: 100vh;
     overflow: visible;
-    padding: calc($header-height + 4vh) 6vw 4vh; // more top padding — push content down
+    padding: calc($header-height + 4vh) 6vw 4vh;
     justify-content: flex-start;
     gap: 3rem; // space between hero and logo strip
   }

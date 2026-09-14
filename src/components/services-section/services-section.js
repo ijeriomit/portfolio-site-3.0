@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import "./services-section.scss";
 import Button from "../shared/button/button.js";
 import MatrixBackground from "../matrix-background/matrix-background.js";
@@ -23,6 +23,38 @@ function ServiceIcon({ type }) {
   return <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><g stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{paths[type]}</g></svg>;
 }
 
+function ServiceCard({ service }) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <article className="services-section__card">
+      <div className="services-section__desktop-heading">
+        <div className="services-section__card-icon"><ServiceIcon type={service.icon} /></div>
+        <h3 className="services-section__card-title">{service.title}</h3>
+      </div>
+      <h3 className="services-section__mobile-heading">
+        <button
+          type="button"
+          className="services-section__toggle"
+          aria-expanded={expanded}
+          aria-controls={`service-details-${service.id}`}
+          onClick={() => setExpanded(!expanded)}
+        >
+          <span className="services-section__card-icon"><ServiceIcon type={service.icon} /></span>
+          <span className="services-section__card-title">{service.title}</span>
+          <span className="services-section__toggle-symbol" aria-hidden="true">{expanded ? "−" : "+"}</span>
+        </button>
+      </h3>
+      <div id={`service-details-${service.id}`}
+        className={"services-section__details" + (expanded ? " services-section__details--expanded" : "")}>
+        <p className="services-section__card-desc">{service.description}</p>
+        <p className="services-section__card-label">TYPICAL WORK</p>
+        <ul className="services-section__examples">{service.examples.map((example) => <li key={example}>{example}</li>)}</ul>
+      </div>
+    </article>
+  );
+}
+
 const ServicesSection = forwardRef((props, ref) => (
   <section id="SERVICES" ref={ref} className="services-section">
     <MatrixBackground />
@@ -36,6 +68,15 @@ const ServicesSection = forwardRef((props, ref) => (
             <Button variant="primary" href="#CONTACT">DISCUSS YOUR PROJECT</Button>
             <Button variant="secondary" href="#PORT">VIEW MY WORK</Button>
           </div>
+          <a className="services-section__upwork"
+            href="https://www.upwork.com/freelancers/~01ab9cbeb573306870?mp_source=share"
+            target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="7" width="18" height="14" rx="2" />
+              <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12a22 22 0 0 0 18 0M12 11v4" />
+            </svg>
+            Hire me on Upwork <span aria-hidden="true">↗</span>
+          </a>
         </div>
 
         <div className="services-section__expectations">
@@ -48,13 +89,7 @@ const ServicesSection = forwardRef((props, ref) => (
         <p className="services-section__eyebrow">HOW I CAN HELP</p>
         <div className="services-section__cards-grid">
           {SERVICES.map((service) => (
-            <article key={service.id} className="services-section__card">
-              <div className="services-section__card-icon"><ServiceIcon type={service.icon} /></div>
-              <h3 className="services-section__card-title">{service.title}</h3>
-              <p className="services-section__card-desc">{service.description}</p>
-              <p className="services-section__card-label">TYPICAL WORK</p>
-              <ul className="services-section__examples">{service.examples.map((example) => <li key={example}>{example}</li>)}</ul>
-            </article>
+            <ServiceCard key={service.id} service={service} />
           ))}
         </div>
       </div>

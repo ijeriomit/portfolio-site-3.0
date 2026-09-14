@@ -128,12 +128,20 @@ section {
   }
 
   .App {
-    // Disable mandatory snap on mobile — tall sections scroll naturally
+    // Only gently snap near section starts while moving down.
     scroll-snap-type: none;
     // Keep content-sized rows from stretching to the App's viewport height.
     // This lets tall sections such as Portfolio reserve space for their full content.
     align-content: start;
     grid-template-rows: repeat(7, max-content);
+  }
+
+  .App[data-scroll-direction="down"] {
+    scroll-snap-type: y proximity;
+  }
+
+  .App > section {
+    scroll-snap-align: start;
   }
   #HOME {
     height: auto;
@@ -144,27 +152,23 @@ section {
     height: auto !important;
     min-height: 100vh;
     overflow: visible !important;
-    scroll-snap-align: none;
   }
   // EXP is a fixed 100vh viewport on mobile; cards scroll internally
   #EXP {
     height: 100vh !important;
     overflow: hidden !important;
-    scroll-snap-align: none;
   }
-  // PORT is a fixed mobile viewport; its project rail scrolls internally.
+  // PORT grows with its stacked project list on mobile.
   #PORT {
-    height: 100vh !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-    scroll-snap-align: none;
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
   }
-  // SERVICES grows to fit its content on mobile — no snap, no min-height forcing
+  // SERVICES grows to fit its content on mobile.
   #SERVICES {
     height: auto !important;
     min-height: unset !important;
     overflow: visible !important;
-    scroll-snap-align: none;
   }
 }
 

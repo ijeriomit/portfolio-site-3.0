@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./technology-stack.scss";
 
 const CATEGORIES = [
@@ -47,18 +47,36 @@ const TECHNOLOGIES = [
 
 export default function TechnologyStack() {
   const [activeFilter, setActiveFilter] = useState("All Technologies");
+  const [isMobile, setIsMobile] = useState(
+    () => window.matchMedia("(max-width: 600px)").matches
+  );
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 600px)");
+    const updateViewport = () => setIsMobile(media.matches);
+    media.addEventListener("change", updateViewport);
+    return () => media.removeEventListener("change", updateViewport);
+  }, []);
+
+  const selectedCategory =
+    isMobile && activeFilter === "All Technologies" ? "Frontend" : activeFilter;
+  const categories = isMobile ? CATEGORIES.slice(1) : CATEGORIES;
 
   const filtered =
-    activeFilter === "All Technologies"
+    selectedCategory === "All Technologies"
       ? TECHNOLOGIES
-      : TECHNOLOGIES.filter((t) => t.category === activeFilter);
+      : TECHNOLOGIES.filter((t) => t.category === selectedCategory);
+
+  function selectFilter(category) {
+    setActiveFilter(category);
+  }
 
   return (
     <div className="technology-stack">
       <h3 className="technology-stack__title">TECH STACK</h3>
       <div className="technology-stack__body">
-        <ul className="technology-stack__filters" role="list">
-          {CATEGORIES.map((cat) => (
+        <ul className="technology-stack__filters" >
+          {categories.map((cat) => (
             <li
               key={cat}
               className={
@@ -70,12 +88,12 @@ export default function TechnologyStack() {
               <button
                 className={
                   "technology-stack__filter-btn" +
-                  (activeFilter === cat
+                  (selectedCategory === cat
                     ? " technology-stack__filter-btn--active"
                     : "")
                 }
-                onClick={() => setActiveFilter(cat)}
-                aria-pressed={activeFilter === cat}
+                onClick={() => selectFilter(cat)}
+                aria-pressed={selectedCategory === cat}
               >
                 <img
                   src="/assets/clip-art-images/check-mark.svg"
@@ -88,32 +106,27 @@ export default function TechnologyStack() {
             </li>
           ))}
         </ul>
-        <ul className="technology-stack__grid" role="list">
-          {filtered.map((tech) => (
-            <li key={tech.name} className="technology-stack__card">
-              {tech.logo ? (
-                <img
-                  src={`/assets/clip-art-images/${tech.logo}`}
-                  alt=""
-                  aria-hidden="true"
-                  className={`technology-stack__card-icon technology-stack__card-icon--logo${
-                    tech.invertLogo
-                      ? " technology-stack__card-icon--inverted"
-                      : ""
-                  }`}
-                />
-              ) : (
-                <span
-                  className="technology-stack__card-monogram"
-                  aria-hidden="true"
-                >
-                  {tech.monogram}
-                </span>
-              )}
-              <span className="technology-stack__card-name">{tech.name}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="technology-stack__collection">
+          <ul className="technology-stack__grid" aria-label={`${selectedCategory} technologies`}>
+            {filtered.map((tech) => (
+              <li key={tech.name} className="technology-stack__card">
+                {tech.logo ? (
+                  <img
+                    src={`/assets/clip-art-images/${tech.logo}`}
+                    alt=""
+                    aria-hidden="true"
+                    className={`technology-stack__card-icon technology-stack__card-icon--logo${tech.invertLogo ? " technology-stack__card-icon--inverted" : ""}`}
+                  />
+                ) : (
+                  <span className="technology-stack__card-monogram" aria-hidden="true">
+                    {tech.monogram}
+                  </span>
+                )}
+                <span className="technology-stack__card-name">{tech.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

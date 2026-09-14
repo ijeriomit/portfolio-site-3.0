@@ -20,6 +20,22 @@ function App() {
   const servicesRef = useRef(null);
 
   useEffect(() => {
+    const app = appRef.current;
+    let previousTop = app.scrollTop;
+
+    const updateScrollDirection = () => {
+      const nextTop = app.scrollTop;
+      if (nextTop !== previousTop) {
+        app.dataset.scrollDirection = nextTop > previousTop ? "down" : "up";
+        previousTop = nextTop;
+      }
+    };
+
+    app.addEventListener("scroll", updateScrollDirection, { passive: true });
+    return () => app.removeEventListener("scroll", updateScrollDirection);
+  }, []);
+
+  useEffect(() => {
     const observerOptions = { threshold: [0.1, 0.9] };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
